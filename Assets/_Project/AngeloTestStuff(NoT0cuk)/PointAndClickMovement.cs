@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewStarFind : MonoBehaviour
+public class PointAntClickMovement : MonoBehaviour
 {
 
     private void Start()
@@ -15,8 +15,6 @@ public class NewStarFind : MonoBehaviour
     private void Update()
     {
       DetectMovementClick();
-
-
     }
 
     private void FixedUpdate()
@@ -48,9 +46,13 @@ public class NewStarFind : MonoBehaviour
       {
         startPosition = mousePosition;
         endPosition = new Vector2Int((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y));
-        moving = false;
-        foundPath = false;
-        FindStarPath();
+        if(gridNodes[startPosition.x, startPosition.y].isWalkable)
+        {
+          //Debug.Log("Will walk");
+          moving = false;
+          foundPath = false;
+          FindStarPath();
+        }
       }
     }
 
@@ -69,6 +71,7 @@ public class NewStarFind : MonoBehaviour
       ClearGridNodes();
       endNode = gridNodes[endPosition.x, endPosition.y];
       startNode = gridNodes[startPosition.x, startPosition.y];
+      CheckForPathFound(startNode);
       GetNodeNeighbours(startNode);
     }
 
@@ -85,6 +88,9 @@ public class NewStarFind : MonoBehaviour
         {
           if(!gridNodes[currentXDirection, currentYDirection].closed && gridNodes[currentXDirection, currentYDirection].isWalkable)
           {
+            //Debug.Log("CheckingCost");
+            //Debug.Log(gridNodes[currentXDirection, currentYDirection].gridPosition);
+            //Debug.Log(gridNodes[currentXDirection, currentYDirection].isWalkable);
             CalculateGCost(gridNodes[currentXDirection, currentYDirection]);
           }
         }
@@ -213,8 +219,8 @@ public class NewStarFind : MonoBehaviour
 
     //Grid Stuff
     [Header("GridStuff")]
-    [SerializeField] private Vector3 gridStart;
-    [SerializeField] private Vector3 gridEnd;
+    [SerializeField] private Vector2Int gridStart;
+    [SerializeField] private Vector2Int gridEnd;
     [SerializeField] private LayerMask walkableLayer;
     [SerializeField] private int nodeHeight, nodeLength,nodeWidth;
     private GridNode[,] gridNodes;
@@ -223,8 +229,8 @@ public class NewStarFind : MonoBehaviour
     {
       int tempXStart = 0;
       int tempYStart = 0;
-      int xGrid = Mathf.Abs((int)gridEnd.x - (int)gridStart.x);
-      int yGrid = Mathf.Abs((int)gridEnd.y - (int)gridStart.y);
+      int xGrid = Mathf.Abs(gridEnd.x - gridStart.x);
+      int yGrid = Mathf.Abs(gridEnd.y - gridStart.y);
       gridNodes = new GridNode[xGrid, yGrid];
 
       for(int a = 0; a < xGrid; a++)
