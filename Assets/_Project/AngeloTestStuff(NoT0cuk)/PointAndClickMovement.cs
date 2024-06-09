@@ -63,12 +63,10 @@ public class NewStarFind : MonoBehaviour
     private LinkedList<GridNode> closedList, openList;
     private GridNode currentNode, startNode, endNode;
     private bool foundPath, moving;
-    private int tempCheck;
 
     private void FindStarPath()
     {
       ClearGridNodes();
-      tempCheck = 0;
       endNode = gridNodes[endPosition.x, endPosition.y];
       startNode = gridNodes[startPosition.x, startPosition.y];
       GetNodeNeighbours(startNode);
@@ -177,11 +175,7 @@ public class NewStarFind : MonoBehaviour
         currentNode = node;
         moving = true;
         foundPath = true;
-      } else if(tempCheck > maxChecks)
-      {
-
       }
-      tempCheck++;
     }
 
     private void ClearGridNodes()
@@ -204,8 +198,8 @@ public class NewStarFind : MonoBehaviour
 
     private void MoveTowardsPoint()
     {
-      transform.position = Vector2.MoveTowards(transform.position, new Vector2(currentNode.worldPosition.x + 0.5f, currentNode.worldPosition.y + 0.5f), movementSpeed);
-      if((Vector2)transform.position == new Vector2(currentNode.worldPosition.x + 0.5f, currentNode.worldPosition.y + 0.5f))
+      transform.position = Vector2.MoveTowards(transform.position, new Vector2(currentNode.worldPosition.x, currentNode.worldPosition.y), movementSpeed);
+      if((Vector2)transform.position == new Vector2(currentNode.worldPosition.x, currentNode.worldPosition.y))
       {
         if(currentNode.parentNode is null)
         {
@@ -238,13 +232,13 @@ public class NewStarFind : MonoBehaviour
         for(int b = 0; b < yGrid; b++)
         {
           Vector3Int nodeGridPosition = new Vector3Int(tempXStart, tempYStart, 0);
-          Vector2 nodeWorldPosition = new Vector2(tempXStart * nodeWidth, tempYStart * nodeHeight);
-          //Debug.Log(Physics2D.OverlapBox(nodeWorldPosition, new Vector2(nodeWidth/2, nodeHeight/2), 0, walkableLayer));
-          if(Physics2D.OverlapBox(nodeWorldPosition, new Vector2(nodeWidth/2, nodeHeight/2), 0, walkableLayer) is not null)
+          Vector2 nodeWorldPosition = new Vector2((tempXStart * nodeWidth) + (nodeWidth/2f), (tempYStart * nodeHeight) + (nodeHeight/2f));
+          //Debug.Log(Physics2D.OverlapBox(nodeWorldPosition, new Vector2(nodeWidth/1.5f, nodeHeight/1.5f), 0f, walkableLayer));
+          if(Physics2D.OverlapBox(nodeWorldPosition, new Vector2(nodeWidth/1.5f, nodeHeight/1.5f), 0f, walkableLayer) is not null)
           {
             gridNodes[a,b] = new GridNode(nodeGridPosition, nodeWorldPosition, true);
           } else {
-            Debug.Log("waodwoaod");
+            //Debug.Log("waodwoaod");
             gridNodes[a,b] = new GridNode(nodeGridPosition, nodeWorldPosition, false);
           }
           tempYStart++;
