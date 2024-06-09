@@ -52,6 +52,30 @@ public class PointAntClickMovement : MonoBehaviour
           moving = false;
           foundPath = false;
           FindStarPath();
+        } else {
+          CheckForAlternateStart();
+        }
+      }
+    }
+
+    private void CheckForAlternateStart()
+    {
+      for(int a = 0; a < movementDirection.Count; a++)
+      {
+        int currentXDirection = startPosition.x + movementDirection[a].x;
+        int currentYDirection = startPosition.y + movementDirection[a].y;
+        if(currentXDirection < gridNodes.GetLength(0) && currentXDirection >= 0 && currentYDirection < gridNodes.GetLength(1) && currentYDirection >= 0)
+        {
+          if(gridNodes[currentXDirection, currentYDirection].isWalkable)
+          {
+            //Debug.Log(startPosition);
+            startPosition = new Vector2Int(currentXDirection, currentYDirection);
+            //Debug.Log(startPosition);
+            moving = false;
+            foundPath = false;
+            FindStarPath();
+            return;
+          }
         }
       }
     }
