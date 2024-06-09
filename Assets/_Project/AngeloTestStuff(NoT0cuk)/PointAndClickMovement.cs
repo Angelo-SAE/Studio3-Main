@@ -37,9 +37,7 @@ public class NewStarFind : MonoBehaviour
       if(Input.GetButtonDown("Movement"))
       {
         Vector2 tempPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log(tempPosition);
         mousePosition = new Vector2Int((int)Mathf.Floor(tempPosition.x), (int)Mathf.Floor(tempPosition.y));
-        Debug.Log(mousePosition);
         CheckForValidMovementSpot();
       }
     }
@@ -61,15 +59,16 @@ public class NewStarFind : MonoBehaviour
     [SerializeField] private GameObject pathPiece;
 
     [SerializeField] private Vector2Int startPosition, endPosition;
-    [SerializeField] private int orthogonalMovementToll;
+    [SerializeField] private int orthogonalMovementToll, maxChecks;
     private LinkedList<GridNode> closedList, openList;
     private GridNode currentNode, startNode, endNode;
     private bool foundPath, moving;
-    private int tempSapwn, tempCheck;
+    private int tempCheck;
 
     private void FindStarPath()
     {
       ClearGridNodes();
+      tempCheck = 0;
       endNode = gridNodes[endPosition.x, endPosition.y];
       startNode = gridNodes[startPosition.x, startPosition.y];
       GetNodeNeighbours(startNode);
@@ -77,7 +76,7 @@ public class NewStarFind : MonoBehaviour
 
     private void GetNodeNeighbours(GridNode node)
     {
-      Debug.Log(node.gridPosition);
+      //Debug.Log(node.gridPosition);
       currentNode = node;
       CloseNode(currentNode);
       for(int a = 0; a < movementDirection.Count; a++)
@@ -92,7 +91,7 @@ public class NewStarFind : MonoBehaviour
           }
         }
       }
-      if(!foundPath)
+      if(!foundPath && openList.Count() > 0)
       {
         CheckNextNode();
       }
@@ -171,11 +170,16 @@ public class NewStarFind : MonoBehaviour
 
     private void CheckForPathFound(GridNode node)
     {
-      if(node.gridPosition.x == endPosition.x && node.gridPosition.y == endPosition.y && tempCheck < 200)
+      //Debug.Log("Checking" + node.gridPosition);
+      if(node.gridPosition.x == endPosition.x && node.gridPosition.y == endPosition.y)
       {
+        //Debug.Log("Found");
         currentNode = node;
         moving = true;
         foundPath = true;
+      } else if(tempCheck > maxChecks)
+      {
+
       }
       tempCheck++;
     }
@@ -210,12 +214,6 @@ public class NewStarFind : MonoBehaviour
         } else {
           currentNode = currentNode.parentNode;
         }
-        tempSapwn++;
-        if(tempSapwn > 100)
-        {
-          foundPath = false;
-          moving = false;
-        }
       }
     }
 
@@ -223,6 +221,7 @@ public class NewStarFind : MonoBehaviour
     [Header("GridStuff")]
     [SerializeField] private Vector3 gridStart;
     [SerializeField] private Vector3 gridEnd;
+    [SerializeField] private LayerMask walkableLayer;
     [SerializeField] private int nodeHeight, nodeLength,nodeWidth;
     private GridNode[,] gridNodes;
 
@@ -239,13 +238,14 @@ public class NewStarFind : MonoBehaviour
         for(int b = 0; b < yGrid; b++)
         {
           Vector3Int nodeGridPosition = new Vector3Int(tempXStart, tempYStart, 0);
-          Vector3 nodeWorldPosition = new Vector3(tempXStart * nodeWidth, tempYStart * nodeHeight, nodeLength);
-          if(Physics.CheckBox(nodeWorldPosition, new Vector3(nodeWidth/2, nodeHeight/2, nodeLength/2)))
+          Vector2 nodeWorldPosition = new Vector2(tempXStart * nodeWidth, tempYStart * nodeHeight);
+          //Debug.Log(Physics2D.OverlapBox(nodeWorldPosition, new Vector2(nodeWidth/2, nodeHeight/2), 0, walkableLayer));
+          if(Physics2D.OverlapBox(nodeWorldPosition, new Vector2(nodeWidth/2, nodeHeight/2), 0, walkableLayer) is not null)
           {
+            gridNodes[a,b] = new GridNode(nodeGridPosition, nodeWorldPosition, true);
+          } else {
             Debug.Log("waodwoaod");
             gridNodes[a,b] = new GridNode(nodeGridPosition, nodeWorldPosition, false);
-          } else {
-            gridNodes[a,b] = new GridNode(nodeGridPosition, nodeWorldPosition, true);
           }
           tempYStart++;
         }

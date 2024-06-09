@@ -295,8 +295,12 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0}
   endPosition: {x: 0, y: 0}
   orthogonalMovementToll: 10
+  maxChecks: 100
   gridStart: {x: 0, y: 0, z: 0}
   gridEnd: {x: 11, y: 11, z: 0}
+  walkableLayer:
+    serializedVersion: 2
+    m_Bits: 64
   nodeHeight: 1
   nodeLength: 0
   nodeWidth: 1
@@ -379,8 +383,8 @@ GameObject:
   - component: {fileID: 1636365339}
   - component: {fileID: 1636365338}
   - component: {fileID: 1636365337}
-  m_Layer: 0
-  m_Name: Floor
+  m_Layer: 6
+  m_Name: Walkable Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
