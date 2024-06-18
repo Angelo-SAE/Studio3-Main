@@ -8,6 +8,7 @@ public class PickUpDropItem : MonoBehaviour
     [SerializeField] private GameObjectObject itemHeld;
     [SerializeField] private GameObject detectionPosition, itemHolder;
     [SerializeField] private LayerMask pickUpItems, dropSpots;
+    [SerializeField] private Animator playerAnimator;
 
     private void OnDrawGizmos()
     {
@@ -26,6 +27,23 @@ public class PickUpDropItem : MonoBehaviour
       {
         DetectItemPickUpOrDrop();
       }
+      RotateDetection();
+    }
+
+    private void RotateDetection()
+    {
+      if(Input.GetKeyDown(KeyCode.W))
+      {
+        transform.rotation = Quaternion.Euler(0, 0, 180);
+      }
+      if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
+      {
+        transform.localRotation = Quaternion.Euler(0, 0, 90);
+      }
+      if(Input.GetKeyDown(KeyCode.S))
+      {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+      }
     }
 
     private void DetectItemPickUpOrDrop()
@@ -33,6 +51,9 @@ public class PickUpDropItem : MonoBehaviour
       if(Physics2D.OverlapCircle(detectionPosition.transform.position, detectionRadius, pickUpItems) && itemHeld.value is null)
       {
         GetPickUpItem();
+      } else if(Physics2D.OverlapCircle(detectionPosition.transform.position, detectionRadius, dropSpots) && itemHeld.value is not null)
+      {
+        GetDropPosition();
       }
     }
 
@@ -60,9 +81,39 @@ public class PickUpDropItem : MonoBehaviour
 
     private void PickUpItem(GameObject item)
     {
+      playerAnimator.SetBool("Carrying", true);
       item.transform.SetParent(itemHolder.transform);
       item.transform.localPosition = Vector2.zero;
       itemHeld.value = item;
+    }
+
+    private void GetDropPosition()
+    {
+      Collider2D[] spots = Physics2D.OverlapCircleAll(detectionPosition.transform.position, detectionRadius, dropSpots);
+      GameObject tempSpot = null;
+      if(spots.Length == 1)
+      {
+        tempSpot = spots[0].gameObject;
+      }
+      for(int a = 0; a < spots.Length - 1; a++)
+      {
+        if(GetDistance(detectionPosition, spots[a].gameObject) < GetDistance(detectionPosition, spots[a + 1].gameObject))
+        {
+          tempSpot = spots[a].gameObject;
+        } else {
+          tempSpot = spots[a + 1].gameObject;
+        }
+      }
+      DropItem(tempSpot.transform.GetChild(0).gameObject);
+    }
+
+    private void DropItem(GameObject dropPosition)
+    {
+      playerAnimator.SetBool("Carrying", false);
+      itemHeld.value.transform.SetParent(dropPosition.transform);
+      itemHeld.value.transform.localScale = Vector2.one;
+      itemHeld.value.transform.localPosition = Vector2.zero;
+      itemHeld.value = null;
     }
 
     private float GetDistance(GameObject first, GameObject second)

@@ -33,12 +33,6 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
       movementVel = (new Vector2(xMovement, yMovement).normalized) * movementSpeed;
-      if(movementVel.x < 0)
-      {
-        transform.localScale = new Vector3( -1f, 1f, 1f);
-      } else {
-        transform.localScale = new Vector3( 1f, 1f, 1f);
-      }
       rb2d.velocity = movementVel;
     }
 
@@ -46,9 +40,11 @@ public class PlayerMovement : MonoBehaviour
     {
       if(xMovement > 0)
       {
+        transform.localScale = new Vector3( 1f, 1f, 1f);
         animator.SetInteger("xMovement", 1);
       } else if(xMovement < 0)
       {
+        transform.localScale = new Vector3( -1f, 1f, 1f);
         animator.SetInteger("xMovement", -1);
       } else {
         animator.SetInteger("xMovement", 0);
