@@ -224,6 +224,18 @@ public class PointAntClickMovement : MonoBehaviour
       }
       closedList = new LinkedList<GridNode>();
       openList = new LinkedList<GridNode>();
+      //for(int a = 0; a <= openList.Count(); a++)
+      //{
+      //  GridNode tempNode = openList.PopFirst();
+      //  tempNode.open = false;
+      //  tempNode.parentNode = null;
+      //}
+      //for(int a = 0; a <= closedList.Count(); a++)
+      //{
+      //  GridNode tempNode = closedList.PopFirst();
+      //  tempNode.closed = false;
+      //  tempNode.parentNode = null;
+      //}
     }
 
     private void MoveTowardsPoint()
