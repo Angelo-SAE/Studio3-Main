@@ -7314,7 +7314,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5942513863113090523, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
       propertyPath: m_Name
-      value: Teleporter (1)
+      value: Teleport To Kitchen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: BeforeTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: BeforeTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1074157182}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1074157186}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: BeforeTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetPosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SetCameraPosition, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9157,6 +9201,7 @@ GameObject:
   - component: {fileID: 1074157185}
   - component: {fileID: 1074157184}
   - component: {fileID: 1074157183}
+  - component: {fileID: 1074157186}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9238,6 +9283,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1074157186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074157182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc5714ac422b06418cb02ccd3a10ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPositions:
+  - {x: 0, y: -10.5, z: -10}
+  - {x: 0, y: 0.5, z: -10}
 --- !u!1 &1206178535
 GameObject:
   m_ObjectHideFlags: 0
@@ -16843,7 +16903,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5942513863113090523, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
       propertyPath: m_Name
-      value: Teleporter
+      value: Teleport to Restaruant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: BeforeTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: BeforeTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: BeforeTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1074157186}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1074157186}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: BeforeTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: BeforeTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetPosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetPosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: BeforeTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SetCameraPosition, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SetCameraPosition, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: BeforeTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700422822798629490, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+      propertyPath: DuringTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

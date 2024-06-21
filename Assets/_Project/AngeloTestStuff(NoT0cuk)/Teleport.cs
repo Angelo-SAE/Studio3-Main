@@ -8,7 +8,7 @@ public class Teleport : MonoBehaviour
     [SerializeField] private GameObject teleportPoint;
     [SerializeField] private string playerTag;
     [SerializeField] private float beforeTeleportTime;
-    [SerializeField] private UnityEvent BeforeTeleport;
+    [SerializeField] private UnityEvent BeforeTeleport, DuringTeleport;
     private GameObject currentPlayer;
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -27,6 +27,7 @@ public class Teleport : MonoBehaviour
 
     private void TeleportPlayer(GameObject player)
     {
+      DuringTeleport.Invoke();
       player.transform.position = teleportPoint.transform.position;
     }
 }
