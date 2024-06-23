@@ -8,13 +8,13 @@ public class FrontCounter : Interactable
     [SerializeField] private IntObject tablesAvailable;
     [SerializeField] private Tables tables;
     [SerializeField] private Vector2Int[] waitingSpots;
-    private LinkedList<CustomerMovement> customers;
+    private LinkedList<Customer> customers;
     private int currentSpot;
 
     private void Awake()
     {
       SetFrontCounter();
-      customers = new LinkedList<CustomerMovement>();
+      customers = new LinkedList<Customer>();
     }
 
     public override void Interact()
@@ -34,7 +34,7 @@ public class FrontCounter : Interactable
       return temp;
     }
 
-    public void AddCustomer(CustomerMovement customer)
+    public void AddCustomer(Customer customer)
     {
       customers.AddToBack(customer);
     }
@@ -43,7 +43,7 @@ public class FrontCounter : Interactable
     {
       if(tablesAvailable.value != 0 && customers.Count() != 0)
       {
-        customers.first.data.MoveToPosition(tables.GetChairPosition());
+        customers.first.data.MoveCustomerToPosition(tables.GetChairPosition(customers.first.data));
         customers.RemoveFirst();
         MoveAllCustomersUpOne();
       }
@@ -54,7 +54,7 @@ public class FrontCounter : Interactable
       currentSpot--;
       for(int a = 0; a < customers.Count(); a++)
       {
-        customers.GetElementAt(a).MoveToPosition(waitingSpots[a]);
+        customers.GetElementAt(a).MoveCustomerToPosition(waitingSpots[a]);
       }
     }
 }

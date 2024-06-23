@@ -5,25 +5,23 @@ using UnityEngine;
 public class Tables : MonoBehaviour
 {
     [SerializeField] private IntObject tablesAvailable;
-    [SerializeField] private Vector2Int[] chairPositions;
     private LinkedList<TableNode> tables;
 
     private void Awake()
     {
-      tablesAvailable.value = chairPositions.Length;
-      tables = new LinkedList<TableNode>();
-      CreateTableNodes();
+      tablesAvailable.value = transform.childCount;
     }
 
-    private void CreateTableNodes()
+    public void CreateTableNode(Table table, Vector2Int position)
     {
-      for(int a = 0; a < chairPositions.Length; a++)
+      if(tables is null)
       {
-        tables.AddToFront(new TableNode(chairPositions[a], true));
+        tables = new LinkedList<TableNode>();
       }
+      tables.AddToFront(new TableNode(table, position, true));
     }
 
-    public Vector2Int GetChairPosition()
+    public Vector2Int GetChairPosition(Customer customer)
     {
       if(tablesAvailable.value != 0)
       {
@@ -34,6 +32,7 @@ public class Tables : MonoBehaviour
           {
             tablesAvailable.value--;
             tempNode.data.tableIsFree = false;
+            tempNode.data.table.AddCustomerToTable(customer);
             return tempNode.data.chairLocation;
           } else if(a < tables.Count() - 1 )
           {
@@ -47,11 +46,13 @@ public class Tables : MonoBehaviour
 
 public class TableNode
 {
+    public Table table;
     public Vector2Int chairLocation;
     public bool tableIsFree;
 
-    public TableNode(Vector2Int location, bool isFree)
+    public TableNode(Table currentTable, Vector2Int location, bool isFree)
     {
+      table = currentTable;
       chairLocation = location;
       tableIsFree = isFree;
     }

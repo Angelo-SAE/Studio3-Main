@@ -3917,7 +3917,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 340733136}
-  m_Layer: 0
+  - component: {fileID: 340733138}
+  - component: {fileID: 340733137}
+  m_Layer: 8
   m_Name: 'TableChair3 '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3941,6 +3943,64 @@ Transform:
   - {fileID: 138944526}
   m_Father: {fileID: 788435681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &340733137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340733135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2ccac8fa065f34993dfef48df5da8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chairPosition: {x: 14, y: 7}
+--- !u!61 &340733138
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340733135}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.12}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.52, y: 1.82}
+  m_EdgeRadius: 0
 --- !u!1 &354482490
 GameObject:
   m_ObjectHideFlags: 0
@@ -9935,10 +9995,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tablesAvailable: {fileID: 11400000, guid: 21b5bdbf231be22469a73144d93b4b4a, type: 2}
-  chairPositions:
-  - {x: 6, y: 7}
-  - {x: 10, y: 7}
-  - {x: 14, y: 7}
 --- !u!4 &788435681
 Transform:
   m_ObjectHideFlags: 0
@@ -11219,7 +11275,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1115580951}
-  m_Layer: 0
+  - component: {fileID: 1115580953}
+  - component: {fileID: 1115580952}
+  m_Layer: 8
   m_Name: TableChair 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11243,6 +11301,64 @@ Transform:
   - {fileID: 1442887409}
   m_Father: {fileID: 788435681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1115580952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115580950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2ccac8fa065f34993dfef48df5da8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chairPosition: {x: 10, y: 7}
+--- !u!61 &1115580953
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115580950}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.12}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.52, y: 1.82}
+  m_EdgeRadius: 0
 --- !u!1 &1135334775
 GameObject:
   m_ObjectHideFlags: 0
@@ -11252,7 +11368,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1135334776}
-  m_Layer: 0
+  - component: {fileID: 1135334778}
+  - component: {fileID: 1135334777}
+  m_Layer: 8
   m_Name: TableChair 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11276,6 +11394,64 @@ Transform:
   - {fileID: 1364431404}
   m_Father: {fileID: 788435681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1135334777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135334775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2ccac8fa065f34993dfef48df5da8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chairPosition: {x: 6, y: 7}
+--- !u!61 &1135334778
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135334775}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.12}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.52, y: 1.82}
+  m_EdgeRadius: 0
 --- !u!1 &1137657288
 GameObject:
   m_ObjectHideFlags: 0

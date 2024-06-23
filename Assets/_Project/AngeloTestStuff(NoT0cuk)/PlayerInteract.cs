@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpDropItem : MonoBehaviour
+public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private float detectionRadius;
     [SerializeField] private GameObjectObject itemHeld;

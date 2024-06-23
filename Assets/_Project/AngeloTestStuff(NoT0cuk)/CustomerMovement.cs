@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CustomerMovement : MonoBehaviour
 {
+    [SerializeField] private Customer customer;
+
     private void Start()
     {
       closedList = new LinkedList<GridNode>();
@@ -32,7 +34,7 @@ public class CustomerMovement : MonoBehaviour
 
     private void MovePlayerToFrontCounter()
     {
-      frontCounter.value.GetComponent<FrontCounter>().AddCustomer(this);
+      frontCounter.value.GetComponent<FrontCounter>().AddCustomer(customer);
       startPosition = frontCounter.value.GetComponent<FrontCounter>().GetNextSpot();
       endPosition = new Vector2Int((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y));
       moving = false;
