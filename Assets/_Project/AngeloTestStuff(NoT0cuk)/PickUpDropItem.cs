@@ -7,7 +7,7 @@ public class PickUpDropItem : MonoBehaviour
     [SerializeField] private float detectionRadius;
     [SerializeField] private GameObjectObject itemHeld;
     [SerializeField] private GameObject detectionPosition, itemHolder;
-    [SerializeField] private LayerMask pickUpItems, dropSpots;
+    [SerializeField] private LayerMask pickUpItems, dropSpots, interactableObject;
     [SerializeField] private Animator playerAnimator;
 
     private void OnDrawGizmos()
@@ -54,6 +54,12 @@ public class PickUpDropItem : MonoBehaviour
       } else if(Physics2D.OverlapCircle(detectionPosition.transform.position, detectionRadius, dropSpots) && itemHeld.value is not null)
       {
         GetDropPosition();
+      } else {
+        Collider2D tempCollider = Physics2D.OverlapCircle(detectionPosition.transform.position, detectionRadius, interactableObject);
+        if(tempCollider is not null)
+        {
+          tempCollider.gameObject.GetComponent<Interactable>().Interact();
+        }
       }
     }
 

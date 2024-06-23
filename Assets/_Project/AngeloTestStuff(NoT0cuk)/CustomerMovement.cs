@@ -32,7 +32,17 @@ public class CustomerMovement : MonoBehaviour
 
     private void MovePlayerToFrontCounter()
     {
+      frontCounter.value.GetComponent<FrontCounter>().AddCustomer(this);
       startPosition = frontCounter.value.GetComponent<FrontCounter>().GetNextSpot();
+      endPosition = new Vector2Int((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y));
+      moving = false;
+      foundPath = false;
+      FindStarPath();
+    }
+
+    public void MoveToPosition(Vector2Int startPos)
+    {
+      startPosition = startPos;
       endPosition = new Vector2Int((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y));
       moving = false;
       foundPath = false;
