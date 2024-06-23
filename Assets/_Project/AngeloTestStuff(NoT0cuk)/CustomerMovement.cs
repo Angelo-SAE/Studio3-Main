@@ -14,11 +14,6 @@ public class CustomerMovement : MonoBehaviour
       MovePlayerToFrontCounter();
     }
 
-    private void Update()
-    {
-
-    }
-
     private void FixedUpdate()
     {
       if(moving)
@@ -29,13 +24,23 @@ public class CustomerMovement : MonoBehaviour
 
     //Get Start and End point
 
-    [SerializeField] private GameObjectObject frontCounter;
+    [SerializeField] private GameObjectObject frontCounter, cashier;
     [SerializeField] private float movementSpeed;
 
     private void MovePlayerToFrontCounter()
     {
       frontCounter.value.GetComponent<FrontCounter>().AddCustomer(customer);
       startPosition = frontCounter.value.GetComponent<FrontCounter>().GetNextSpot();
+      endPosition = new Vector2Int((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y));
+      moving = false;
+      foundPath = false;
+      FindStarPath();
+    }
+
+    public void MovePlayerToCashier()
+    {
+      cashier.value.GetComponent<Cashier>().AddCustomer(customer);
+      startPosition = cashier.value.GetComponent<Cashier>().GetNextSpot();
       endPosition = new Vector2Int((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y));
       moving = false;
       foundPath = false;

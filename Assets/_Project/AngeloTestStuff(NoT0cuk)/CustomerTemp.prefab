@@ -250,7 +250,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerMovement: {fileID: 1422225227468005507}
+  itemHeld: {fileID: 11400000, guid: 5de36fa1b0b8b404385b7e2890ca3d5a, type: 2}
+  money: {fileID: 11400000, guid: 42066d6eda9a96740a6aa069f8c6b635, type: 2}
   order: {fileID: 9222355071336812128}
+  orderTag: Plate
+  orderValue: 19.99
 --- !u!114 &1422225227468005507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customer: {fileID: 6386345880284976042}
   frontCounter: {fileID: 11400000, guid: 822c267fb0e659844932e1d60b490802, type: 2}
+  cashier: {fileID: 11400000, guid: 2fda858d4dbafea478b05c58c1d57759, type: 2}
   movementSpeed: 0.1
   pathPiece: {fileID: 0}
   startPosition: {x: 0, y: 0}

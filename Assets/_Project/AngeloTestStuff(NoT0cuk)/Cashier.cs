@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class FrontCounter : Interactable
+public class Cashier : Interactable
 {
-    [SerializeField] private GameObjectObject frontCounter;
-    [SerializeField] private IntObject tablesAvailable;
-    [SerializeField] private Tables tables;
+    [SerializeField] private GameObjectObject cashier;
     [SerializeField] private Vector2Int[] waitingSpots;
+    [SerializeField] private UnityEvent afterPaid;
     private LinkedList<Customer> customers;
     private int currentSpot;
 
@@ -19,12 +19,12 @@ public class FrontCounter : Interactable
 
     public override void Interact()
     {
-      SeatCustomer();
+      CheckOut();
     }
 
     private void SetFrontCounter()
     {
-      frontCounter.value = gameObject;
+      cashier.value = gameObject;
     }
 
     public Vector2Int GetNextSpot()
@@ -39,12 +39,13 @@ public class FrontCounter : Interactable
       customers.AddToBack(customer);
     }
 
-    private void SeatCustomer()
+    private void CheckOut()
     {
-      if(tablesAvailable.value != 0 && customers.Count() != 0)
+      if(customers.Count() != 0)
       {
-        customers.first.data.MoveCustomerToPosition(tables.GetChairPosition(customers.first.data));
+        customers.first.data.CheckOutCustomer();
         customers.RemoveFirst();
+        afterPaid.Invoke();
         MoveAllCustomersUpOne();
       }
     }

@@ -87,7 +87,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void PickUpItem(GameObject item)
     {
-      playerAnimator.SetBool("Carrying", true);
+      UpdateCarryingAnimation(true);
       item.transform.SetParent(itemHolder.transform);
       item.transform.localPosition = Vector2.zero;
       itemHeld.value = item;
@@ -115,11 +115,16 @@ public class PlayerInteract : MonoBehaviour
 
     private void DropItem(GameObject dropPosition)
     {
-      playerAnimator.SetBool("Carrying", false);
+      UpdateCarryingAnimation(false);
       itemHeld.value.transform.SetParent(dropPosition.transform);
       itemHeld.value.transform.localScale = Vector2.one;
       itemHeld.value.transform.localPosition = Vector2.zero;
       itemHeld.value = null;
+    }
+
+    public void UpdateCarryingAnimation(bool set)
+    {
+      playerAnimator.SetBool("Carrying", set);
     }
 
     private float GetDistance(GameObject first, GameObject second)

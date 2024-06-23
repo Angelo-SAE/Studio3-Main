@@ -4,21 +4,34 @@ using UnityEngine;
 
 public class Table : Interactable
 {
-    [SerializeField] private Vector2Int chairPosition;
+    [SerializeField] private IntObject tablesAvailable;
+    public Vector2Int chairPosition;
     private Tables tables;
+    public bool tableIsFree;
     private Customer currentCustomer;
 
     private void Awake()
     {
       tables = GetComponentInParent<Tables>();
-      tables.CreateTableNode(this, chairPosition);
+      tables.CreateTableNode(this);
     }
 
     public override void Interact()
     {
-      if(currentCustomer != null && !currentCustomer.HasOrdered)
+      if(currentCustomer != null)
       {
-        currentCustomer.DisplayOrder();
+        if(!currentCustomer.HasOrdered)
+        {
+          currentCustomer.DisplayOrder();
+        } else {
+          if(currentCustomer.CheckForOrder())
+          {
+            currentCustomer = null;
+            tableIsFree = true;
+            tablesAvailable.value++;
+            tables.ServedCustomer.Invoke();
+          }
+        }
       }
     }
 
