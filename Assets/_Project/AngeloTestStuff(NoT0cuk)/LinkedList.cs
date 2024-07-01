@@ -228,6 +228,11 @@ public class LinkedList<T>
       return temp;
     }
 
+    public LinkedListNode<T> GetNextElement(LinkedListNode<T> tempNode)
+    {
+      return tempNode.next;
+    }
+
     public int Count()
     {
       return count;
