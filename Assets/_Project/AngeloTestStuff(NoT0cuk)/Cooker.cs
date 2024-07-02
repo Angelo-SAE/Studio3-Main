@@ -44,7 +44,10 @@ public class Cooker : Interactable
     {
       playerInventory.foodItem[breadSlot] = null;
       playerInventory.foodItem[lettuceSlot] = null;
+      playerInventory.count -= 2;
       afterCheck.Invoke();
       Instantiate(lettuceSandwich, platePosition.transform);
+      hasBread = false;
+      hasLettuce = false;
     }
 }
