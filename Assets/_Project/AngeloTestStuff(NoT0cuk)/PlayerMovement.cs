@@ -6,9 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] private float movementSpeed;
+    [SerializeField] private BoolObject paused;
     private Rigidbody2D rb2d;
     private Animator animator;
-    private float xMovement, yMovement;
+    private int xMovement, yMovement;
     private Vector2 movementVel;
 
     private void Start()
@@ -19,15 +20,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-      TakePlayerInput();
-      MovePlayer();
-      AnimatePlayer();
+      if(!paused.value)
+      {
+        TakePlayerInput();
+        MovePlayer();
+        AnimatePlayer();
+      }
     }
 
     private void TakePlayerInput()
     {
-      xMovement = Input.GetAxis("Horizontal");
-      yMovement = Input.GetAxis("Vertical");
+      xMovement = (int)Input.GetAxisRaw("Horizontal");
+      yMovement = (int)Input.GetAxisRaw("Vertical");
     }
 
     private void MovePlayer()
@@ -41,24 +45,12 @@ public class PlayerMovement : MonoBehaviour
       if(xMovement > 0)
       {
         transform.localScale = new Vector3( 1f, 1f, 1f);
-        animator.SetInteger("xMovement", 1);
       } else if(xMovement < 0)
       {
         transform.localScale = new Vector3( -1f, 1f, 1f);
-        animator.SetInteger("xMovement", -1);
-      } else {
-        animator.SetInteger("xMovement", 0);
       }
-
-      if(yMovement > 0)
-      {
-        animator.SetInteger("yMovement", 1);
-      } else if(yMovement < 0)
-      {
-        animator.SetInteger("yMovement", -1);
-      } else {
-        animator.SetInteger("yMovement", 0);
-      }
+      animator.SetInteger("xMovement", xMovement);
+      animator.SetInteger("yMovement", yMovement);
     }
 
 

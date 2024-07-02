@@ -7,8 +7,7 @@ public class Teleport : MonoBehaviour
 {
     [SerializeField] private GameObject teleportPoint;
     [SerializeField] private string playerTag;
-    [SerializeField] private float beforeTeleportTime;
-    [SerializeField] private UnityEvent BeforeTeleport, DuringTeleport;
+    [SerializeField] private UnityEvent DuringTeleport;
     private GameObject currentPlayer;
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -17,12 +16,6 @@ public class Teleport : MonoBehaviour
       {
         TeleportPlayer(col.gameObject);
       }
-    }
-
-    private void BeforeTeleportPlayer(GameObject player)
-    {
-      BeforeTeleport.Invoke();
-      Invoke("TeleportPlayer(player)", beforeTeleportTime);
     }
 
     private void TeleportPlayer(GameObject player)

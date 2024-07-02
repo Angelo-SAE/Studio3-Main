@@ -6,4 +6,14 @@ using UnityEngine;
 public class BoolObject : ScriptableObject
 {
     public bool value;
+
+    public void SetTrue()
+    {
+      value = true;
+    }
+
+    public void SetFalse()
+    {
+      value = false;
+    }
 }
