@@ -5,14 +5,28 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     [SerializeField] private CustomerMovement customerMovement;
+    [SerializeField] private MenuObject menu;
     [SerializeField] private GameObjectObject itemHeld;
     [SerializeField] private FloatObject money;
-    [SerializeField] private GameObject order;
-    [SerializeField] private string orderTag;
-    [SerializeField] private float orderValue;
+    [SerializeField] private GameObject order, orderSprite;
+    private string orderTag;
+    private float orderPrice;
     private bool hasOrdered;
 
     public bool HasOrdered => hasOrdered;
+
+    private void Start()
+    {
+      ChooseOrder();
+    }
+
+    private void ChooseOrder()
+    {
+      int randomOrder = Random.Range(0, menu.orderTag.Length);
+      orderTag = menu.orderTag[randomOrder];
+      orderPrice = menu.orderPrice[randomOrder];
+      Instantiate(menu.orderObject[randomOrder], orderSprite.transform);
+    }
 
     public void MoveCustomerToPosition(Vector2Int position)
     {
@@ -43,7 +57,7 @@ public class Customer : MonoBehaviour
 
     public void CheckOutCustomer()
     {
-      money.value += orderValue;
+      money.value += orderPrice;
       Destroy(gameObject);
     }
 }

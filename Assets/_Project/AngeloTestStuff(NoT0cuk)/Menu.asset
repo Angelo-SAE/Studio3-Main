@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cbbb4fbead8ffb41a1eeb51a9c4f140, type: 3}
+  m_Name: Menu
+  m_EditorClassIdentifier: 
+  orderTag:
+  - Plate
+  - LettuceSandwich
+  orderPrice:
+  - 19.99
+  - 9.99
+  orderObject:
+  - {fileID: 6194604489005131139, guid: bcc955ade1afdca4caf4750f66a65b42, type: 3}
+  - {fileID: 6354734521569094415, guid: f7ec69cfd5f224f4e9c1bc157787665d, type: 3}
