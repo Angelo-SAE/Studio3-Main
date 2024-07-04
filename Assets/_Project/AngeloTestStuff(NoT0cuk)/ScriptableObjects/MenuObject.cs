@@ -7,7 +7,7 @@ public class MenuObject : ScriptableObject
 {
     public string[] orderTag;
     public float[] orderPrice;
-    public GameObject[] orderObject;
+    public GameObject[] orderSprite, orderObjects;
     public FoodNumber[] orderIngredients;
 }
 

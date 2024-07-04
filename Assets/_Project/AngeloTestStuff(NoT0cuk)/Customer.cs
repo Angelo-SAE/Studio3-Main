@@ -25,7 +25,7 @@ public class Customer : MonoBehaviour
       int randomOrder = Random.Range(0, menu.orderTag.Length);
       orderTag = menu.orderTag[randomOrder];
       orderPrice = menu.orderPrice[randomOrder];
-      Instantiate(menu.orderObject[randomOrder], orderSprite.transform);
+      Instantiate(menu.orderSprite[randomOrder], orderSprite.transform);
     }
 
     public void MoveCustomerToPosition(Vector2Int position)
