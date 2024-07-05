@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CustomerOrderUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private OrderObject orders;
+    [SerializeField] private UnityEvent UpdateOrders;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+      if(orders.addedOrder)
+      {
+        orders.addedOrder = false;
+        UpdateOrders.Invoke();
+      }
     }
 }

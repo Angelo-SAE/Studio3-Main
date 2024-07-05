@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4915599145715381152}
   - component: {fileID: 9102915477365853779}
+  - component: {fileID: -5546122027718221191}
   m_Layer: 10
   m_Name: Lettuce Sandwich
   m_TagString: LettuceSandwich
@@ -194,7 +195,7 @@ Transform:
   m_GameObject: {fileID: 3704469749821813310}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -238,6 +239,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.47
+--- !u!114 &-5546122027718221191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3704469749821813310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a186596ccbb28d48832d8d135267604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderSprite: {fileID: 1904217704, guid: 2dba2f183097959438d9513ebb05b158, type: 3}
+  orderNumber: 1
 --- !u!1 &4699834503069894688
 GameObject:
   m_ObjectHideFlags: 0

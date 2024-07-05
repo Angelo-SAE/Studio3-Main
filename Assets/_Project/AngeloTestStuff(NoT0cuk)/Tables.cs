@@ -6,12 +6,15 @@ using UnityEngine.Events;
 public class Tables : MonoBehaviour
 {
     [SerializeField] private IntObject tablesAvailable;
+    [SerializeField] private OrderObject orders;
     [SerializeField] public UnityEvent ServedCustomer;
     private List<Table> tables;
 
     private void Awake()
     {
-      tablesAvailable.value = transform.childCount;
+      int tables = transform.childCount;
+      tablesAvailable.value = tables;
+      orders.order = new Order[tables];
     }
 
     public void CreateTableNode(Table table)

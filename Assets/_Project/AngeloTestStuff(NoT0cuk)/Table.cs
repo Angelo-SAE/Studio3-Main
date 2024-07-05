@@ -5,6 +5,7 @@ using UnityEngine;
 public class Table : Interactable
 {
     [SerializeField] private IntObject tablesAvailable;
+    [SerializeField] private int tableNumber;
     public Vector2Int chairPosition;
     private Tables tables;
     public bool tableIsFree;
@@ -22,7 +23,7 @@ public class Table : Interactable
       {
         if(!currentCustomer.HasOrdered)
         {
-          currentCustomer.DisplayOrder();
+          currentCustomer.DisplayOrder(tableNumber);
         } else {
           if(currentCustomer.CheckForOrder())
           {

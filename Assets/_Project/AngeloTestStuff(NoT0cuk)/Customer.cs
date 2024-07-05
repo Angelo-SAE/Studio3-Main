@@ -6,9 +6,12 @@ public class Customer : MonoBehaviour
 {
     [SerializeField] private CustomerMovement customerMovement;
     [SerializeField] private MenuObject menu;
+    [SerializeField] private OrderObject orders;
     [SerializeField] private GameObjectObject itemHeld;
     [SerializeField] private FloatObject money;
-    [SerializeField] private GameObject order, orderSprite;
+    [SerializeField] private GameObject order;
+    [SerializeField] private SpriteRenderer orderSprite;
+    private int randomOrder, tableNumber;
     private string orderTag;
     private float orderPrice;
     private bool hasOrdered;
@@ -17,15 +20,15 @@ public class Customer : MonoBehaviour
 
     private void Start()
     {
+      randomOrder = Random.Range(0, menu.orderTag.Length);
       ChooseOrder();
     }
 
     private void ChooseOrder()
     {
-      int randomOrder = Random.Range(0, menu.orderTag.Length);
       orderTag = menu.orderTag[randomOrder];
       orderPrice = menu.orderPrice[randomOrder];
-      Instantiate(menu.orderSprite[randomOrder], orderSprite.transform);
+      orderSprite.sprite = menu.order[randomOrder].OrderSprite;
     }
 
     public void MoveCustomerToPosition(Vector2Int position)
@@ -33,10 +36,18 @@ public class Customer : MonoBehaviour
       customerMovement.MoveToPosition(position);
     }
 
-    public void DisplayOrder()
+    public void DisplayOrder(int table)
     {
       hasOrdered = true;
       order.SetActive(true);
+      tableNumber = table;
+      AddOrder();
+    }
+
+    private void AddOrder()
+    {
+      orders.order[tableNumber] = menu.order[randomOrder];
+      orders.addedOrder = true;
     }
 
     public bool CheckForOrder()
