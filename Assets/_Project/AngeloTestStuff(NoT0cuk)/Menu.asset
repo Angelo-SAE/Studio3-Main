@@ -13,17 +13,27 @@ MonoBehaviour:
   m_Name: Menu
   m_EditorClassIdentifier: 
   orderTag:
-  - Plate
-  - LettuceSandwich
+  - Fries
+  - ChickenWings
+  - CheeseBurger
+  - ChickenBurger
   orderPrice:
-  - 19.99
-  - 9.99
+  - 5
+  - 7
+  - 15
+  - 15
   order:
-  - {fileID: 6533635880439403977, guid: 4ee17799247d6814f9ae14feb1eaece0, type: 3}
-  - {fileID: -5546122027718221191, guid: cfd64964d881abe4d805b3f88c19ffd5, type: 3}
+  - {fileID: 4907927789568264464, guid: d84aa90736dd48a4a8f02a12c1fe1080, type: 3}
+  - {fileID: 701378801964640793, guid: 62c37314ec210704384c073a0b977ebd, type: 3}
+  - {fileID: 1540338326292627573, guid: 7f8d3ff221f598d4192c9a318fef1262, type: 3}
+  - {fileID: 6267247601223162482, guid: 0e3e5461e83946642bfb870bc5e46904, type: 3}
   orderObjects:
-  - {fileID: 7671419379585317724, guid: 4ee17799247d6814f9ae14feb1eaece0, type: 3}
-  - {fileID: 3704469749821813310, guid: cfd64964d881abe4d805b3f88c19ffd5, type: 3}
+  - {fileID: 7706626959496793802, guid: d84aa90736dd48a4a8f02a12c1fe1080, type: 3}
+  - {fileID: 2127590264998451924, guid: 62c37314ec210704384c073a0b977ebd, type: 3}
+  - {fileID: 1013868725232641232, guid: 7f8d3ff221f598d4192c9a318fef1262, type: 3}
+  - {fileID: 1072239583411027452, guid: 0e3e5461e83946642bfb870bc5e46904, type: 3}
   orderIngredients:
-  - foodNumber: 
-  - foodNumber: 0000000001000000
+  - ingredientNumber: 00000000
+  - ingredientNumber: 0100000001000000
+  - ingredientNumber: 040000000200000003000000
+  - ingredientNumber: 04000000010000000300000005000000
