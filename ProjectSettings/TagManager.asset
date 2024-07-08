@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Plate
+  - Fries
+  - ChickenWings
+  - CheeseBurger
+  - ChickenBurger
   layers:
   - Default
   - TransparentFX
@@ -41,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Food
+    uniqueID: 526676085
     locked: 0

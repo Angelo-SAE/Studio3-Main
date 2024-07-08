@@ -3565,6 +3565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tablesAvailable: {fileID: 11400000, guid: 21b5bdbf231be22469a73144d93b4b4a, type: 2}
+  orders: {fileID: 0}
   ServedCustomer:
     m_PersistentCalls:
       m_Calls:
@@ -5055,6 +5056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 4
+  paused: {fileID: 0}
 --- !u!50 &472465670
 Rigidbody2D:
   serializedVersion: 4
@@ -5793,10 +5795,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportPoint: {fileID: 813190280}
   playerTag: Player
-  beforeTeleportTime: 0
-  BeforeTeleport:
-    m_PersistentCalls:
-      m_Calls: []
   DuringTeleport:
     m_PersistentCalls:
       m_Calls:
@@ -13426,6 +13424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tablesAvailable: {fileID: 11400000, guid: 21b5bdbf231be22469a73144d93b4b4a, type: 2}
+  tableNumber: 0
   chairPosition: {x: 10, y: 7}
   tableIsFree: 1
 --- !u!61 &1175088052
@@ -13736,6 +13735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tablesAvailable: {fileID: 11400000, guid: 21b5bdbf231be22469a73144d93b4b4a, type: 2}
+  tableNumber: 0
   chairPosition: {x: 14, y: 7}
   tableIsFree: 1
 --- !u!61 &1212963779
@@ -19867,10 +19867,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportPoint: {fileID: 1685903726}
   playerTag: Player
-  beforeTeleportTime: 2
-  BeforeTeleport:
-    m_PersistentCalls:
-      m_Calls: []
   DuringTeleport:
     m_PersistentCalls:
       m_Calls:
@@ -22224,6 +22220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tablesAvailable: {fileID: 11400000, guid: 21b5bdbf231be22469a73144d93b4b4a, type: 2}
+  tableNumber: 0
   chairPosition: {x: 6, y: 7}
   tableIsFree: 1
 --- !u!61 &1632966117
@@ -25000,10 +24997,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportPoint: {fileID: 2130148633}
   playerTag: Player
-  beforeTeleportTime: 0
-  BeforeTeleport:
-    m_PersistentCalls:
-      m_Calls: []
   DuringTeleport:
     m_PersistentCalls:
       m_Calls:
@@ -29872,10 +29865,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportPoint: {fileID: 1964116207}
   playerTag: Player
-  beforeTeleportTime: 0
-  BeforeTeleport:
-    m_PersistentCalls:
-      m_Calls: []
   DuringTeleport:
     m_PersistentCalls:
       m_Calls:
