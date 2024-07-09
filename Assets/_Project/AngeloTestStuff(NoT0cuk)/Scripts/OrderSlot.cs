@@ -19,6 +19,8 @@ public class OrderSlot : MonoBehaviour
       if(orders.order[orderNumber] is not null)
       {
         slotSprite.sprite = orders.order[orderNumber].OrderSprite;
+      } else {
+        slotSprite.sprite = null;
       }
     }
 }

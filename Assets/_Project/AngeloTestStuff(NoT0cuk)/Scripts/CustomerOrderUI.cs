@@ -10,9 +10,9 @@ public class CustomerOrderUI : MonoBehaviour
 
     private void Update()
     {
-      if(orders.addedOrder)
+      if(orders.changedOrder)
       {
-        orders.addedOrder = false;
+        orders.changedOrder = false;
         UpdateOrders.Invoke();
       }
     }

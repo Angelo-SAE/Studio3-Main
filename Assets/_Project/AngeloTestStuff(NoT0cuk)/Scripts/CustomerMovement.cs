@@ -306,7 +306,7 @@ public class CustomerMovement : MonoBehaviour
         customerAnimator.Play("NPCWalkDown");
         break;
         case(3):
-        customerAnimator.Play("NPCWalkRight");
+        customerAnimator.Play("NPCWalkLeft");
         break;
         case(4):
         customerAnimator.Play("NPCIdle");

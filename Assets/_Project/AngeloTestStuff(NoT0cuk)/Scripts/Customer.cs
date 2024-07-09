@@ -47,7 +47,7 @@ public class Customer : MonoBehaviour
     private void AddOrder()
     {
       orders.order[tableNumber] = menu.order[randomOrder];
-      orders.addedOrder = true;
+      orders.changedOrder = true;
     }
 
     public bool CheckForOrder()

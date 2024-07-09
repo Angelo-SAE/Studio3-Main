@@ -14,7 +14,7 @@ public class CookerUI : MonoBehaviour
     [SerializeField] private Image orderImage;
     [SerializeField] private Image[] foodGuide, itemSlot;
     [SerializeField] private UnityEvent onReturn;
-    private int orderNumber, orderIngredientCount, tempIngredientCount;
+    private int orderNumber, orderIngredientCount, tempIngredientCount, tableNumber;
     private int[] slotIngredientNumber;
 
     private void Awake()
@@ -23,8 +23,9 @@ public class CookerUI : MonoBehaviour
       cookButton.interactable = false;
     }
 
-    public void SelectOrder(int tableNumber)
+    public void SelectOrder(int table)
     {
+      tableNumber = table;
       if(orders.order[tableNumber] is not null)
       {
         ReturnItemsToInventory();
@@ -113,6 +114,8 @@ public class CookerUI : MonoBehaviour
     {
       ClearCookerSlots();
       cooker.CookOrder(orderNumber);
+      orders.order[tableNumber] = null;
+      orders.changedOrder = true;
       ResetOrder();
     }
 
