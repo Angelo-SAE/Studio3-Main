@@ -7,7 +7,7 @@ public class OrderSlot : MonoBehaviour
 {
     [SerializeField] private OrderObject orders;
     [SerializeField] private int orderNumber;
-    [SerializeField] private Image slotSprite;
+    [SerializeField] private Image slotSprite, backSprite;
 
     public void OnNotifty()
     {
@@ -18,9 +18,18 @@ public class OrderSlot : MonoBehaviour
     {
       if(orders.order[orderNumber] is not null)
       {
+        slotSprite.color = new Color(1, 1, 1, 1);
         slotSprite.sprite = orders.order[orderNumber].OrderSprite;
+        if(orders.cooked[orderNumber])
+        {
+          backSprite.color = new Color(0.5f, 0.5f, 0.5f, 1);
+        } else {
+          backSprite.color = new Color(1, 1, 1, 1);
+        }
       } else {
         slotSprite.sprite = null;
+        slotSprite.color = new Color(1,1,1,0);
+        backSprite.color = new Color(0.5f, 0.5f, 0.5f, 1);
       }
     }
 }

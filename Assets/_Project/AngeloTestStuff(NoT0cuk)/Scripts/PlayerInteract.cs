@@ -48,9 +48,12 @@ public class PlayerInteract : MonoBehaviour
 
     private void DetectItemPickUpOrDrop()
     {
-      if(Physics2D.OverlapCircle(detectionPosition.transform.position, detectionRadius, pickUpItems) && itemHeld.value is null)
+      if(Physics2D.OverlapCircle(detectionPosition.transform.position, detectionRadius, pickUpItems))
       {
-        GetPickUpItem();
+        if(itemHeld.value is null)
+        {
+          GetPickUpItem();
+        }
       } else if(Physics2D.OverlapCircle(detectionPosition.transform.position, detectionRadius, dropSpots) && itemHeld.value is not null)
       {
         GetDropPosition();

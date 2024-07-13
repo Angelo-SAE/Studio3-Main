@@ -6,5 +6,6 @@ using UnityEngine;
 public class OrderObject : ScriptableObject
 {
     public Order[] order;
+    public bool[] cooked;
     public bool changedOrder;
 }

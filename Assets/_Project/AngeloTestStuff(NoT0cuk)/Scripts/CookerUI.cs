@@ -9,6 +9,8 @@ public class CookerUI : MonoBehaviour
     [SerializeField] private MenuObject menu;
     [SerializeField] private OrderObject orders;
     [SerializeField] private IngredientObject cookerStorage, ingredientList, playerInventory;
+    [SerializeField] private BoolObject paused;
+    [SerializeField] private CookingAssembly cookingAssembly;
     [SerializeField] private Cooker cooker;
     [SerializeField] private Button cookButton;
     [SerializeField] private Image orderImage;
@@ -34,6 +36,7 @@ public class CookerUI : MonoBehaviour
         ResetSprites();
         slotIngredientNumber = menu.orderIngredients[orders.order[tableNumber].OrderNumber].ingredientNumber;
         DisplayFoodGuide();
+        AddItemToCooker();
       }
     }
 
@@ -87,24 +90,28 @@ public class CookerUI : MonoBehaviour
       onReturn.Invoke();
     }
 
-    public void AddItemToCooker(int slotNumber)
+    private void AddItemToCooker()
     {
-      if(playerInventory.ingredient[slotNumber] is not null)
+      for(int a = 0; a < playerInventory.ingredient.Length; a++)
       {
-        for(int a = 0; a < orderIngredientCount; a++)
+        if(playerInventory.ingredient[a] is not null)
         {
-          if(slotIngredientNumber[a] == playerInventory.ingredient[slotNumber].IngredientNumber && cookerStorage.ingredient[a] is null)
+          for(int b = 0; b < orderIngredientCount; b++)
           {
-            tempIngredientCount++;
-            itemSlot[a].sprite = playerInventory.ingredient[slotNumber].IngredientSprite;
-            cookerStorage.ingredient[a] = playerInventory.ingredient[slotNumber];
-            playerInventory.count--;
-            playerInventory.ingredient[slotNumber] = null;
-            break;
+            if(slotIngredientNumber[b] == playerInventory.ingredient[a].IngredientNumber && cookerStorage.ingredient[b] is null)
+            {
+              tempIngredientCount++;
+              itemSlot[b].sprite = playerInventory.ingredient[a].IngredientSprite;
+              cookerStorage.ingredient[b] = playerInventory.ingredient[a];
+              playerInventory.count--;
+              playerInventory.ingredient[a] = null;
+              break;
+            }
           }
         }
       }
-      if(orderIngredientCount == tempIngredientCount && orderIngredientCount != 0)
+      onReturn.Invoke();
+      if(orderIngredientCount == tempIngredientCount && orderIngredientCount != 0 && cooker.FoodHolder.transform.childCount == 0)
       {
         cookButton.interactable = true;
       }
@@ -114,9 +121,24 @@ public class CookerUI : MonoBehaviour
     {
       ClearCookerSlots();
       cooker.CookOrder(orderNumber);
-      orders.order[tableNumber] = null;
+      orders.cooked[tableNumber] = true;
       orders.changedOrder = true;
       ResetOrder();
+      paused.value = false;
+    }
+
+    public void CookSlop()
+    {
+      ClearCookerSlots();
+      ResetOrder();
+      cooker.CookMush();
+      paused.value = false;
+    }
+
+    public void StartAssemblyProcess()
+    {
+      gameObject.SetActive(false);
+      cookingAssembly.PrepareAssembly();
     }
 
     private void ClearCookerSlots()

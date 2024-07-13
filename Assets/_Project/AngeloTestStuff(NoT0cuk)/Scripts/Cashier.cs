@@ -6,10 +6,13 @@ using UnityEngine.Events;
 public class Cashier : Interactable
 {
     [SerializeField] private GameObjectObject cashier;
+    [SerializeField] private Vector2Int exit;
     [SerializeField] private Vector2Int[] waitingSpots;
     [SerializeField] private UnityEvent afterPaid;
     private LinkedList<Customer> customers;
     private int currentSpot;
+
+    public Vector2Int Exit => exit;
 
     private void Awake()
     {

@@ -50,6 +50,15 @@ public class CustomerMovement : MonoBehaviour
       FindStarPath();
     }
 
+    public void MovePlayerToExit()
+    {
+      startPosition = cashier.value.GetComponent<Cashier>().Exit;
+      endPosition = new Vector2Int((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y));
+      moving = false;
+      foundPath = false;
+      FindStarPath();
+    }
+
     public void MoveToPosition(Vector2Int startPos)
     {
       startPosition = startPos;
@@ -243,6 +252,9 @@ public class CustomerMovement : MonoBehaviour
             goingToCashier = false;
             customer.isAtCashier = true;
             AnimateCustomer(4);
+          } else if(customer.exiting)
+          {
+            Destroy(gameObject);
           } else {
             AnimateCustomer(4);
           }

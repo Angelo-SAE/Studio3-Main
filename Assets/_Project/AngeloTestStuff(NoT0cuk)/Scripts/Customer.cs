@@ -11,12 +11,20 @@ public class Customer : MonoBehaviour
     [SerializeField] private FloatObject money;
     [SerializeField] private GameObject order;
     [SerializeField] private SpriteRenderer orderSprite;
+    [SerializeField] private float orderWaitTime, foodWaitTime;
     private int randomOrder, tableNumber;
     private string orderTag;
     private float orderPrice;
-    public bool isAtReception, isAtTable, isAtCashier, hasOrdered;
+    public bool isAtReception, isAtTable, isAtCashier, hasOrdered, exiting;
 
     public CustomerMovement Movement => customerMovement;
+    public int TableNumber
+    {
+      get => tableNumber;
+      set => tableNumber = value;
+    }
+    public float OrderWaitTime => orderWaitTime;
+    public float FoodWaitTime => foodWaitTime;
 
     private void Start()
     {
@@ -36,17 +44,17 @@ public class Customer : MonoBehaviour
       customerMovement.MoveToPosition(position);
     }
 
-    public void DisplayOrder(int table)
+    public void DisplayOrder()
     {
       hasOrdered = true;
       order.SetActive(true);
-      tableNumber = table;
       AddOrder();
     }
 
     private void AddOrder()
     {
       orders.order[tableNumber] = menu.order[randomOrder];
+      orders.cooked[tableNumber] = false;
       orders.changedOrder = true;
     }
 
@@ -59,6 +67,8 @@ public class Customer : MonoBehaviour
           order.SetActive(false);
           Destroy(itemHeld.value);
           itemHeld.value = null;
+          orders.order[tableNumber] = null;
+          orders.changedOrder = true;
           customerMovement.goingToCashier = true;
           customerMovement.Invoke("MovePlayerToCashier", 3f);
           return true;
@@ -69,7 +79,18 @@ public class Customer : MonoBehaviour
 
     public void CheckOutCustomer()
     {
+      exiting = true;
       money.value += orderPrice;
-      Destroy(gameObject);
+      customerMovement.MovePlayerToExit();
+    }
+
+    public void LeaveWithoutPaying()
+    {
+      Debug.Log(tableNumber);
+      orders.order[tableNumber] = null;
+      orders.changedOrder = true;
+      order.SetActive(false);
+      exiting = true;
+      customerMovement.MovePlayerToExit();
     }
 }
