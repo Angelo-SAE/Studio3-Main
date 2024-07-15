@@ -62,6 +62,7 @@ public class PlayerInteract : MonoBehaviour
         if(tempCollider is not null)
         {
           tempCollider.gameObject.GetComponent<Interactable>().Interact();
+          UpdateCarryingAnimation();
         }
       }
     }
@@ -90,10 +91,10 @@ public class PlayerInteract : MonoBehaviour
 
     private void PickUpItem(GameObject item)
     {
-      UpdateCarryingAnimation(true);
       item.transform.SetParent(itemHolder.transform);
       item.transform.localPosition = Vector2.zero;
       itemHeld.value = item;
+      UpdateCarryingAnimation();
     }
 
     private void GetDropPosition()
@@ -118,16 +119,21 @@ public class PlayerInteract : MonoBehaviour
 
     private void DropItem(GameObject dropPosition)
     {
-      UpdateCarryingAnimation(false);
       itemHeld.value.transform.SetParent(dropPosition.transform);
       itemHeld.value.transform.localScale = Vector2.one;
       itemHeld.value.transform.localPosition = Vector2.zero;
       itemHeld.value = null;
+      UpdateCarryingAnimation();
     }
 
-    public void UpdateCarryingAnimation(bool set)
+    public void UpdateCarryingAnimation()
     {
-      playerAnimator.SetBool("Carrying", set);
+      if(itemHeld.value is not null)
+      {
+        playerAnimator.SetBool("Carrying", true);
+      } else {
+        playerAnimator.SetBool("Carrying", false);
+      }
     }
 
     private float GetDistance(GameObject first, GameObject second)

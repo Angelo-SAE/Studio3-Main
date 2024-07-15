@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Cooker : Interactable
 {
+    [SerializeField] private BoolObject paused;
     [SerializeField] private MenuObject menu;
     [SerializeField] private GameObject foodHolder, mush;
     [SerializeField] private UnityEvent onInteract;
@@ -13,7 +14,10 @@ public class Cooker : Interactable
 
     public override void Interact()
     {
-      onInteract.Invoke();
+      if(!paused.value)
+      {
+        onInteract.Invoke();
+      }
     }
 
     public void CookOrder(int orderNumber)

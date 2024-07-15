@@ -25,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
         TakePlayerInput();
         MovePlayer();
         AnimatePlayer();
+      } else {
+        rb2d.velocity = Vector2.zero;
+        animator.SetInteger("xMovement", 0);
+        animator.SetInteger("yMovement", 0);
       }
     }
 

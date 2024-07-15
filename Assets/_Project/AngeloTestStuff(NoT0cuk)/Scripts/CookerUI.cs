@@ -32,6 +32,7 @@ public class CookerUI : MonoBehaviour
       {
         ReturnItemsToInventory();
         orderImage.sprite = orders.order[tableNumber].OrderSprite;
+        orderImage.color = new Color(1,1,1,1);
         orderNumber = orders.order[tableNumber].OrderNumber;
         ResetSprites();
         slotIngredientNumber = menu.orderIngredients[orders.order[tableNumber].OrderNumber].ingredientNumber;
@@ -48,6 +49,7 @@ public class CookerUI : MonoBehaviour
       for(int a = 0; a < slotIngredientNumber.Length; a++)
       {
         foodGuide[a].sprite = ingredientList.ingredient[slotIngredientNumber[a]].IngredientSprite;
+        foodGuide[a].color = new Color(1,1,1,0.5f);
       }
     }
 
@@ -56,13 +58,16 @@ public class CookerUI : MonoBehaviour
       for(int a = 0; a < orderIngredientCount; a++)
       {
         itemSlot[a].sprite = null;
+        itemSlot[a].color = new Color(1,1,1,0);
         foodGuide[a].sprite = null;
+        foodGuide[a].color = new Color(1,1,1,0);
       }
     }
 
     public void ResetOrder()
     {
       orderImage.sprite = null;
+      orderImage.color = new Color(1,1,1,0);
       slotIngredientNumber = null;
       orderIngredientCount = 0;
       cookButton.interactable = false;
@@ -102,6 +107,7 @@ public class CookerUI : MonoBehaviour
             {
               tempIngredientCount++;
               itemSlot[b].sprite = playerInventory.ingredient[a].IngredientSprite;
+              itemSlot[b].color = new Color(1,1,1,1);
               cookerStorage.ingredient[b] = playerInventory.ingredient[a];
               playerInventory.count--;
               playerInventory.ingredient[a] = null;

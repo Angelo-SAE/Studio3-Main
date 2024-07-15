@@ -22,10 +22,12 @@ public class PlayerInventoryUI : MonoBehaviour
     private void DisplayPlayerItem(Ingredient ingredient)
     {
       slotSprite.sprite = ingredient.IngredientSprite;
+      slotSprite.color = new Color(1,1,1,1);
     }
 
     public void DisplayNothing()
     {
       slotSprite.sprite = null;
+      slotSprite.color = new Color(1,1,1,0);
     }
 }
