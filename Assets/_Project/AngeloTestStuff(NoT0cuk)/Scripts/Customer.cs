@@ -86,7 +86,6 @@ public class Customer : MonoBehaviour
 
     public void LeaveWithoutPaying()
     {
-      Debug.Log(tableNumber);
       orders.order[tableNumber] = null;
       orders.changedOrder = true;
       order.SetActive(false);

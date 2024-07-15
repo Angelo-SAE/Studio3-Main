@@ -262,6 +262,7 @@ MonoBehaviour:
   isAtTable: 0
   isAtCashier: 0
   hasOrdered: 0
+  exiting: 0
 --- !u!114 &1422225227468005507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,14 +283,14 @@ MonoBehaviour:
   cashier: {fileID: 11400000, guid: 2fda858d4dbafea478b05c58c1d57759, type: 2}
   movementSpeed: 4
   pathPiece: {fileID: 0}
-  startPosition: {x: 0, y: 0}
-  endPosition: {x: 0, y: 0}
+  startPosition: {x: 30, y: 30}
+  endPosition: {x: 60, y: 60}
   orthogonalMovementToll: 10
   maxChecks: 100
   customerAnimatorSelector: {fileID: 11400000, guid: 5754b73dc99cb734aa8f5e09b11631cc, type: 2}
   customerAnimator: {fileID: 6162527833955904531}
   gridStart: {x: 0, y: 0}
-  gridEnd: {x: 20, y: 11}
+  gridEnd: {x: 60, y: 60}
   walkableLayer:
     serializedVersion: 2
     m_Bits: 64
