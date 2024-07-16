@@ -8,7 +8,8 @@ public class Cooker : Interactable
     [SerializeField] private BoolObject paused;
     [SerializeField] private MenuObject menu;
     [SerializeField] private GameObject foodHolder, mush;
-    [SerializeField] private UnityEvent onInteract;
+    [SerializeField] private UnityEvent onInteract, onSecondInteract;
+    public bool isCooking;
 
     public GameObject FoodHolder => foodHolder;
 
@@ -17,6 +18,9 @@ public class Cooker : Interactable
       if(!paused.value)
       {
         onInteract.Invoke();
+      } else if(!isCooking)
+      {
+        onSecondInteract.Invoke();
       }
     }
 

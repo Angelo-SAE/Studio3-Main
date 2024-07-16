@@ -1,13 +1,13 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-2933467427598189070
+--- !u!1102 &-7674516060288676206
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NPC #2 - Eating Top
+  m_Name: NPCEatTop
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -230,10 +230,10 @@ AnimatorStateMachine:
     m_Position: {x: 420, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8644553738066938716}
-    m_Position: {x: 595.6487, y: 318.3544, z: 0}
+    m_Position: {x: 450, y: 270, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -2933467427598189070}
-    m_Position: {x: 630.6487, y: 383.3544, z: 0}
+    m_State: {fileID: -7674516060288676206}
+    m_Position: {x: 490.625, y: 355.58344, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

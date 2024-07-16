@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NPC #1 - Eating Top
+  m_Name: NPCEatTop
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 802857907, guid: 3f9013915858cc94d914465cf54a1ef7, type: 3}
+      value: {fileID: -920834971, guid: 39a7fa61d779d0c4c8261df1a546b927, type: 3}
     - time: 0.16666667
-      value: {fileID: -1400321408, guid: 3f9013915858cc94d914465cf54a1ef7, type: 3}
+      value: {fileID: 811674358, guid: 39a7fa61d779d0c4c8261df1a546b927, type: 3}
     - time: 0.33333334
-      value: {fileID: -1400321408, guid: 3f9013915858cc94d914465cf54a1ef7, type: 3}
+      value: {fileID: 811674358, guid: 39a7fa61d779d0c4c8261df1a546b927, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,9 +48,9 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 802857907, guid: 3f9013915858cc94d914465cf54a1ef7, type: 3}
-    - {fileID: -1400321408, guid: 3f9013915858cc94d914465cf54a1ef7, type: 3}
-    - {fileID: -1400321408, guid: 3f9013915858cc94d914465cf54a1ef7, type: 3}
+    - {fileID: -920834971, guid: 39a7fa61d779d0c4c8261df1a546b927, type: 3}
+    - {fileID: 811674358, guid: 39a7fa61d779d0c4c8261df1a546b927, type: 3}
+    - {fileID: 811674358, guid: 39a7fa61d779d0c4c8261df1a546b927, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
+    [SerializeField] private BoolObject paused;
     [SerializeField] private float detectionRadius;
     [SerializeField] private GameObjectObject itemHeld;
     [SerializeField] private GameObject detectionPosition, itemHolder;
@@ -27,7 +28,10 @@ public class PlayerInteract : MonoBehaviour
       {
         DetectItemPickUpOrDrop();
       }
-      RotateDetection();
+      if(!paused.value)
+      {
+        RotateDetection();
+      }
     }
 
     private void RotateDetection()
@@ -94,6 +98,7 @@ public class PlayerInteract : MonoBehaviour
       item.transform.SetParent(itemHolder.transform);
       item.transform.localPosition = Vector2.zero;
       itemHeld.value = item;
+      itemHeld.value.GetComponent<Collider2D>().enabled = false;
       UpdateCarryingAnimation();
     }
 
@@ -122,6 +127,7 @@ public class PlayerInteract : MonoBehaviour
       itemHeld.value.transform.SetParent(dropPosition.transform);
       itemHeld.value.transform.localScale = Vector2.one;
       itemHeld.value.transform.localPosition = Vector2.zero;
+      itemHeld.value.GetComponent<Collider2D>().enabled = true;
       itemHeld.value = null;
       UpdateCarryingAnimation();
     }

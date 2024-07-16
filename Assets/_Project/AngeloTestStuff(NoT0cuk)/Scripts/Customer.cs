@@ -70,6 +70,7 @@ public class Customer : MonoBehaviour
           orders.order[tableNumber] = null;
           orders.changedOrder = true;
           customerMovement.goingToCashier = true;
+          customerMovement.AnimateCustomer(6);
           customerMovement.Invoke("MovePlayerToCashier", 3f);
           return true;
         }

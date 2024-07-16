@@ -10,6 +10,7 @@ public class CookingAssembly : MonoBehaviour
     [SerializeField] private IngredientObject cookerStorage;
     [SerializeField] private GameObject[] ingredient;
     [SerializeField] private Image[] ingredientSprite;
+    [SerializeField] private Image[] failLight;
     [SerializeField] private CookerUI cooker;
     private float ingredientAngle;
     private int direction, arrowSpeed, currentIngredient;
@@ -23,6 +24,7 @@ public class CookingAssembly : MonoBehaviour
     public void PrepareAssembly()
     {
       gameObject.SetActive(true);
+      ResetFailLights();
       ingredientAngle = Random.Range(50, 320 + 1);
       currentIngredient = 0;
       cookerStorage.count = 0;
@@ -33,11 +35,19 @@ public class CookingAssembly : MonoBehaviour
       isAssembling = true;
     }
 
+    private void ResetFailLights()
+    {
+      for(int a = 0; a < 3; a++)
+      {
+        failLight[a].color = new Color(1,1,1,1);
+      }
+    }
+
     private void Update()
     {
       if(isAssembling)
       {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E))
         {
           direction *= -1;
           arrowSpeed += 30;
@@ -75,6 +85,8 @@ public class CookingAssembly : MonoBehaviour
           cooker.CookSlop();
           isAssembling = false;
           gameObject.SetActive(false);
+        } else {
+          failLight[cookerStorage.count - 1].color = new Color(0.68f,0.17f,0.17f,1);
         }
         //what happens when they miss.
       }

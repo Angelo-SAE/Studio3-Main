@@ -71,6 +71,7 @@ public class CookerUI : MonoBehaviour
       slotIngredientNumber = null;
       orderIngredientCount = 0;
       cookButton.interactable = false;
+      cooker.isCooking = false;
     }
 
     public void ReturnItemsToInventory()
@@ -144,6 +145,7 @@ public class CookerUI : MonoBehaviour
     public void StartAssemblyProcess()
     {
       gameObject.SetActive(false);
+      cooker.isCooking = true;
       cookingAssembly.PrepareAssembly();
     }
 

@@ -326,6 +326,9 @@ public class CustomerMovement : MonoBehaviour
         case(5):
         customerAnimator.Play("NPCSitTop");
         break;
+        case(6):
+        customerAnimator.Play("NPCEatTop");
+        break;
       }
     }
 
