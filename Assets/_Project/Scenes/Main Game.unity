@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae339f09fb2de24d8493ff9e385d3ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
+  movementSpeed: 6
   paused: {fileID: 11400000, guid: 9c8a9c7acf1f728448259fc7f91d1b69, type: 2}
 --- !u!50 &27502288
 Rigidbody2D:
@@ -18255,6 +18255,9 @@ MonoBehaviour:
   - {x: 58, y: 45}
   - {x: 58, y: 46}
   - {x: 58, y: 47}
+  - {x: 58, y: 48}
+  - {x: 58, y: 49}
+  - {x: 58, y: 50}
   afterPaid:
     m_PersistentCalls:
       m_Calls:

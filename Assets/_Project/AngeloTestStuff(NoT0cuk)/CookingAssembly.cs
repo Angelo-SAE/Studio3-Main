@@ -25,6 +25,7 @@ public class CookingAssembly : MonoBehaviour
     {
       gameObject.SetActive(true);
       ResetFailLights();
+      ResetIngredients();
       ingredientAngle = Random.Range(50, 320 + 1);
       currentIngredient = 0;
       cookerStorage.count = 0;
@@ -40,6 +41,14 @@ public class CookingAssembly : MonoBehaviour
       for(int a = 0; a < 3; a++)
       {
         failLight[a].color = new Color(1,1,1,1);
+      }
+    }
+
+    private void ResetIngredients()
+    {
+      for(int a = 0; a < ingredient.Length; a++)
+      {
+        ingredient[a].SetActive(false);
       }
     }
 

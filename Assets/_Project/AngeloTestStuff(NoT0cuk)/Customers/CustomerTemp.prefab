@@ -256,8 +256,8 @@ MonoBehaviour:
   money: {fileID: 11400000, guid: 42066d6eda9a96740a6aa069f8c6b635, type: 2}
   order: {fileID: 9222355071336812128}
   orderSprite: {fileID: 7234690163199062098}
-  orderWaitTime: 20
-  foodWaitTime: 40
+  orderWaitTime: 35
+  foodWaitTime: 50
   isAtReception: 0
   isAtTable: 0
   isAtCashier: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
   goingToCashier: 0
   frontCounter: {fileID: 11400000, guid: 822c267fb0e659844932e1d60b490802, type: 2}
   cashier: {fileID: 11400000, guid: 2fda858d4dbafea478b05c58c1d57759, type: 2}
-  movementSpeed: 4
+  movementSpeed: 0.1
   pathPiece: {fileID: 0}
   startPosition: {x: 30, y: 30}
   endPosition: {x: 60, y: 60}
