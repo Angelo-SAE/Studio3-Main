@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class Table : Interactable
 {
     [SerializeField] private IntObject tablesAvailable;
+    [SerializeField] private GameObjectObject cashier;
     [SerializeField] private int tableNumber;
     [SerializeField] private Slider tableTimer;
     public Vector2Int chairPosition;
     private Tables tables;
-    public bool tableIsFree, timerStarted;
+    public bool tableIsFree, timerStarted, servedCustomer;
     private Customer currentCustomer;
+    private Cashier currentCashier;
 
     private void Awake()
     {
@@ -33,6 +35,10 @@ public class Table : Interactable
           ServedCustomer();
         }
       }
+      if(servedCustomer)
+      {
+        ServedCustomer();
+      }
     }
 
     public override void Interact()
@@ -51,6 +57,7 @@ public class Table : Interactable
               tables.ServedCustomer.Invoke();
               timerStarted = false;
               tableTimer.gameObject.SetActive(false);
+              currentCashier = cashier.value.GetComponent<Cashier>();
               Invoke("ServedCustomer", 3f);
             }
           }
@@ -60,9 +67,16 @@ public class Table : Interactable
 
     private void ServedCustomer()
     {
-      currentCustomer = null;
-      tableIsFree = true;
-      tablesAvailable.value++;
+      if(currentCashier.CurrentSpot < currentCashier.WaitingSpots.Length)
+      {
+        currentCustomer.CustomerMove.MovePlayerToCashier();
+        currentCustomer = null;
+        tableIsFree = true;
+        tablesAvailable.value++;
+        servedCustomer = false;
+      } else {
+        servedCustomer = true;
+      }
     }
 
     public void AddCustomerToTable(Customer customer)

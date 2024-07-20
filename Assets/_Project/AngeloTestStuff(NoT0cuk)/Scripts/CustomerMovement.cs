@@ -31,19 +31,24 @@ public class CustomerMovement : MonoBehaviour
 
     private void MovePlayerToFrontCounter()
     {
-      frontCounter.value.GetComponent<FrontCounter>().AddCustomer(customer);
-      startPosition = frontCounter.value.GetComponent<FrontCounter>().GetNextSpot();
-      endPosition = new Vector2Int((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y));
-      moving = false;
-      foundPath = false;
-      goingToReception = true;
-      FindStarPath();
+      FrontCounter currentFrontCounter = frontCounter.value.GetComponent<FrontCounter>();
+      currentFrontCounter.AddCustomer(customer);
+      if(currentFrontCounter.Customers.Count() < currentFrontCounter.WaitingSpots.Length)
+      {
+        startPosition = currentFrontCounter.GetNextSpot();
+        endPosition = new Vector2Int((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y));
+        moving = false;
+        foundPath = false;
+        goingToReception = true;
+        FindStarPath();
+      }
     }
 
     public void MovePlayerToCashier()
     {
-      cashier.value.GetComponent<Cashier>().AddCustomer(customer);
-      startPosition = cashier.value.GetComponent<Cashier>().GetNextSpot();
+      Cashier currentCashier = cashier.value.GetComponent<Cashier>();
+      currentCashier.AddCustomer(customer);
+      startPosition = currentCashier.GetNextSpot();
       endPosition = new Vector2Int((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y));
       moving = false;
       foundPath = false;

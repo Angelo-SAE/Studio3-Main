@@ -7,9 +7,12 @@ public class FrontCounter : Interactable
     [SerializeField] private GameObjectObject frontCounter;
     [SerializeField] private IntObject tablesAvailable;
     [SerializeField] private Tables tables;
-    [SerializeField] private Vector2Int[] waitingSpots;
+    [SerializeField] private  Vector2Int[] waitingSpots;
     private LinkedList<Customer> customers;
     private int currentSpot;
+
+    public Vector2Int[] WaitingSpots => waitingSpots;
+    public LinkedList<Customer> Customers => customers;
 
     private void Awake()
     {
@@ -53,9 +56,12 @@ public class FrontCounter : Interactable
     private void MoveAllCustomersUpOne()
     {
       currentSpot--;
-      for(int a = 0; a < customers.Count(); a++)
+      for(int a = 0; a < waitingSpots.Length; a++)
       {
-        customers.GetElementAt(a).MoveCustomerToPosition(waitingSpots[a]);
+        if(a < customers.Count())
+        {
+          customers.GetElementAt(a).MoveCustomerToPosition(waitingSpots[a]);
+        }
       }
     }
 }

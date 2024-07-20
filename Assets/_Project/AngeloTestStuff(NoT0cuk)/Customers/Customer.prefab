@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 6386345880284976042}
   - component: {fileID: 1422225227468005507}
   m_Layer: 0
-  m_Name: CustomerTemp
+  m_Name: Customer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 3993579310987932225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.5, y: 1.5, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -256,8 +256,8 @@ MonoBehaviour:
   money: {fileID: 11400000, guid: 42066d6eda9a96740a6aa069f8c6b635, type: 2}
   order: {fileID: 9222355071336812128}
   orderSprite: {fileID: 7234690163199062098}
-  orderWaitTime: 35
-  foodWaitTime: 50
+  orderWaitTime: 40
+  foodWaitTime: 80
   isAtReception: 0
   isAtTable: 0
   isAtCashier: 0

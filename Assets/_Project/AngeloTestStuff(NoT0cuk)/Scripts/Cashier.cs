@@ -13,6 +13,8 @@ public class Cashier : Interactable
     private int currentSpot;
 
     public Vector2Int Exit => exit;
+    public int CurrentSpot => currentSpot;
+    public Vector2Int[] WaitingSpots => waitingSpots;
 
     private void Awake()
     {

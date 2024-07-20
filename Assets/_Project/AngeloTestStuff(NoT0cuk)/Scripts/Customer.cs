@@ -25,6 +25,7 @@ public class Customer : MonoBehaviour
     }
     public float OrderWaitTime => orderWaitTime;
     public float FoodWaitTime => foodWaitTime;
+    public CustomerMovement CustomerMove => customerMovement;
 
     private void Start()
     {
@@ -71,11 +72,16 @@ public class Customer : MonoBehaviour
           orders.changedOrder = true;
           customerMovement.goingToCashier = true;
           customerMovement.AnimateCustomer(6);
-          customerMovement.Invoke("MovePlayerToCashier", 3f);
+          Invoke("CustomerStopEating", 2.8f);
           return true;
         }
       }
       return false;
+    }
+
+    private void CustomerStopEating()
+    {
+      customerMovement.AnimateCustomer(4);
     }
 
     public void CheckOutCustomer()

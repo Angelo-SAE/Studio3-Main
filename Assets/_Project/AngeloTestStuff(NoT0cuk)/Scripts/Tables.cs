@@ -7,14 +7,15 @@ public class Tables : MonoBehaviour
 {
     [SerializeField] private IntObject tablesAvailable;
     [SerializeField] private OrderObject orders;
+    [SerializeField] private int tableCount;
     [SerializeField] public UnityEvent ServedCustomer;
     private List<Table> tables;
 
     private void Awake()
     {
-      int tables = transform.childCount;
-      tablesAvailable.value = tables;
-      orders.order = new Order[tables];
+      //int tables = transform.childCount;
+      tablesAvailable.value = tableCount;
+      orders.order = new Order[tableCount];
     }
 
     public void CreateTableNode(Table table)
