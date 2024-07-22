@@ -5018,10 +5018,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc5714ac422b06418cb02ccd3a10ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mCamera: {fileID: 0}
   cameraPositions:
   - {x: 24.5, y: 20.35, z: -10}
   - {x: 24.5, y: 30.35, z: -10}
   - {x: 24.5, y: 40.35, z: -10}
+  cameraSize: []
 --- !u!1 &472465668
 GameObject:
   m_ObjectHideFlags: 0
@@ -12540,6 +12542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ada49036e3dc34db1e76c0ff21b0c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: {fileID: 0}
   detectionRadius: 0.3
   itemHeld: {fileID: 11400000, guid: 5de36fa1b0b8b404385b7e2890ca3d5a, type: 2}
   detectionPosition: {fileID: 1768985504}
@@ -13425,8 +13428,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tablesAvailable: {fileID: 11400000, guid: 21b5bdbf231be22469a73144d93b4b4a, type: 2}
   tableNumber: 0
+  tableTimer: {fileID: 0}
   chairPosition: {x: 10, y: 7}
   tableIsFree: 1
+  timerStarted: 0
 --- !u!61 &1175088052
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13736,8 +13741,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tablesAvailable: {fileID: 11400000, guid: 21b5bdbf231be22469a73144d93b4b4a, type: 2}
   tableNumber: 0
+  tableTimer: {fileID: 0}
   chairPosition: {x: 14, y: 7}
   tableIsFree: 1
+  timerStarted: 0
 --- !u!61 &1212963779
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16908,6 +16915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cashier: {fileID: 11400000, guid: 2fda858d4dbafea478b05c58c1d57759, type: 2}
+  exit: {x: 0, y: 0}
   waitingSpots:
   - {x: 3, y: 1}
   - {x: 4, y: 1}
@@ -22221,8 +22229,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tablesAvailable: {fileID: 11400000, guid: 21b5bdbf231be22469a73144d93b4b4a, type: 2}
   tableNumber: 0
+  tableTimer: {fileID: 0}
   chairPosition: {x: 6, y: 7}
   tableIsFree: 1
+  timerStarted: 0
 --- !u!61 &1632966117
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28646,6 +28656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cashier: {fileID: 11400000, guid: 2fda858d4dbafea478b05c58c1d57759, type: 2}
+  exit: {x: 0, y: 0}
   waitingSpots:
   - {x: 3, y: 1}
   - {x: 4, y: 1}
