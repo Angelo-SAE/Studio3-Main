@@ -8,10 +8,10 @@ public class Customer : MonoBehaviour
     [SerializeField] private MenuObject menu;
     [SerializeField] private OrderObject orders;
     [SerializeField] private GameObjectObject itemHeld;
-    [SerializeField] private FloatObject money;
+    [SerializeField] private FloatObject money, stress;
     [SerializeField] private GameObject order;
     [SerializeField] private SpriteRenderer orderSprite;
-    [SerializeField] private float orderWaitTime, foodWaitTime;
+    [SerializeField] private float orderWaitTime, foodWaitTime, stressIncreaseAmount, stressReductionAmount;
     private int randomOrder, tableNumber;
     private string orderTag;
     private float orderPrice;
@@ -47,6 +47,7 @@ public class Customer : MonoBehaviour
 
     public void DisplayOrder()
     {
+      stress.value += stressIncreaseAmount;
       hasOrdered = true;
       order.SetActive(true);
       AddOrder();
@@ -65,6 +66,7 @@ public class Customer : MonoBehaviour
       {
         if(itemHeld.value.tag == orderTag)
         {
+          stress.value -= stressReductionAmount;
           order.SetActive(false);
           Destroy(itemHeld.value);
           itemHeld.value = null;

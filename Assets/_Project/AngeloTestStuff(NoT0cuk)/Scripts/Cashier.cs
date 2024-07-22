@@ -15,6 +15,7 @@ public class Cashier : Interactable
     public Vector2Int Exit => exit;
     public int CurrentSpot => currentSpot;
     public Vector2Int[] WaitingSpots => waitingSpots;
+    public LinkedList<Customer> Customers => customers;
 
     private void Awake()
     {

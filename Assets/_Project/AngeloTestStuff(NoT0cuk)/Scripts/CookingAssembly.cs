@@ -8,6 +8,8 @@ public class CookingAssembly : MonoBehaviour
     [SerializeField] private Transform wheel;
     [SerializeField] private int baseArrowSpeed;
     [SerializeField] private IngredientObject cookerStorage;
+    [SerializeField] private FloatObject stress;
+    [SerializeField] private float stressIncreaseForMiss;
     [SerializeField] private GameObject[] ingredient;
     [SerializeField] private Image[] ingredientSprite;
     [SerializeField] private Image[] failLight;
@@ -95,6 +97,7 @@ public class CookingAssembly : MonoBehaviour
           isAssembling = false;
           gameObject.SetActive(false);
         } else {
+          stress.value += stressIncreaseForMiss;
           failLight[cookerStorage.count - 1].color = new Color(0.68f,0.17f,0.17f,1);
         }
         //what happens when they miss.

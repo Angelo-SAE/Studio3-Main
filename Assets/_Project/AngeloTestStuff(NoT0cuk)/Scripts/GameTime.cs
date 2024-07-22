@@ -13,7 +13,6 @@ public class GameTime : MonoBehaviour
     [SerializeField] private UnityEvent dayEnd;
     private float timer;
     private int hours, minutes;
-    private bool timerStarted;
 
     private void Start()
     {
@@ -24,24 +23,23 @@ public class GameTime : MonoBehaviour
     {
       hours = 9;
       minutes = 0;
+      gameTimer.value = false;
       UpdateTime();
     }
 
     public void StartTimer()
     {
-      timerStarted = true;
       gameTimer.value = true;
     }
 
     public void StopTimer()
     {
-      timerStarted = false;
       gameTimer.value = false;
     }
 
     private void Update()
     {
-      if(timerStarted)
+      if(gameTimer.value)
       {
         Timer();
       }
@@ -87,7 +85,7 @@ public class GameTime : MonoBehaviour
     {
       if(hours == 21)
       {
-        timerStarted = false;
+        gameTimer.value = false;
         dayEnd.Invoke();
       }
     }
