@@ -2721,8 +2721,6 @@ MonoBehaviour:
   wheel: {fileID: 973198277}
   baseArrowSpeed: 250
   cookerStorage: {fileID: 11400000, guid: dd8679296fc8e2842984e06de60138b7, type: 2}
-  stress: {fileID: 0}
-  stressIncreaseForMiss: 0
   ingredient:
   - {fileID: 910516855}
   - {fileID: 1742813396}
@@ -6820,7 +6818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &434272761
 MonoBehaviour:
   m_ObjectHideFlags: 0
