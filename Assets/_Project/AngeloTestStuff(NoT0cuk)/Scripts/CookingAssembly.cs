@@ -64,7 +64,7 @@ public class CookingAssembly : MonoBehaviour
           arrowSpeed += 30;
           CheckForIngredientPress();
         }
-        wheel.eulerAngles = new Vector3(0,0,wheel.eulerAngles.z + (direction * Time.deltaTime * arrowSpeed));
+        wheel.eulerAngles = new Vector3(0,0,wheel.eulerAngles.z + (direction * Time.deltaTime * (arrowSpeed + (stress.value * 1.5f))));
       }
     }
 

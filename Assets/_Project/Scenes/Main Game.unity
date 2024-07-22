@@ -420,6 +420,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 6
   paused: {fileID: 11400000, guid: 9c8a9c7acf1f728448259fc7f91d1b69, type: 2}
+  player: {fileID: 11400000, guid: e8edb585fde99914780ff69509803eb9, type: 2}
+  stress: {fileID: 11400000, guid: d82d818c26f126341a310c55102e8630, type: 2}
 --- !u!50 &27502288
 Rigidbody2D:
   serializedVersion: 4
@@ -574,7 +576,7 @@ Transform:
   m_GameObject: {fileID: 27502286}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.57, y: 46.56, z: -1}
+  m_LocalPosition: {x: 26.53, y: 46.06, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20745,7 +20747,8 @@ GameObject:
   - component: {fileID: 1092498733}
   - component: {fileID: 1092498734}
   - component: {fileID: 1092498735}
-  m_Layer: 0
+  - component: {fileID: 1092498736}
+  m_Layer: 8
   m_Name: Player Room - Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20761,7 +20764,7 @@ Transform:
   m_GameObject: {fileID: 1092498732}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.500999, y: 5.379999, z: 0}
+  m_LocalPosition: {x: 9.500999, y: 5.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20864,6 +20867,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4375, y: 1.4375}
   m_EdgeRadius: 0
+--- !u!114 &1092498736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092498732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa915892bba49648967cd7be76486b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stress: {fileID: 11400000, guid: d82d818c26f126341a310c55102e8630, type: 2}
+  paused: {fileID: 11400000, guid: 9c8a9c7acf1f728448259fc7f91d1b69, type: 2}
+  player: {fileID: 11400000, guid: e8edb585fde99914780ff69509803eb9, type: 2}
+  chairPosition: {x: 29.5, y: 46.5}
+  exitPositionRight: {x: 31, y: 46}
+  exitPositionDown: {x: 29.5, y: 45}
+  exitPositionLeft: {x: 28, y: 46}
+  stressReduction: 5
+  playerInChair: 0
 --- !u!1 &1096791643
 GameObject:
   m_ObjectHideFlags: 0

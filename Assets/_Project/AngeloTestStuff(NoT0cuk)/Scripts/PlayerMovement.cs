@@ -7,10 +7,18 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private BoolObject paused;
+    [SerializeField] private GameObjectObject player;
+    [SerializeField] private FloatObject stress;
     private Rigidbody2D rb2d;
     private Animator animator;
     private int xMovement, yMovement;
     private Vector2 movementVel;
+
+    private void Awake()
+    {
+      player.value = gameObject;
+      paused.value = false;
+    }
 
     private void Start()
     {
@@ -40,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-      movementVel = (new Vector2(xMovement, yMovement).normalized) * movementSpeed;
+      movementVel = (new Vector2(xMovement, yMovement).normalized) * (movementSpeed - (stress.value/40));
       rb2d.velocity = movementVel;
     }
 
