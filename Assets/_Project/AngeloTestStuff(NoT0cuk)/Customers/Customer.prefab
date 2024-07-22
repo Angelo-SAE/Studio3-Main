@@ -254,10 +254,13 @@ MonoBehaviour:
   orders: {fileID: 11400000, guid: 725fe35f71e4226429b53550ca9ab0ca, type: 2}
   itemHeld: {fileID: 11400000, guid: 5de36fa1b0b8b404385b7e2890ca3d5a, type: 2}
   money: {fileID: 11400000, guid: 42066d6eda9a96740a6aa069f8c6b635, type: 2}
+  stress: {fileID: 11400000, guid: d82d818c26f126341a310c55102e8630, type: 2}
   order: {fileID: 9222355071336812128}
   orderSprite: {fileID: 7234690163199062098}
   orderWaitTime: 40
   foodWaitTime: 80
+  stressIncreaseAmount: 10
+  stressReductionAmount: 7
   isAtReception: 0
   isAtTable: 0
   isAtCashier: 0
