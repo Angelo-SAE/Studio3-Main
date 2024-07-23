@@ -6,21 +6,21 @@ using UnityEngine.EventSystems;
 
 public class ButtonHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [SerializeField] private RectTransform uiToScale;
+    [SerializeField] private Vector3 hoverScale;
     private RectTransform rectTransform;
     private Vector3 originalScale;
-    public Vector3 hoverScale = new Vector3(0.9f, 0.9f, 0.9f);
     private AudioSource audioSource;
-    
-    void Start()
+
+    private void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
-        originalScale = rectTransform.localScale;
+        originalScale = uiToScale.localScale;
         audioSource = GetComponent<AudioSource>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        rectTransform.localScale = hoverScale;
+        uiToScale.localScale = hoverScale;
 
         if (audioSource != null)
         {
@@ -30,6 +30,6 @@ public class ButtonHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        rectTransform.localScale = originalScale;
+        uiToScale.localScale = originalScale;
     }
 }
