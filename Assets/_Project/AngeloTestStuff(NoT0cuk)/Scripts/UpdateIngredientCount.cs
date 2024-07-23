@@ -6,12 +6,7 @@ using TMPro;
 public class UpdateIngredientCount : MonoBehaviour
 {
     [SerializeField] private IngredientObject ingredientList;
-    private TMP_Text ingredientCount;
-
-    private void Awake()
-    {
-      ingredientCount = GetComponent<TMP_Text>();
-    }
+    [SerializeField] private TMP_Text ingredientCount;
 
     public void UpdateCount(int ingredientNumber)
     {
