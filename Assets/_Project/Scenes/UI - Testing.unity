@@ -3776,7 +3776,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4dd9f1b62516739478f3e1128b6b2718, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 08521b0dc866d1a4494e5e0c487b417b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4900,6 +4900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &327768876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5791,6 +5792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &381477492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5966,7 +5968,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4dd9f1b62516739478f3e1128b6b2718, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 08521b0dc866d1a4494e5e0c487b417b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6306,6 +6308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &407722723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6831,6 +6834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &430658944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7071,7 +7075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &434272761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7535,6 +7539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &507117981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8205,6 +8210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &576863512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8781,6 +8787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &635377486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10325,6 +10332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &757448914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11742,7 +11750,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &864250662
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11887,6 +11895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &885769172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17873,6 +17882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &1257740064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18159,7 +18169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1271012323
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18201,7 +18211,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4dd9f1b62516739478f3e1128b6b2718, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 08521b0dc866d1a4494e5e0c487b417b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18887,6 +18897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &1314049142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19915,6 +19926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &1404765863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20082,6 +20094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &1415962567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20569,7 +20582,7 @@ RectTransform:
   m_Father: {fileID: 1301852642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20662,6 +20675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &1443102444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21932,7 +21946,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4dd9f1b62516739478f3e1128b6b2718, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 08521b0dc866d1a4494e5e0c487b417b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22006,6 +22020,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 11400000, guid: 42066d6eda9a96740a6aa069f8c6b635, type: 2}
   moneyTextUI: {fileID: 155558581}
+  shopMoneyText: {fileID: 0}
+  startingMoney: 0
 --- !u!114 &1566613263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22533,6 +22549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &1645221878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22775,6 +22792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &1654145075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23323,6 +23341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &1692333180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23884,7 +23903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9103774, g: 0.93499315, b: 1, a: 1}
+  m_Color: {r: 0.75686276, g: 0.7882353, b: 0.8862745, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -24317,6 +24336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &1824496150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24791,7 +24811,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4dd9f1b62516739478f3e1128b6b2718, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 08521b0dc866d1a4494e5e0c487b417b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25197,6 +25217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &1945418614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25326,6 +25347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: e1c82121602c225418fcd8bcb30ad1f4, type: 2}
+  ingredientCount: {fileID: 0}
 --- !u!114 &1945463945
 MonoBehaviour:
   m_ObjectHideFlags: 0
