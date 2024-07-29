@@ -7,8 +7,11 @@ public class CookingAssembly : MonoBehaviour
 {
     [SerializeField] private Transform wheel;
     [SerializeField] private int baseArrowSpeed;
+    [SerializeField] private int arrowSpeedIncrement;
+    [SerializeField] private int arrowSpeedStressImpact;
     [SerializeField] private IngredientObject cookerStorage;
     [SerializeField] private FloatObject stress;
+    [SerializeField] private float defaultStressIncreaseForMiss;
     [SerializeField] private float stressIncreaseForMiss;
     [SerializeField] private GameObject[] ingredient;
     [SerializeField] private Image[] ingredientSprite;
@@ -31,11 +34,13 @@ public class CookingAssembly : MonoBehaviour
       ingredientAngle = Random.Range(50, 320 + 1);
       currentIngredient = 0;
       cookerStorage.count = 0;
-      arrowSpeed = baseArrowSpeed;
+      arrowSpeed = baseArrowSpeed + (int)(stress.value * 0.01f * arrowSpeedStressImpact);
       ingredient[currentIngredient].transform.eulerAngles = new Vector3(0,0,ingredientAngle);
       ingredientSprite[currentIngredient].sprite = cookerStorage.ingredient[currentIngredient].IngredientSprite;
       ingredient[currentIngredient].SetActive(true);
+      stressIncreaseForMiss = defaultStressIncreaseForMiss;
       isAssembling = true;
+        
     }
 
     private void ResetFailLights()
@@ -61,7 +66,7 @@ public class CookingAssembly : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E))
         {
           direction *= -1;
-          arrowSpeed += 30;
+          arrowSpeed += (int)(arrowSpeedIncrement);
           CheckForIngredientPress();
         }
         wheel.eulerAngles = new Vector3(0,0,wheel.eulerAngles.z + (direction * Time.deltaTime * (arrowSpeed + (stress.value * 1.5f))));
@@ -98,6 +103,7 @@ public class CookingAssembly : MonoBehaviour
           gameObject.SetActive(false);
         } else {
           stress.value += stressIncreaseForMiss;
+          stressIncreaseForMiss += 5;
           failLight[cookerStorage.count - 1].color = new Color(0.68f,0.17f,0.17f,1);
         }
         //what happens when they miss.

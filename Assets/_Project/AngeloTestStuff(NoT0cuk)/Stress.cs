@@ -29,13 +29,19 @@ public class Stress : MonoBehaviour
       {
         UpdateSlider();
       }
-      if(inRestaurant.value)
-      {
-        if(counter1.Customers.Count() > 1 || counter2.Customers.Count() > 1)
+        /*if(inRestaurant.value)
         {
-          stress.value += stressIncreaseCounters * Time.deltaTime;
-        }
-      }
+          if(counter1.Customers.Count() > 1 || counter2.Customers.Count() > 1)
+          {
+            stress.value += stressIncreaseCounters * Time.deltaTime;
+          }
+        }*/
+
+      
+      stress.value += stressIncreaseCounters * Time.deltaTime;
+
+
+      stress.value = Mathf.Max(0, stress.value);
     }
 
     private void UpdateSlider()

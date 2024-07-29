@@ -11,7 +11,7 @@ public class Customer : MonoBehaviour
     [SerializeField] private FloatObject money, stress;
     [SerializeField] private GameObject order;
     [SerializeField] private SpriteRenderer orderSprite;
-    [SerializeField] private float orderWaitTime, foodWaitTime, stressIncreaseAmount, stressReductionAmount;
+    [SerializeField] private float orderWaitTime, foodWaitTime, stressIncreaseAmount, stressReductionAmount, stressUnservedPenalty;
     private int randomOrder, tableNumber;
     private string orderTag;
     private float orderPrice;
@@ -98,7 +98,9 @@ public class Customer : MonoBehaviour
       orders.order[tableNumber] = null;
       orders.changedOrder = true;
       order.SetActive(false);
+      stress.value += stressUnservedPenalty;
       exiting = true;
       customerMovement.MovePlayerToExit();
+
     }
 }

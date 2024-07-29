@@ -199,7 +199,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3993579310987932225
@@ -259,8 +259,9 @@ MonoBehaviour:
   orderSprite: {fileID: 7234690163199062098}
   orderWaitTime: 40
   foodWaitTime: 80
-  stressIncreaseAmount: 10
-  stressReductionAmount: 7
+  stressIncreaseAmount: 12.5
+  stressReductionAmount: 7.5
+  stressUnservedPenalty: 20
   isAtReception: 0
   isAtTable: 0
   isAtCashier: 0
@@ -487,7 +488,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8083978266502597548
@@ -571,7 +572,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &9222355071336812128
