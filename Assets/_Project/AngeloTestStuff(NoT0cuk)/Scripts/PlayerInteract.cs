@@ -28,6 +28,10 @@ public class PlayerInteract : MonoBehaviour
       {
         DetectItemPickUpOrDrop();
       }
+      if(Input.GetKeyDown(KeyCode.F))
+      {
+        InputAltInteract();
+      }
       if(!paused.value)
       {
         RotateDetection();
@@ -68,6 +72,16 @@ public class PlayerInteract : MonoBehaviour
           tempCollider.gameObject.GetComponent<Interactable>().Interact();
           UpdateCarryingAnimation();
         }
+      }
+    }
+
+    private void InputAltInteract()
+    {
+      Collider2D tempCollider = Physics2D.OverlapCircle(detectionPosition.transform.position, detectionRadius, interactableObject);
+      if(tempCollider is not null)
+      {
+        tempCollider.gameObject.GetComponent<Interactable>().AltInteract();
+        UpdateCarryingAnimation();
       }
     }
 

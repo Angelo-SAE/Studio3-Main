@@ -20,6 +20,8 @@ public class PlayerChair : Interactable
       }
     }
 
+    public override void AltInteract() {}
+
     private void Update()
     {
       if(playerInChair)

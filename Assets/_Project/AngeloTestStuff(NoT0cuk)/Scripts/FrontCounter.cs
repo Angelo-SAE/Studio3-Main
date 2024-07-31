@@ -25,6 +25,8 @@ public class FrontCounter : Interactable
       SeatCustomer();
     }
 
+    public override void AltInteract() {}
+
     private void SetFrontCounter()
     {
       frontCounter.value = gameObject;
@@ -63,5 +65,11 @@ public class FrontCounter : Interactable
           customers.GetElementAt(a).MoveCustomerToPosition(waitingSpots[a]);
         }
       }
+    }
+
+    public void ResetCustomers()
+    {
+      customers = new LinkedList<Customer>();
+      currentSpot = 0;
     }
 }

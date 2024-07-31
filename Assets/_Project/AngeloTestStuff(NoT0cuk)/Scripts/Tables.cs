@@ -44,4 +44,13 @@ public class Tables : MonoBehaviour
       }
       return Vector2Int.zero;
     }
+
+    public void ResetTables()
+    {
+      for(int a = 0; a < tableCount; a++)
+      {
+        tables[a].ResetTable();
+      }
+      tablesAvailable.value = tableCount;
+    }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CustomerSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject customer;
-    [SerializeField] private BoolObject gameTimer;
+    [SerializeField] private BoolObject gameTimer, ableToSleep;
     [SerializeField] private int minSpawnAmount, maxSpawnAmount;
     [SerializeField] private float minSpawnTime, maxSpawnTime, spawnSpeed;
     private int spawnAmount, currentSpawns;
@@ -57,5 +57,13 @@ public class CustomerSpawner : MonoBehaviour
     private void SpawnCustomers()
     {
       Instantiate(customer, transform.position, customer.transform.rotation, customerHolder.transform);
+    }
+
+    public void CheckForAbleToSleep()
+    {
+      if(customerHolder.transform.childCount == 0 && currentSpawns == spawnAmount)
+      {
+        ableToSleep.SetTrue();
+      }
     }
 }

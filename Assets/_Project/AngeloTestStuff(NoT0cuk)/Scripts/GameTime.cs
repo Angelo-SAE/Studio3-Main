@@ -7,10 +7,11 @@ using UnityEngine.Events;
 public class GameTime : MonoBehaviour
 {
 
-    [SerializeField] private TMP_Text hoursText, minutesText;
+    [SerializeField] private TMP_Text hoursText, minutesText, daysText;
     [SerializeField] private float gameSpeed;
-    [SerializeField] private BoolObject gameTimer;
-    [SerializeField] private UnityEvent dayEnd;
+    [SerializeField] private IntObject day;
+    [SerializeField] private BoolObject gameTimer, ableToSleep;
+    [SerializeField] private UnityEvent checkIfAbleToSleep, resetDay;
     private float timer;
     private int hours, minutes;
 
@@ -86,7 +87,20 @@ public class GameTime : MonoBehaviour
       if(hours == 21)
       {
         gameTimer.value = false;
-        dayEnd.Invoke();
+      }
+    }
+
+    public void ResetDay()
+    {
+      checkIfAbleToSleep.Invoke();
+      if(ableToSleep.value)
+      {
+        ableToSleep.SetFalse();
+        ResetTime();
+        StopTimer();
+        day.value++;
+        daysText.text = day.value.ToString();
+        resetDay.Invoke();
       }
     }
 }

@@ -17,4 +17,6 @@ public class Fridge : Interactable
         onSecondInteract.Invoke();
       }
     }
+
+    public override void AltInteract() {}
 }

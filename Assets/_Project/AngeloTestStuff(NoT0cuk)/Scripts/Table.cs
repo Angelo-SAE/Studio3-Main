@@ -21,6 +21,11 @@ public class Table : Interactable
       tables.CreateTableNode(this);
     }
 
+    private void Start()
+    {
+      currentCashier = cashier.value.GetComponent<Cashier>();
+    }
+
     private void Update()
     {
       if(timerStarted)
@@ -29,16 +34,24 @@ public class Table : Interactable
         {
           tableTimer.value -= Time.deltaTime;
         } else {
-          timerStarted = false;
-          tableTimer.gameObject.SetActive(false);
-          currentCustomer.LeaveWithoutPaying();
-          ServedCustomer();
+          TimeIsOut();
         }
       }
       if(servedCustomer)
       {
         ServedCustomer();
       }
+    }
+
+    private void TimeIsOut()
+    {
+      timerStarted = false;
+      tableTimer.gameObject.SetActive(false);
+      currentCustomer.LeaveWithoutPaying();
+      currentCustomer = null;
+      tableIsFree = true;
+      tablesAvailable.value++;
+      servedCustomer = false;
     }
 
     public override void Interact()
@@ -57,10 +70,20 @@ public class Table : Interactable
               tables.ServedCustomer.Invoke();
               timerStarted = false;
               tableTimer.gameObject.SetActive(false);
-              currentCashier = cashier.value.GetComponent<Cashier>();
               Invoke("ServedCustomer", 3f);
             }
           }
+        }
+      }
+    }
+
+    public override void AltInteract()
+    {
+      if(currentCustomer != null)
+      {
+        if(currentCustomer.isAtTable)
+        {
+          TimeIsOut();
         }
       }
     }
@@ -100,5 +123,14 @@ public class Table : Interactable
       tableTimer.maxValue = currentCustomer.FoodWaitTime;
       tableTimer.value = tableTimer.maxValue;
       timerStarted = true;
+    }
+
+    public void ResetTable()
+    {
+      timerStarted = false;
+      tableTimer.gameObject.SetActive(false);
+      currentCustomer = null;
+      tableIsFree = true;
+      servedCustomer = false;
     }
 }

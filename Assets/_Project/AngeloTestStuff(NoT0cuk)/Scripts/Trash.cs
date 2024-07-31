@@ -14,4 +14,6 @@ public class Trash : Interactable
         itemHeld.value = null;
       }
     }
+
+    public override void AltInteract() {}
 }

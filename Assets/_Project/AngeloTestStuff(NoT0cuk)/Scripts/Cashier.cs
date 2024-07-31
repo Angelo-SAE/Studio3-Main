@@ -28,6 +28,8 @@ public class Cashier : Interactable
       CheckOut();
     }
 
+    public override void AltInteract() {}
+
     private void SetFrontCounter()
     {
       cashier.value = gameObject;
@@ -66,5 +68,10 @@ public class Cashier : Interactable
       {
         customers.GetElementAt(a).MoveCustomerToPosition(waitingSpots[a]);
       }
+    }
+
+    public void ResetCustomers()
+    {
+      customers = new LinkedList<Customer>();
     }
 }

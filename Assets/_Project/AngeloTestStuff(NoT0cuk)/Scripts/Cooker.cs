@@ -24,6 +24,8 @@ public class Cooker : Interactable
       }
     }
 
+    public override void AltInteract() {}
+
     public void CookOrder(int orderNumber)
     {
       Instantiate(menu.orderObjects[orderNumber], foodHolder.transform);

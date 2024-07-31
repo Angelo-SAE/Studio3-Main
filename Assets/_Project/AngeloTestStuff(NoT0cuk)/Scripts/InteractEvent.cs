@@ -11,4 +11,6 @@ public class InteractEvent : Interactable
     {
       onInteract.Invoke();
     }
+
+    public override void AltInteract() {}
 }
