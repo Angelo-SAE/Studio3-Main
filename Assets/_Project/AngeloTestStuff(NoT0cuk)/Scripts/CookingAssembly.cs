@@ -13,6 +13,7 @@ public class CookingAssembly : MonoBehaviour
     [SerializeField] private FloatObject stress;
     [SerializeField] private float defaultStressIncreaseForMiss;
     [SerializeField] private float stressIncreaseForMiss;
+    [SerializeField] private float stessGainForCooking;
     [SerializeField] private GameObject[] ingredient;
     [SerializeField] private Image[] ingredientSprite;
     [SerializeField] private Image[] failLight;
@@ -40,7 +41,7 @@ public class CookingAssembly : MonoBehaviour
       ingredient[currentIngredient].SetActive(true);
       stressIncreaseForMiss = defaultStressIncreaseForMiss;
       isAssembling = true;
-        
+
     }
 
     private void ResetFailLights()
@@ -86,11 +87,13 @@ public class CookingAssembly : MonoBehaviour
             RevealNextIngredient();
           } else {
             cooker.Cook();
+            stress.value += stessGainForCooking;
             isAssembling = false;
             gameObject.SetActive(false);
           }
         } else {
           cooker.Cook();
+          stress.value += stessGainForCooking;
           isAssembling = false;
           gameObject.SetActive(false);
         }
@@ -99,6 +102,7 @@ public class CookingAssembly : MonoBehaviour
         if(cookerStorage.count > 3)
         {
           cooker.CookSlop();
+          stress.value += stessGainForCooking;
           isAssembling = false;
           gameObject.SetActive(false);
         } else {
