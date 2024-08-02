@@ -16,6 +16,8 @@ public class Customer : MonoBehaviour
     private string orderTag;
     private float orderPrice;
     public bool isAtReception, isAtTable, isAtCashier, hasOrdered, exiting;
+    public bool paired;
+    public Customer pairedCustomer;
 
     public CustomerMovement Movement => customerMovement;
     public int TableNumber

@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] private float movementSpeed;
+    [SerializeField] private PlayerInteract pInteract;
     [SerializeField] private BoolObject paused;
     [SerializeField] private GameObjectObject player;
     [SerializeField] private FloatObject stress;
@@ -13,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private int xMovement, yMovement;
     private Vector2 movementVel;
+    private bool up, down, left, right;
+
+    public bool carrying;
 
     private void Awake()
     {
@@ -54,15 +58,118 @@ public class PlayerMovement : MonoBehaviour
 
     private void AnimatePlayer()
     {
-      if(xMovement > 0)
+      if(yMovement == 0)
+      {
+        up = false;
+        down = false;
+        AltAnimate();
+      } else if(yMovement == 1 && !up)
+      {
+        up = true;
+        AnimatePlayer(0);
+        pInteract.RotateDetection(0);
+      } else if(yMovement == -1 && !down)
+      {
+        down = true;
+        AnimatePlayer(2);
+        pInteract.RotateDetection(2);
+      }
+
+      if(xMovement == 0)
+      {
+        right = false;
+        left = false;
+        AltAnimate();
+      } else if(xMovement == 1 && !right)
+      {
+        right = true;
+        transform.localScale = new Vector3( 1f, 1f, 1f);
+        AnimatePlayer(1);
+        pInteract.RotateDetection(1);
+      } else if(xMovement == -1 && !left)
+      {
+        left = true;
+        transform.localScale = new Vector3( -1f, 1f, 1f);
+        AnimatePlayer(1);
+        pInteract.RotateDetection(1);
+      }
+      if(!up && !down && !left && !right)
+      {
+        animator.SetBool("Idle", true);
+      } else {
+        animator.SetBool("Idle", false);
+      }
+    }
+
+    private void AltAnimate()
+    {
+      if(up)
+      {
+        AnimatePlayer(0);
+        pInteract.RotateDetection(0);
+      } else if(down)
+      {
+        AnimatePlayer(2);
+        pInteract.RotateDetection(2);
+      }
+      if(right)
       {
         transform.localScale = new Vector3( 1f, 1f, 1f);
-      } else if(xMovement < 0)
+        AnimatePlayer(1);
+        pInteract.RotateDetection(1);
+      } else if(left)
       {
         transform.localScale = new Vector3( -1f, 1f, 1f);
+        AnimatePlayer(1);
+        pInteract.RotateDetection(1);
       }
-      animator.SetInteger("xMovement", xMovement);
-      animator.SetInteger("yMovement", yMovement);
+    }
+
+    public void AnimatePlayer(int animationNumber)
+    {
+      if(carrying)
+      {
+        animationNumber += 6;
+      }
+      switch(animationNumber)
+      {
+        case(0):
+        animator.Play("WalkUp");
+        break;
+        case(1):
+        animator.Play("WalkSides");
+        break;
+        case(2):
+        animator.Play("WalkDown");
+        break;
+        case(3):
+        animator.Play("IdleUp");
+        break;
+        case(4):
+        animator.Play("IdleSides");
+        break;
+        case(5):
+        animator.Play("IdleDown");
+        break;
+        case(6):
+        animator.Play("CWalkUp");
+        break;
+        case(7):
+        animator.Play("CWalkSides");
+        break;
+        case(8):
+        animator.Play("CWalkDown");
+        break;
+        case(9):
+        animator.Play("CIdleUp");
+        break;
+        case(10):
+        animator.Play("CIdleSides");
+        break;
+        case(11):
+        animator.Play("CIdleDown");
+        break;
+      }
     }
 
 

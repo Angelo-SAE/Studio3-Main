@@ -9,7 +9,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private GameObjectObject itemHeld;
     [SerializeField] private GameObject detectionPosition, itemHolder;
     [SerializeField] private LayerMask pickUpItems, dropSpots, interactableObject;
-    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private PlayerMovement pMovement;
 
     private void OnDrawGizmos()
     {
@@ -32,25 +32,21 @@ public class PlayerInteract : MonoBehaviour
       {
         InputAltInteract();
       }
-      if(!paused.value)
-      {
-        RotateDetection();
-      }
     }
 
-    private void RotateDetection()
+    public void RotateDetection(int direction)
     {
-      if(Input.GetKeyDown(KeyCode.W))
+      switch(direction)
       {
+        case(0):
         transform.rotation = Quaternion.Euler(0, 0, 180);
-      }
-      if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
-      {
+        break;
+        case(1):
         transform.localRotation = Quaternion.Euler(0, 0, 90);
-      }
-      if(Input.GetKeyDown(KeyCode.S))
-      {
+        break;
+        case(2):
         transform.rotation = Quaternion.Euler(0, 0, 0);
+        break;
       }
     }
 
@@ -150,9 +146,9 @@ public class PlayerInteract : MonoBehaviour
     {
       if(itemHeld.value is not null)
       {
-        playerAnimator.SetBool("Carrying", true);
+        pMovement.carrying = true;
       } else {
-        playerAnimator.SetBool("Carrying", false);
+        pMovement.carrying = false;
       }
     }
 

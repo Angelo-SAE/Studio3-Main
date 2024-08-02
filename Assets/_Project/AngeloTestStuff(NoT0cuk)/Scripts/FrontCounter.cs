@@ -50,6 +50,7 @@ public class FrontCounter : Interactable
       {
         customers.first.data.MoveCustomerToPosition(tables.GetChairPosition(customers.first.data));
         customers.first.data.Movement.goingToTable = true;
+        customers.first.data.Movement.goingToReception = false;
         customers.RemoveFirst();
         MoveAllCustomersUpOne();
       }
