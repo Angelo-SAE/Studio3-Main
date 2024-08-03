@@ -9,11 +9,14 @@ public class Table : Interactable
     [SerializeField] private GameObjectObject cashier;
     [SerializeField] private int tableNumber;
     [SerializeField] private Slider tableTimer;
-    public Vector2Int chairPosition;
+    [SerializeField] private Vector2Int[] chairPosition;
     private Tables tables;
+    private bool servedOne, servedTwo;
     public bool tableIsFree, timerStarted, servedCustomer;
-    private Customer currentCustomer;
+    private List<Customer> currentCustomer = new List<Customer>();
     private Cashier currentCashier;
+
+    public Vector2Int[] ChairPosition => chairPosition;
 
     private void Awake()
     {
@@ -47,31 +50,59 @@ public class Table : Interactable
     {
       timerStarted = false;
       tableTimer.gameObject.SetActive(false);
-      currentCustomer.LeaveWithoutPaying();
-      currentCustomer = null;
+      for(int a = 0; a < currentCustomer.Count; a++)
+      {
+        currentCustomer[a].LeaveWithoutPaying();
+      }
+      currentCustomer = new List<Customer>();
       tableIsFree = true;
       tablesAvailable.value++;
       servedCustomer = false;
+      servedOne = false;
+      servedTwo = false;
     }
 
     public override void Interact()
     {
-      if(currentCustomer != null)
+      if(currentCustomer[0] != null)
       {
-        if(currentCustomer.isAtTable)
+        if(currentCustomer[0].isAtTable)
         {
-          if(!currentCustomer.hasOrdered)
+          if(!currentCustomer[0].hasOrdered)
           {
-            currentCustomer.DisplayOrder();
+            for(int a = 0; a < currentCustomer.Count; a++)
+            {
+              currentCustomer[a].DisplayOrder();
+            }
             StartFoodTimer();
           } else {
-            if(currentCustomer.CheckForOrder())
+            if(currentCustomer.Count == 1)
             {
-              tables.ServedCustomer.Invoke();
-              timerStarted = false;
-              tableTimer.gameObject.SetActive(false);
-              Invoke("ServedCustomer", 3f);
+              if(currentCustomer[0].CheckForOrder())
+              {
+                tables.ServedCustomer.Invoke();
+                timerStarted = false;
+                tableTimer.gameObject.SetActive(false);
+                Invoke("ServedCustomer", 3f);
+              }
+            } else {
+              if(currentCustomer[0].CheckForOrder() && !servedOne)
+              {
+                servedOne = true;
+              }
+              if(currentCustomer[1].CheckForOrder() && !servedTwo)
+              {
+                servedTwo = true;
+              }
+              if(servedOne && servedTwo)
+              {
+                tables.ServedCustomer.Invoke();
+                timerStarted = false;
+                tableTimer.gameObject.SetActive(false);
+                Invoke("ServedCustomer", 3f);
+              }
             }
+
           }
         }
       }
@@ -79,9 +110,9 @@ public class Table : Interactable
 
     public override void AltInteract()
     {
-      if(currentCustomer != null)
+      if(currentCustomer[0] != null)
       {
-        if(currentCustomer.isAtTable)
+        if(currentCustomer[0].isAtTable)
         {
           TimeIsOut();
         }
@@ -92,11 +123,16 @@ public class Table : Interactable
     {
       if(currentCashier.CurrentSpot < currentCashier.WaitingSpots.Length)
       {
-        currentCustomer.CustomerMove.MovePlayerToCashier();
-        currentCustomer = null;
+        for(int a = 0; a < currentCustomer.Count; a++)
+        {
+          currentCustomer[a].CustomerMove.MovePlayerToCashier();
+        }
+        currentCustomer = new List<Customer>();
         tableIsFree = true;
         tablesAvailable.value++;
         servedCustomer = false;
+        servedOne = false;
+        servedTwo = false;
       } else {
         servedCustomer = true;
       }
@@ -104,15 +140,15 @@ public class Table : Interactable
 
     public void AddCustomerToTable(Customer customer)
     {
-      currentCustomer = customer;
-      currentCustomer.TableNumber = tableNumber;
+      currentCustomer.Add(customer);
+      customer.TableNumber = tableNumber;
       StartOrderTimer();
     }
 
     private void StartOrderTimer()
     {
       tableTimer.gameObject.SetActive(true);
-      tableTimer.maxValue = currentCustomer.OrderWaitTime;
+      tableTimer.maxValue = currentCustomer[0].OrderWaitTime;
       tableTimer.value = tableTimer.maxValue;
       timerStarted = true;
     }
@@ -120,7 +156,7 @@ public class Table : Interactable
     private void StartFoodTimer()
     {
       timerStarted = false;
-      tableTimer.maxValue = currentCustomer.FoodWaitTime;
+      tableTimer.maxValue = currentCustomer[0].FoodWaitTime;
       tableTimer.value = tableTimer.maxValue;
       timerStarted = true;
     }
@@ -129,7 +165,7 @@ public class Table : Interactable
     {
       timerStarted = false;
       tableTimer.gameObject.SetActive(false);
-      currentCustomer = null;
+      currentCustomer = new List<Customer>();
       tableIsFree = true;
       servedCustomer = false;
     }

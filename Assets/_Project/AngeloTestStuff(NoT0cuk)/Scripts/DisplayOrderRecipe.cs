@@ -84,7 +84,7 @@ public class DisplayOrderRecipe : MonoBehaviour
 
     private void ResetSprites()
     {
-      for(int a = 0; a < orderIngredientCount; a++)
+      for(int a = 0; a < displaySlot.Length; a++)
       {
         displaySlot[a].sprite = null;
         displaySlot[a].color = new Color(1,1,1,0);

@@ -13,7 +13,10 @@ public class CustomerMovement : MonoBehaviour
       closedList = new LinkedList<GridNode>();
       openList = new LinkedList<GridNode>();
       GenerateGridNodes();
-      MovePlayerToFrontCounter();
+      if(!customer.isPair)
+      {
+        MovePlayerToFrontCounter();
+      }
     }
 
     private void FixedUpdate()
@@ -41,6 +44,11 @@ public class CustomerMovement : MonoBehaviour
         foundPath = false;
         goingToReception = true;
         FindStarPath();
+        if(customer.paired)
+        {
+          customer.pairedCustomer.Movement.goingToReception = true;
+          customer.pairedCustomer.Movement.MoveToPosition(new Vector2Int(startPosition.x + 1, startPosition.y));
+        }
       }
     }
 

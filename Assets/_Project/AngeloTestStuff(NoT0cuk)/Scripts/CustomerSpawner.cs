@@ -43,7 +43,6 @@ public class CustomerSpawner : MonoBehaviour
         {
           SpawnCustomers();
           SelectNewSpawnTime();
-          currentSpawns++;
           currentTime = 0;
         }
       }
@@ -56,7 +55,24 @@ public class CustomerSpawner : MonoBehaviour
 
     private void SpawnCustomers()
     {
-      Instantiate(customer, transform.position, customer.transform.rotation, customerHolder.transform);
+      int tempRand = Random.Range(0, 1 + 1);
+      if(tempRand == 0)
+      {
+        Instantiate(customer, transform.position, customer.transform.rotation, customerHolder.transform);
+        currentSpawns++;
+      } else {
+        GameObject spawnedCustomer = Instantiate(customer, new Vector2(transform.position.x + 1, transform.position.y), customer.transform.rotation, customerHolder.transform);
+        Customer tempTempCustomer = spawnedCustomer.GetComponent<Customer>();
+        spawnedCustomer = Instantiate(customer, transform.position, customer.transform.rotation, customerHolder.transform);
+        Customer tempCustomer = spawnedCustomer.GetComponent<Customer>();
+        tempCustomer.paired = true;
+        tempTempCustomer.isPair = true;
+        tempCustomer.pairedCustomer = tempTempCustomer;
+        tempTempCustomer.pairedCustomer = tempCustomer;
+        currentSpawns += 2;
+      }
+
+
     }
 
     public void CheckForAbleToSleep()

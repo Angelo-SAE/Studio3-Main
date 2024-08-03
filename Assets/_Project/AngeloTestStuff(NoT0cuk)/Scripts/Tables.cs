@@ -38,11 +38,34 @@ public class Tables : MonoBehaviour
             tablesAvailable.value--;
             tables[a].tableIsFree = false;
             tables[a].AddCustomerToTable(customer);
-            return tables[a].chairPosition;
+            return tables[a].ChairPosition[0];
           }
         }
       }
       return Vector2Int.zero;
+    }
+
+    public Vector2Int[] GetChairPositions(Customer[] customers)
+    {
+      Vector2Int[] tempPositions = new Vector2Int[customers.Length];
+      if(tablesAvailable.value != 0)
+      {
+        for(int a = 0; a < tables.Count; a++)
+        {
+          if(tables[a].tableIsFree)
+          {
+            tablesAvailable.value--;
+            tables[a].tableIsFree = false;
+            for(int b = 0; b < customers.Length; b++)
+            {
+              tables[a].AddCustomerToTable(customers[b]);
+              tempPositions[b] = tables[a].ChairPosition[b];
+            }
+            return tempPositions;
+          }
+        }
+      }
+      return tempPositions;
     }
 
     public void ResetTables()
