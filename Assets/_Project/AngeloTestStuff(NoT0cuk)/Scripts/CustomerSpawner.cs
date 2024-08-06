@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CustomerSpawner : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField] private BoolObject gameTimer, ableToSleep;
     [SerializeField] private int minSpawnAmount, maxSpawnAmount;
     [SerializeField] private float minSpawnTime, maxSpawnTime, spawnSpeed;
+    [SerializeField] private UnityEvent onLastCustomerArrival;
     private int spawnAmount, currentSpawns;
     private float currentTime, spawnTime;
     private GameObject customerHolder;
@@ -71,13 +73,15 @@ public class CustomerSpawner : MonoBehaviour
         tempTempCustomer.pairedCustomer = tempCustomer;
         currentSpawns += 2;
       }
-
-
+      if(currentSpawns >= spawnAmount)
+      {
+        onLastCustomerArrival.Invoke();
+      }
     }
 
     public void CheckForAbleToSleep()
     {
-      if(customerHolder.transform.childCount == 0 && currentSpawns == spawnAmount)
+      if(customerHolder.transform.childCount == 0 && currentSpawns >= spawnAmount)
       {
         ableToSleep.SetTrue();
       }
