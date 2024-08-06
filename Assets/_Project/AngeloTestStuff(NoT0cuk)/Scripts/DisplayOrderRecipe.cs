@@ -12,6 +12,7 @@ public class DisplayOrderRecipe : MonoBehaviour
     [SerializeField] private GameObject uiDisplayObject;
     [SerializeField] private Image[] displaySlot;
     [SerializeField] private int tableNumber;
+    [SerializeField] private bool isCustomerTwo;
     private bool displaying;
     private Vector2 mousePosition, bounds;
     private int[] slotIngredientNumber;
@@ -68,8 +69,14 @@ public class DisplayOrderRecipe : MonoBehaviour
 
     private void GetOrderInformation()
     {
-      slotIngredientNumber = menu.orderIngredients[orders.order[tableNumber].OrderNumber].ingredientNumber;
-      orderIngredientCount = slotIngredientNumber.Length;
+      if(isCustomerTwo && orders.pairOrder[tableNumber] is not null)
+      {
+        slotIngredientNumber = menu.orderIngredients[orders.pairOrder[tableNumber].OrderNumber].ingredientNumber;
+        orderIngredientCount = slotIngredientNumber.Length;
+      } else {
+        slotIngredientNumber = menu.orderIngredients[orders.order[tableNumber].OrderNumber].ingredientNumber;
+        orderIngredientCount = slotIngredientNumber.Length;
+      }
     }
 
     private void DisplayRecipe()

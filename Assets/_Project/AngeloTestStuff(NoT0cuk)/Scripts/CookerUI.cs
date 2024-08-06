@@ -41,6 +41,22 @@ public class CookerUI : MonoBehaviour
       }
     }
 
+    public void SelectOrderTwo(int table)
+    {
+      tableNumber = table;
+      if(orders.pairOrder[tableNumber] is not null)
+      {
+        ReturnItemsToInventory();
+        orderImage.sprite = orders.pairOrder[tableNumber].OrderSprite;
+        orderImage.color = new Color(1,1,1,1);
+        orderNumber = orders.pairOrder[tableNumber].OrderNumber;
+        ResetSprites();
+        slotIngredientNumber = menu.orderIngredients[orders.pairOrder[tableNumber].OrderNumber].ingredientNumber;
+        DisplayFoodGuide();
+        AddItemToCooker();
+      }
+    }
+
     private void DisplayFoodGuide()
     {
       orderIngredientCount = slotIngredientNumber.Length;

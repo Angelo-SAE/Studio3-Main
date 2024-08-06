@@ -14,6 +14,7 @@ public class FrontCounter : Interactable
     public Vector2Int[] WaitingSpots => waitingSpots;
     public Vector2Int[] PairWaitingSpots => pairWaitingSpots;
     public LinkedList<Customer> Customers => customers;
+    public int CurrentSpot => currentSpot;
 
     private void Awake()
     {

@@ -64,45 +64,54 @@ public class Table : Interactable
 
     public override void Interact()
     {
-      if(currentCustomer[0] != null)
+      if(currentCustomer.Count > 0)
       {
-        if(currentCustomer[0].isAtTable)
+        if(currentCustomer[0] != null)
         {
-          if(!currentCustomer[0].hasOrdered)
+          if(currentCustomer[0].isAtTable)
           {
-            for(int a = 0; a < currentCustomer.Count; a++)
+            if(!currentCustomer[0].hasOrdered)
             {
-              currentCustomer[a].DisplayOrder();
-            }
-            StartFoodTimer();
-          } else {
-            if(currentCustomer.Count == 1)
-            {
-              if(currentCustomer[0].CheckForOrder())
+              for(int a = 0; a < currentCustomer.Count; a++)
               {
-                tables.ServedCustomer.Invoke();
-                timerStarted = false;
-                tableTimer.gameObject.SetActive(false);
-                Invoke("ServedCustomer", 3f);
+                currentCustomer[a].DisplayOrder();
               }
+              StartFoodTimer();
             } else {
-              if(currentCustomer[0].CheckForOrder() && !servedOne)
+              if(currentCustomer.Count == 1)
               {
-                servedOne = true;
+                if(currentCustomer[0].CheckForOrder())
+                {
+                  tables.ServedCustomer.Invoke();
+                  timerStarted = false;
+                  tableTimer.gameObject.SetActive(false);
+                  Invoke("ServedCustomer", 3f);
+                }
+              } else {
+                if(!servedOne)
+                {
+                  if(currentCustomer[0].CheckForOrder())
+                  {
+                    servedOne = true;
+                  }
+                }
+                if(!servedTwo)
+                {
+                  if(currentCustomer[1].CheckForOrder())
+                  {
+                    servedTwo = true;
+                  }
+                }
+                if(servedOne && servedTwo)
+                {
+                  tables.ServedCustomer.Invoke();
+                  timerStarted = false;
+                  tableTimer.gameObject.SetActive(false);
+                  Invoke("ServedCustomer", 3f);
+                }
               }
-              if(currentCustomer[1].CheckForOrder() && !servedTwo)
-              {
-                servedTwo = true;
-              }
-              if(servedOne && servedTwo)
-              {
-                tables.ServedCustomer.Invoke();
-                timerStarted = false;
-                tableTimer.gameObject.SetActive(false);
-                Invoke("ServedCustomer", 3f);
-              }
-            }
 
+            }
           }
         }
       }
@@ -110,11 +119,14 @@ public class Table : Interactable
 
     public override void AltInteract()
     {
-      if(currentCustomer[0] != null)
+      if(currentCustomer.Count > 0)
       {
-        if(currentCustomer[0].isAtTable)
+        if(currentCustomer[0] != null)
         {
-          TimeIsOut();
+          if(currentCustomer[0].isAtTable)
+          {
+            TimeIsOut();
+          }
         }
       }
     }

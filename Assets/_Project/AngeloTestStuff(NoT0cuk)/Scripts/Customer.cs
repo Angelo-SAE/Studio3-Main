@@ -57,9 +57,16 @@ public class Customer : MonoBehaviour
 
     private void AddOrder()
     {
-      orders.order[tableNumber] = menu.order[randomOrder];
-      orders.cooked[tableNumber] = false;
-      orders.changedOrder = true;
+      if(isPair)
+      {
+        orders.pairOrder[tableNumber] = menu.order[randomOrder];
+        orders.cooked[tableNumber] = false;
+        orders.changedOrder = true;
+      } else {
+        orders.order[tableNumber] = menu.order[randomOrder];
+        orders.cooked[tableNumber] = false;
+        orders.changedOrder = true;
+      }
     }
 
     public bool CheckForOrder()
@@ -72,7 +79,12 @@ public class Customer : MonoBehaviour
           order.SetActive(false);
           Destroy(itemHeld.value);
           itemHeld.value = null;
-          orders.order[tableNumber] = null;
+          if(isPair)
+          {
+            orders.pairOrder[tableNumber] = null;
+          } else {
+            orders.order[tableNumber] = null;
+          }
           orders.changedOrder = true;
           customerMovement.goingToCashier = true;
           customerMovement.AnimateCustomer(6);
@@ -97,7 +109,12 @@ public class Customer : MonoBehaviour
 
     public void LeaveWithoutPaying()
     {
-      orders.order[tableNumber] = null;
+      if(isPair)
+      {
+        orders.pairOrder[tableNumber] = null;
+      } else {
+        orders.order[tableNumber] = null;
+      }
       orders.changedOrder = true;
       order.SetActive(false);
       stress.value += stressUnservedPenalty;

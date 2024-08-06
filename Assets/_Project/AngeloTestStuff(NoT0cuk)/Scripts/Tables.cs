@@ -16,6 +16,7 @@ public class Tables : MonoBehaviour
       //int tables = transform.childCount;
       tablesAvailable.value = tableCount;
       orders.order = new Order[tableCount];
+      orders.pairOrder = new Order[tableCount];
     }
 
     public void CreateTableNode(Table table)

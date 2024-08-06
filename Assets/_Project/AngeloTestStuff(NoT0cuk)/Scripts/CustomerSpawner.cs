@@ -36,7 +36,7 @@ public class CustomerSpawner : MonoBehaviour
 
     private void Update()
     {
-      if(gameTimer.value && currentSpawns != spawnAmount)
+      if(gameTimer.value && currentSpawns <= spawnAmount)
       {
         currentTime += Time.deltaTime * 2;
         if(currentTime >= spawnTime)

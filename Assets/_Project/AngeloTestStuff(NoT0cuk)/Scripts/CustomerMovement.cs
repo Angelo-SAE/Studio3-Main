@@ -36,7 +36,7 @@ public class CustomerMovement : MonoBehaviour
     {
       FrontCounter currentFrontCounter = frontCounter.value.GetComponent<FrontCounter>();
       currentFrontCounter.AddCustomer(customer);
-      if(currentFrontCounter.Customers.Count() < currentFrontCounter.WaitingSpots.Length)
+      if(currentFrontCounter.CurrentSpot < currentFrontCounter.WaitingSpots.Length)
       {
         startPosition = currentFrontCounter.GetNextSpot();
         endPosition = new Vector2Int((int)Mathf.Floor(transform.position.x), (int)Mathf.Floor(transform.position.y));
