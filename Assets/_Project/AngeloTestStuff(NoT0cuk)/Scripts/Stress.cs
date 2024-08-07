@@ -12,6 +12,13 @@ public class Stress : MonoBehaviour
     private FrontCounter counter1;
     private Cashier counter2;
     [SerializeField] private float stressIncreaseCounters;
+    [SerializeField] private Image stressBarBackground;
+    [SerializeField] private RectTransform stressBarBackgroundScale;
+    [SerializeField] private Color flashColor = Color.red;
+    [SerializeField] private float flashDuration = 0.3f;
+    private float previousStress = 0f;
+
+    private bool isFlashing = false;
 
 
     private void Start()
@@ -21,6 +28,7 @@ public class Stress : MonoBehaviour
       UpdateSlider();
       counter1 = frontCounter.value.GetComponent<FrontCounter>();
       counter2 = cashier.value.GetComponent<Cashier>();
+      StartCoroutine(UpdatePreviousStress());
     }
 
     private void Update()
@@ -29,19 +37,17 @@ public class Stress : MonoBehaviour
       {
         UpdateSlider();
       }
-        /*if(inRestaurant.value)
-        {
-          if(counter1.Customers.Count() > 1 || counter2.Customers.Count() > 1)
-          {
-            stress.value += stressIncreaseCounters * Time.deltaTime;
-          }
-        }*/
 
-      
+       
       stress.value += stressIncreaseCounters * Time.deltaTime;
 
 
       stress.value = Mathf.Max(0, stress.value);
+
+        if (stress.value > previousStress && !isFlashing)
+        {
+            StartCoroutine(FlashStressBarBackground());
+        }
     }
 
     private void UpdateSlider()
@@ -54,5 +60,37 @@ public class Stress : MonoBehaviour
         stress.value = stressSlider.minValue;
       }
       stressSlider.value = stress.value;
+    }
+
+    private IEnumerator UpdatePreviousStress()
+    {
+        while (true)
+        {
+            previousStress = stress.value;
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    private IEnumerator FlashStressBarBackground()
+    {
+        isFlashing = true;
+        Color originalColor = stressBarBackground.color;
+        Color targetColor = flashColor;
+        targetColor.a = 1f;
+
+        // Flash to red
+        float elapsedTime = 0f;
+        while (elapsedTime < flashDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            flashDuration = 0.5f + 0.25f * stress.value * 0.01f;
+            stressBarBackground.color = Color.Lerp(targetColor, originalColor, elapsedTime / flashDuration);
+            stressBarBackgroundScale.localScale = new Vector2(1 + (0.2f * stress.value * 0.01f), 1 + (0.05f * 0.01f * stress.value));
+            yield return null;
+        }
+
+        
+        stressBarBackground.color = originalColor;
+        isFlashing = false;
     }
 }
