@@ -1637,7 +1637,7 @@ RectTransform:
   m_GameObject: {fileID: 80165882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.97, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 563727012}
@@ -14735,6 +14735,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 0.74999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1430326750}
   - {fileID: 80165883}
   - {fileID: 476457272}
   m_Father: {fileID: 1678488890}
@@ -33755,6 +33756,81 @@ RectTransform:
   m_AnchoredPosition: {x: 84.375, y: -180}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1430326749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1430326750}
+  - component: {fileID: 1430326752}
+  - component: {fileID: 1430326751}
+  m_Layer: 5
+  m_Name: GlowBackground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1430326750
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430326749}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1, y: 1.0250003, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 563727012}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.25, y: 0}
+  m_AnchorMax: {x: 0.75, y: 1}
+  m_AnchoredPosition: {x: 0.0008544922, y: 0.000045776367}
+  m_SizeDelta: {x: 39.154, y: -7.447998}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1430326751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430326749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.1490565, b: 0.1490565, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1430326752
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430326749}
+  m_CullTransparentMesh: 1
 --- !u!1 &1442638346
 GameObject:
   m_ObjectHideFlags: 0
@@ -41026,6 +41102,10 @@ MonoBehaviour:
   frontCounter: {fileID: 11400000, guid: 822c267fb0e659844932e1d60b490802, type: 2}
   cashier: {fileID: 11400000, guid: 2fda858d4dbafea478b05c58c1d57759, type: 2}
   stressIncreaseCounters: -0.5
+  stressBarBackground: {fileID: 1430326751}
+  stressBarBackgroundScale: {fileID: 1430326750}
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.5
 --- !u!114 &1678488892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54406,7 +54486,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 2.3999982, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2104955927
 MonoBehaviour:
