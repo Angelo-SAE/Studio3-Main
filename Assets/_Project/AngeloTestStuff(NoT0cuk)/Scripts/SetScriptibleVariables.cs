@@ -5,14 +5,24 @@ using UnityEngine.Events;
 
 public class SetScriptibleVariables : MonoBehaviour
 {
-    [SerializeField] private IntObject day;
+    [Header("Values")]
     [SerializeField] private int dayDefault;
+    [SerializeField] private float defaultPlayerSpeed;
+
+    [Header("Scriptable Objects")]
+    [SerializeField] private IntObject day;
+    [SerializeField] private FloatObject playerSpeed;
+    [SerializeField] private IntObject tablesAvailable;
     [SerializeField] private IngredientObject ingredientItemList;
+    [SerializeField] private CharacterUpgradeObject characterUpgrade, restaurantUpgrade;
     [SerializeField] private UnityEvent OnAwake;
 
     private void Awake()
     {
       day.value = dayDefault;
+      playerSpeed.value = defaultPlayerSpeed;
+      tablesAvailable.value = 0;
+
       ingredientItemList.ingredientCount[0] = 5;
       ingredientItemList.ingredientCount[1] = 5;
       ingredientItemList.ingredientCount[2] = 5;
@@ -21,7 +31,18 @@ public class SetScriptibleVariables : MonoBehaviour
       ingredientItemList.ingredientCount[5] = 5;
       ingredientItemList.ingredientCount[6] = 5;
 
+      characterUpgrade.characterUpgradeChecks[0] = false;
+      characterUpgrade.characterUpgradeChecks[1] = false;
+      characterUpgrade.characterUpgradeChecks[2] = false;
+      characterUpgrade.characterUpgradeChecks[3] = false;
+      characterUpgrade.inventorySize = 4;
 
+      restaurantUpgrade.characterUpgradeChecks[0] = false;
+      restaurantUpgrade.characterUpgradeChecks[1] = false;
+      restaurantUpgrade.characterUpgradeChecks[2] = false;
+      restaurantUpgrade.characterUpgradeChecks[3] = false;
+      restaurantUpgrade.characterUpgradeChecks[4] = false;
+      restaurantUpgrade.characterUpgradeChecks[5] = false;
 
     }
 

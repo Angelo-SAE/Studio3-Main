@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CookingAssembly : MonoBehaviour
 {
     [SerializeField] private Transform wheel;
+    [SerializeField] private int hitRange;
     [SerializeField] private int baseArrowSpeed;
     [SerializeField] private int arrowSpeedIncrement;
     [SerializeField] private int arrowSpeedStressImpact;
@@ -44,6 +45,11 @@ public class CookingAssembly : MonoBehaviour
 
     }
 
+    public void UpdateHitRange()
+    {
+      hitRange = 20;
+    }
+
     private void ResetFailLights()
     {
       for(int a = 0; a < 3; a++)
@@ -76,7 +82,7 @@ public class CookingAssembly : MonoBehaviour
 
     private void CheckForIngredientPress()
     {
-      if(wheel.eulerAngles.z >  ingredientAngle - 15 && wheel.eulerAngles.z < ingredientAngle + 15)
+      if(wheel.eulerAngles.z >  ingredientAngle - hitRange && wheel.eulerAngles.z < ingredientAngle + hitRange)
       {
         ingredient[currentIngredient].SetActive(false);
         currentIngredient++;

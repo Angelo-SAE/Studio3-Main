@@ -8,7 +8,7 @@ public class PlayerChair : Interactable
     [SerializeField] private BoolObject paused;
     [SerializeField] private GameObjectObject player;
     [SerializeField] private Vector2 chairPosition, exitPositionRight, exitPositionDown, exitPositionLeft;
-    [SerializeField] private float stressReduction;
+    [SerializeField] private float stressReduction, increasedStressReduction;
     public bool playerInChair;
 
     public override void Interact()
@@ -21,6 +21,11 @@ public class PlayerChair : Interactable
     }
 
     public override void AltInteract() {}
+
+    public void UpgradeChair()
+    {
+      stressReduction = increasedStressReduction;
+    }
 
     private void Update()
     {

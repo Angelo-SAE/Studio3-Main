@@ -199,7 +199,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3993579310987932225
@@ -267,6 +267,9 @@ MonoBehaviour:
   isAtCashier: 0
   hasOrdered: 0
   exiting: 0
+  paired: 0
+  isPair: 0
+  pairedCustomer: {fileID: 0}
 --- !u!114 &1422225227468005507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customer: {fileID: 6386345880284976042}
+  restaurantUpgrade: {fileID: 11400000, guid: 17613bb58c55b724285ff166506bc02a, type: 2}
   goingToReception: 0
   goingToTable: 0
   goingToCashier: 0
@@ -488,7 +492,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8083978266502597548
@@ -572,7 +576,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &9222355071336812128

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private IngredientObject playerInventory, ingredientList;
+    [SerializeField] private CharacterUpgradeObject playerUpgrade;
     [SerializeField] private UnityEvent NotifySlots;
     [SerializeField] private Image[] fridgeItemSlots;
     [SerializeField] private Color flashColor = Color.red;
@@ -16,16 +17,16 @@ public class PlayerInventory : MonoBehaviour
 
     private void Awake()
     {
-        playerInventory.ingredient = new Ingredient[4];
+        playerInventory.ingredient = new Ingredient[6];
         playerInventory.count = 0;
         isFlashing = new bool[fridgeItemSlots.Length];
     }
 
     public void AddToInv(int IngredientNumber)
     {
-        if (playerInventory.count < 4 && ingredientList.ingredientCount[IngredientNumber] > 0)
+        if (playerInventory.count < playerUpgrade.inventorySize && ingredientList.ingredientCount[IngredientNumber] > 0)
         {
-            for (int a = 0; a < 4; a++)
+            for (int a = 0; a < playerUpgrade.inventorySize; a++)
             {
                 if (playerInventory.ingredient[a] is null)
                 {
@@ -37,10 +38,10 @@ public class PlayerInventory : MonoBehaviour
                 }
             }
         }
-        else if (playerInventory.count >= 4)
+        else if (playerInventory.count >= playerUpgrade.inventorySize)
         {
             {
-                
+
                 if (!isFlashing[IngredientNumber])
                 {
                     StartCoroutine(FlashFridgeSlot(IngredientNumber));

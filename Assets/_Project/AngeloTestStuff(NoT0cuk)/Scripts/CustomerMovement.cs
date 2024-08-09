@@ -5,6 +5,7 @@ using UnityEngine;
 public class CustomerMovement : MonoBehaviour
 {
     [SerializeField] private Customer customer;
+    [SerializeField] private CharacterUpgradeObject restaurantUpgrade;
     public bool goingToReception, goingToTable, goingToCashier;
 
     private void Start()
@@ -84,7 +85,6 @@ public class CustomerMovement : MonoBehaviour
     //Finding Path
     [Header("Path Finding")]
     [SerializeField] private GameObject pathPiece;
-
     [SerializeField] private Vector2Int startPosition, endPosition;
     [SerializeField] private int orthogonalMovementToll, maxChecks;
     private LinkedList<GridNode> closedList, openList;
@@ -264,7 +264,13 @@ public class CustomerMovement : MonoBehaviour
           {
             goingToCashier = false;
             customer.isAtCashier = true;
-            AnimateCustomer(4);
+            if(restaurantUpgrade.characterUpgradeChecks[5])
+            {
+              customer.Invoke("CheckOutCustomer", 2f);
+              AnimateCustomer(4);
+            } else {
+              AnimateCustomer(4);
+            }
           } else if(customer.exiting)
           {
             Destroy(gameObject);

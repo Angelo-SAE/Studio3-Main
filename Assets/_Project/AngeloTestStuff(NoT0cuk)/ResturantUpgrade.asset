@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a580e9c63ce58f49a310392fda62e5b, type: 3}
+  m_Name: ResturantUpgrade
+  m_EditorClassIdentifier: 
+  characterUpgrades:
+  - Increased Seating
+  - More Tables
+  - Quality Stove
+  - Restaurant Music
+  - Comfy Couch
+  - Self Checkout
+  characterUpgradeChecks: 000000000000
+  characterUpgradePrice: 500000006e000000500000005a0000004b000000c8000000
+  inventorySize: 0

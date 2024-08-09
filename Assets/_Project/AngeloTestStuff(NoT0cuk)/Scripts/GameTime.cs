@@ -52,7 +52,7 @@ public class GameTime : MonoBehaviour
       if(timer >= gameSpeed)
       {
         timer = 0;
-        if(minutes == 45)
+        if(minutes >= 59)
         {
           minutes = 00;
           hours++;

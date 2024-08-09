@@ -7,7 +7,7 @@ public class PlayerInventoryUI : MonoBehaviour
 {
     [SerializeField] private IngredientObject playerInventory;
     [SerializeField] private int inventorySlot;
-    [SerializeField] private Image slotSprite;
+    [SerializeField] private Image slotSprite, backSprite;
 
     public void OnNotify()
     {
@@ -17,6 +17,11 @@ public class PlayerInventoryUI : MonoBehaviour
       } else {
         DisplayNothing();
       }
+    }
+
+    public void EnableInventorySlot()
+    {
+      backSprite.color = new Color(1,1,1,1);
     }
 
     private void DisplayPlayerItem(Ingredient ingredient)

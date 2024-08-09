@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    [SerializeField] private float movementSpeed;
+    [SerializeField] private FloatObject playerSpeed;
     [SerializeField] private PlayerInteract pInteract;
     [SerializeField] private BoolObject paused;
     [SerializeField] private GameObjectObject player;
@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         AnimatePlayer();
       } else {
         rb2d.velocity = Vector2.zero;
+        animator.SetBool("Idle", true);
       }
     }
 
@@ -62,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-      movementVel = (new Vector2(xMovement, yMovement).normalized) * (movementSpeed - (stress.value/40));
+      movementVel = (new Vector2(xMovement, yMovement).normalized) * (playerSpeed.value - (stress.value/40));
       rb2d.velocity = movementVel;
     }
 

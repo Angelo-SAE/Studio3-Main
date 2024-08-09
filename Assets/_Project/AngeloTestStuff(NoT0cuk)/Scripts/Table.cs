@@ -7,6 +7,7 @@ public class Table : Interactable
 {
     [SerializeField] private IntObject tablesAvailable;
     [SerializeField] private GameObjectObject cashier;
+    [SerializeField] private CharacterUpgradeObject restaurantUpgrade;
     [SerializeField] private int tableNumber;
     [SerializeField] private Slider tableTimer;
     [SerializeField] private Vector2Int[] chairPosition;
@@ -18,15 +19,11 @@ public class Table : Interactable
 
     public Vector2Int[] ChairPosition => chairPosition;
 
-    private void Awake()
-    {
-      tables = GetComponentInParent<Tables>();
-      tables.CreateTableNode(this);
-    }
-
     private void Start()
     {
       currentCashier = cashier.value.GetComponent<Cashier>();
+      tables = GetComponentInParent<Tables>();
+      tables.CreateTableNode(this);
     }
 
     private void Update()
@@ -160,7 +157,13 @@ public class Table : Interactable
     private void StartOrderTimer()
     {
       tableTimer.gameObject.SetActive(true);
-      tableTimer.maxValue = currentCustomer[0].OrderWaitTime;
+
+      if(restaurantUpgrade.characterUpgradeChecks[3])
+      {
+        tableTimer.maxValue = currentCustomer[0].FoodWaitTime + 20;
+      } else {
+        tableTimer.maxValue = currentCustomer[0].FoodWaitTime;
+      }
       tableTimer.value = tableTimer.maxValue;
       timerStarted = true;
     }
@@ -168,7 +171,12 @@ public class Table : Interactable
     private void StartFoodTimer()
     {
       timerStarted = false;
-      tableTimer.maxValue = currentCustomer[0].FoodWaitTime;
+      if(restaurantUpgrade.characterUpgradeChecks[3])
+      {
+        tableTimer.maxValue = currentCustomer[0].FoodWaitTime + 40;
+      } else {
+        tableTimer.maxValue = currentCustomer[0].FoodWaitTime;
+      }
       tableTimer.value = tableTimer.maxValue;
       timerStarted = true;
     }

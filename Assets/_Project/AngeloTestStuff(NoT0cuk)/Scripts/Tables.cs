@@ -14,7 +14,6 @@ public class Tables : MonoBehaviour
     private void Awake()
     {
       //int tables = transform.childCount;
-      tablesAvailable.value = tableCount;
       orders.order = new Order[tableCount];
       orders.pairOrder = new Order[tableCount];
     }
@@ -26,6 +25,7 @@ public class Tables : MonoBehaviour
         tables = new List<Table>();
       }
       tables.Add(table);
+      tablesAvailable.value++;
     }
 
     public Vector2Int GetChairPosition(Customer customer)

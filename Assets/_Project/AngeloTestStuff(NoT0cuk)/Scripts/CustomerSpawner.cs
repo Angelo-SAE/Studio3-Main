@@ -10,6 +10,7 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField] private int minSpawnAmount, maxSpawnAmount;
     [SerializeField] private float minSpawnTime, maxSpawnTime, spawnSpeed;
     [SerializeField] private UnityEvent onLastCustomerArrival;
+    private bool canSpawnTwo;
     private int spawnAmount, currentSpawns;
     private float currentTime, spawnTime;
     private GameObject customerHolder;
@@ -36,6 +37,11 @@ public class CustomerSpawner : MonoBehaviour
       spawnAmount = Random.Range(minSpawnAmount, maxSpawnAmount);
     }
 
+    public void EnableMultiple()
+    {
+      canSpawnTwo = true;
+    }
+
     private void Update()
     {
       if(gameTimer.value && currentSpawns <= spawnAmount)
@@ -58,7 +64,7 @@ public class CustomerSpawner : MonoBehaviour
     private void SpawnCustomers()
     {
       int tempRand = Random.Range(0, 1 + 1);
-      if(tempRand == 0)
+      if(tempRand == 0 || !canSpawnTwo)
       {
         Instantiate(customer, transform.position, customer.transform.rotation, customerHolder.transform);
         currentSpawns++;

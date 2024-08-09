@@ -61,6 +61,23 @@ public class Cashier : Interactable
       }
     }
 
+    public void CheckOutAllCurrentCustomers()
+    {
+      if(customers.Count() != 0)
+      {
+        for(int a = 0; a < customers.Count() + 2; a++)
+        {
+          if(customers.first.data.isAtCashier)
+          {
+            customers.first.data.CheckOutCustomer();
+            customers.RemoveFirst();
+            afterPaid.Invoke();
+            MoveAllCustomersUpOne();
+          }
+        }
+      }
+    }
+
     private void MoveAllCustomersUpOne()
     {
       currentSpot--;

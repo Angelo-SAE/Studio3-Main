@@ -59,7 +59,7 @@ public class DisplayOrderRecipe : MonoBehaviour
 
     private void PositionDisplay()
     {
-      uiDisplay.position = new Vector2(mousePosition.x - (uiDisplay.sizeDelta.x / 2), mousePosition.y - (uiDisplay.sizeDelta.y / 2));
+      uiDisplay.position = new Vector2(mousePosition.x - (uiDisplay.sizeDelta.x / 2) - 2, mousePosition.y - (uiDisplay.sizeDelta.y / 2) - 2);
     }
 
     //private void PositionDisplay()
