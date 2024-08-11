@@ -7,5 +7,6 @@ public class IngredientObject : ScriptableObject
 {
     public Ingredient[] ingredient;
     public int[] ingredientCount;
+    public int[] ingredientPrice;
     public int count;
 }

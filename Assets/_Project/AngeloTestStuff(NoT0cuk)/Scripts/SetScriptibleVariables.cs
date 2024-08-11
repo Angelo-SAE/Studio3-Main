@@ -30,6 +30,10 @@ public class SetScriptibleVariables : MonoBehaviour
       ingredientItemList.ingredientCount[4] = 5;
       ingredientItemList.ingredientCount[5] = 5;
       ingredientItemList.ingredientCount[6] = 5;
+      ingredientItemList.ingredientCount[7] = 5;
+      ingredientItemList.ingredientCount[8] = 5;
+      ingredientItemList.ingredientCount[9] = 5;
+      ingredientItemList.ingredientCount[10] = 5;
 
       characterUpgrade.characterUpgradeChecks[0] = false;
       characterUpgrade.characterUpgradeChecks[1] = false;

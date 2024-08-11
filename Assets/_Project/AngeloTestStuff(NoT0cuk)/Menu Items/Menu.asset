@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cbbb4fbead8ffb41a1eeb51a9c4f140, type: 3}
+  m_Name: Menu
+  m_EditorClassIdentifier: 
+  orderTag:
+  - Mush
+  - Fries
+  - Chicken Wings
+  - Hot Dog
+  - Cheese Burger
+  - Cheese Pizza
+  - Chicken Quesadilla
+  - Chicken Salad
+  - Burrito
+  - Chicken Burger
+  - Pepproni Pizza
+  - Taco
+  orderPrice:
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  order:
+  - {fileID: 8432602058704111077, guid: 3d39939e2c8c84c449a422f1c5aef358, type: 3}
+  - {fileID: 4907927789568264464, guid: d84aa90736dd48a4a8f02a12c1fe1080, type: 3}
+  - {fileID: 701378801964640793, guid: 62c37314ec210704384c073a0b977ebd, type: 3}
+  - {fileID: 4587777354908234760, guid: d9db5379c935ce84fae8155ad2f81ca5, type: 3}
+  - {fileID: 1540338326292627573, guid: 7f8d3ff221f598d4192c9a318fef1262, type: 3}
+  - {fileID: 341006534871344110, guid: b92b6ebf4114bf44c8b85f2969588fb0, type: 3}
+  - {fileID: 7473972876671869581, guid: 5d6e28526e7938d4f9ec5bf5300d1937, type: 3}
+  - {fileID: 6323612167336815343, guid: 1e58e714f8e848d4b8161ce988df8a38, type: 3}
+  - {fileID: 6463770113751877218, guid: b7249759957a45b4ba85622dbfed9cf6, type: 3}
+  - {fileID: 6267247601223162482, guid: 0e3e5461e83946642bfb870bc5e46904, type: 3}
+  - {fileID: 3319424979156543602, guid: c5b8c0b21c51b8045b5acdc2dfc8c9ef, type: 3}
+  - {fileID: 8014009046721705392, guid: 008a9f4014ac2fb419965022a1eb1fcd, type: 3}
+  orderObjects:
+  - {fileID: 4797659589239928915, guid: 3d39939e2c8c84c449a422f1c5aef358, type: 3}
+  - {fileID: 7706626959496793802, guid: d84aa90736dd48a4a8f02a12c1fe1080, type: 3}
+  - {fileID: 2127590264998451924, guid: 62c37314ec210704384c073a0b977ebd, type: 3}
+  - {fileID: 1015751706716463904, guid: d9db5379c935ce84fae8155ad2f81ca5, type: 3}
+  - {fileID: 1013868725232641232, guid: 7f8d3ff221f598d4192c9a318fef1262, type: 3}
+  - {fileID: 8393719838582357465, guid: b92b6ebf4114bf44c8b85f2969588fb0, type: 3}
+  - {fileID: 3958557116260293928, guid: 5d6e28526e7938d4f9ec5bf5300d1937, type: 3}
+  - {fileID: 3506846348642761219, guid: 1e58e714f8e848d4b8161ce988df8a38, type: 3}
+  - {fileID: 8235189070205770771, guid: b7249759957a45b4ba85622dbfed9cf6, type: 3}
+  - {fileID: 1072239583411027452, guid: 0e3e5461e83946642bfb870bc5e46904, type: 3}
+  - {fileID: 3994704413869049511, guid: c5b8c0b21c51b8045b5acdc2dfc8c9ef, type: 3}
+  - {fileID: 5253677873617358327, guid: 008a9f4014ac2fb419965022a1eb1fcd, type: 3}
+  orderIngredients:
+  - ingredientNumber: 
+  - ingredientNumber: 02000000
+  - ingredientNumber: 0500000005000000
+  - ingredientNumber: 0700000008000000
+  - ingredientNumber: 040000000500000008000000
+  - ingredientNumber: 030000000500000009000000
+  - ingredientNumber: 05000000060000000a000000
+  - ingredientNumber: 010000000300000006000000
+  - ingredientNumber: 0000000004000000050000000a000000
+  - ingredientNumber: 01000000030000000600000008000000
+  - ingredientNumber: 03000000050000000700000009000000
+  - ingredientNumber: 0100000004000000050000000a000000

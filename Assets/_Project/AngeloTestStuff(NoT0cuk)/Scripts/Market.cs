@@ -9,16 +9,15 @@ public class Market : MonoBehaviour
     [SerializeField] private IngredientObject ingredientItemList;
     [SerializeField] private CharacterUpgradeObject characterUpgrade, restaurantUpgrade;
     [SerializeField] private FloatObject money;
-    [SerializeField] private float[] ingredientPrices;
     [SerializeField] private Button[] upgradeButtons, restaurantUpgradeButtons;
     [SerializeField] private UnityEvent OnPurchase, onCharacterUpgradePurchase, onRestaurantUpgradePurchase;
 
 
     public void PurchaseIngredient(int ingredientNumber)
     {
-      if(ingredientPrices[ingredientNumber] <= money.value)
+      if(ingredientItemList.ingredientPrice[ingredientNumber] <= money.value)
       {
-        money.value -= ingredientPrices[ingredientNumber];
+        money.value -= ingredientItemList.ingredientPrice[ingredientNumber];
         ingredientItemList.ingredientCount[ingredientNumber]++;
         OnPurchase.Invoke();
       }
