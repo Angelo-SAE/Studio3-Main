@@ -71,10 +71,10 @@ public class Tables : MonoBehaviour
 
     public void ResetTables()
     {
-      for(int a = 0; a < tableCount; a++)
+      for(int a = 0; a < tables.Count; a++)
       {
         tables[a].ResetTable();
       }
-      tablesAvailable.value = tableCount;
+      tablesAvailable.value = tables.Count;
     }
 }

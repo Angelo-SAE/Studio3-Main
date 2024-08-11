@@ -11,7 +11,7 @@ public class GameTime : MonoBehaviour
     [SerializeField] private float gameSpeed;
     [SerializeField] private IntObject day;
     [SerializeField] private BoolObject gameTimer, ableToSleep;
-    [SerializeField] private UnityEvent checkIfAbleToSleep, resetDay;
+    [SerializeField] private UnityEvent checkIfAbleToSleep, endOfDayUI, resetDay;
     private float timer;
     private int hours, minutes;
 
@@ -96,11 +96,17 @@ public class GameTime : MonoBehaviour
       if(ableToSleep.value)
       {
         ableToSleep.SetFalse();
-        ResetTime();
         StopTimer();
-        day.value++;
-        daysText.text = day.value.ToString();
-        resetDay.Invoke();
+        endOfDayUI.Invoke();
+        Invoke("ResetRest", 5f);
       }
+    }
+
+    private void ResetRest()
+    {
+      ResetTime();
+      day.value++;
+      daysText.text = day.value.ToString();
+      resetDay.Invoke();
     }
 }

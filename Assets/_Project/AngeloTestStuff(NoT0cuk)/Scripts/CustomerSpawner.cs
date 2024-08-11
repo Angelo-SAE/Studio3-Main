@@ -7,6 +7,7 @@ public class CustomerSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject customer;
     [SerializeField] private BoolObject gameTimer, ableToSleep;
+    [SerializeField] private IntObject day;
     [SerializeField] private int minSpawnAmount, maxSpawnAmount;
     [SerializeField] private float minSpawnTime, maxSpawnTime, spawnSpeed;
     [SerializeField] private UnityEvent onLastCustomerArrival;

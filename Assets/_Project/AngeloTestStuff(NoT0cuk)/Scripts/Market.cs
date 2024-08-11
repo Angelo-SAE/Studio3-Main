@@ -8,7 +8,7 @@ public class Market : MonoBehaviour
 {
     [SerializeField] private IngredientObject ingredientItemList;
     [SerializeField] private CharacterUpgradeObject characterUpgrade, restaurantUpgrade;
-    [SerializeField] private FloatObject money;
+    [SerializeField] private FloatObject money, moneySpent;
     [SerializeField] private Button[] upgradeButtons, restaurantUpgradeButtons;
     [SerializeField] private UnityEvent OnPurchase, onCharacterUpgradePurchase, onRestaurantUpgradePurchase;
 
@@ -18,6 +18,7 @@ public class Market : MonoBehaviour
       if(ingredientItemList.ingredientPrice[ingredientNumber] <= money.value)
       {
         money.value -= ingredientItemList.ingredientPrice[ingredientNumber];
+        moneySpent.value += ingredientItemList.ingredientPrice[ingredientNumber];
         ingredientItemList.ingredientCount[ingredientNumber]++;
         OnPurchase.Invoke();
       }
@@ -29,6 +30,7 @@ public class Market : MonoBehaviour
       {
         upgradeButtons[upgradeNumber].interactable = false;
         money.value -= characterUpgrade.characterUpgradePrice[upgradeNumber];
+        moneySpent.value += characterUpgrade.characterUpgradePrice[upgradeNumber];
         characterUpgrade.characterUpgradeChecks[upgradeNumber] = true;
         onCharacterUpgradePurchase.Invoke();
       }
@@ -40,6 +42,7 @@ public class Market : MonoBehaviour
       {
         restaurantUpgradeButtons[upgradeNumber].interactable = false;
         money.value -= restaurantUpgrade.characterUpgradePrice[upgradeNumber];
+        moneySpent.value += restaurantUpgrade.characterUpgradePrice[upgradeNumber];
         restaurantUpgrade.characterUpgradeChecks[upgradeNumber] = true;
         onRestaurantUpgradePurchase.Invoke();
       }

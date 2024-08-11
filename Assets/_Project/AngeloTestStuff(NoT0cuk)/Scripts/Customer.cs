@@ -8,7 +8,8 @@ public class Customer : MonoBehaviour
     [SerializeField] private MenuObject menu;
     [SerializeField] private OrderObject orders;
     [SerializeField] private GameObjectObject itemHeld;
-    [SerializeField] private FloatObject money, stress;
+    [SerializeField] private IntObject servedCustomers, lostCustomers;
+    [SerializeField] private FloatObject money, moneyEarned, stress;
     [SerializeField] private GameObject order;
     [SerializeField] private SpriteRenderer orderSprite;
     [SerializeField] private float orderWaitTime, foodWaitTime, stressIncreaseAmount, stressReductionAmount, stressUnservedPenalty;
@@ -104,6 +105,8 @@ public class Customer : MonoBehaviour
     {
       exiting = true;
       money.value += orderPrice;
+      moneyEarned.value += orderPrice;
+      servedCustomers.value++;
       customerMovement.MovePlayerToExit();
     }
 
@@ -119,6 +122,7 @@ public class Customer : MonoBehaviour
       order.SetActive(false);
       stress.value += stressUnservedPenalty;
       exiting = true;
+      lostCustomers.value--;
       customerMovement.MovePlayerToExit();
 
     }

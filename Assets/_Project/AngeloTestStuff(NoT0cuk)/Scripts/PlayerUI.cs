@@ -9,11 +9,9 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private FloatObject money;
     [SerializeField] private TMP_Text moneyTextUI;
     [SerializeField] private TMP_Text shopMoneyText;
-    [SerializeField] private float startingMoney;
 
-    private void Awake()
+    private void Start()
     {
-      money.value = startingMoney;
       UpdateMoney();
     }
 

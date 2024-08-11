@@ -6,4 +6,9 @@ using UnityEngine;
 public class FloatObject : ScriptableObject
 {
     public float value;
+
+    public void SetValue(float newValue)
+    {
+      value = newValue;
+    }
 }

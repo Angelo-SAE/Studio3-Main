@@ -39,17 +39,33 @@ public class DisplayOrderRecipe : MonoBehaviour
     {
       if(mousePosition.x > uiToDetect.position.x - bounds.x && mousePosition.x < uiToDetect.position.x + bounds.x && mousePosition.y > uiToDetect.position.y - bounds.y && mousePosition.y < uiToDetect.position.y + bounds.y)
       {
-        if(orders.order[tableNumber] is not null)
+        if(isCustomerTwo)
         {
-          if(!displaying)
+          if(orders.pairOrder[tableNumber] is not null)
           {
-            displaying = true;
-            uiDisplayObject.SetActive(true);
+            if(!displaying)
+            {
+              displaying = true;
+              uiDisplayObject.SetActive(true);
+            }
+            PositionDisplay();
+            GetOrderInformation();
+            DisplayRecipe();
           }
-          PositionDisplay();
-          GetOrderInformation();
-          DisplayRecipe();
+        } else {
+          if(orders.order[tableNumber] is not null)
+          {
+            if(!displaying)
+            {
+              displaying = true;
+              uiDisplayObject.SetActive(true);
+            }
+            PositionDisplay();
+            GetOrderInformation();
+            DisplayRecipe();
+          }
         }
+
       } else if(displaying)
       {
         displaying = false;

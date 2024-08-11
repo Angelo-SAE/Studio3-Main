@@ -7,11 +7,12 @@ public class SetScriptibleVariables : MonoBehaviour
 {
     [Header("Values")]
     [SerializeField] private int dayDefault;
-    [SerializeField] private float defaultPlayerSpeed;
+    [SerializeField] private float defaultPlayerSpeed, startingMoney;
+
 
     [Header("Scriptable Objects")]
     [SerializeField] private IntObject day;
-    [SerializeField] private FloatObject playerSpeed;
+    [SerializeField] private FloatObject playerSpeed, money;
     [SerializeField] private IntObject tablesAvailable;
     [SerializeField] private IngredientObject ingredientItemList;
     [SerializeField] private CharacterUpgradeObject characterUpgrade, restaurantUpgrade;
@@ -22,6 +23,7 @@ public class SetScriptibleVariables : MonoBehaviour
       day.value = dayDefault;
       playerSpeed.value = defaultPlayerSpeed;
       tablesAvailable.value = 0;
+      money.value = startingMoney;
 
       ingredientItemList.ingredientCount[0] = 5;
       ingredientItemList.ingredientCount[1] = 5;
