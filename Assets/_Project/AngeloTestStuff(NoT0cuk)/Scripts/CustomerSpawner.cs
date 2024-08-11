@@ -8,8 +8,8 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField] private GameObject customer;
     [SerializeField] private BoolObject gameTimer, ableToSleep;
     [SerializeField] private IntObject day;
-    [SerializeField] private int minSpawnAmount, maxSpawnAmount;
-    [SerializeField] private float minSpawnTime, maxSpawnTime, spawnSpeed;
+    [SerializeField] private float minSpawnTime, maxSpawnTime, spawnSpeed, spawnScalingMultiplier;
+    [SerializeField] private int[] setCustomerAmount;
     [SerializeField] private UnityEvent onLastCustomerArrival;
     private bool canSpawnTwo;
     private int spawnAmount, currentSpawns;
@@ -35,7 +35,13 @@ public class CustomerSpawner : MonoBehaviour
 
     private void SelectSpawnAmount()
     {
-      spawnAmount = Random.Range(minSpawnAmount, maxSpawnAmount);
+      if(day.value <= setCustomerAmount.Length)
+      {
+        spawnAmount = setCustomerAmount[day.value - 1];
+      } else {
+        spawnAmount = setCustomerAmount[setCustomerAmount.Length - 1] + (int)Mathf.Floor(day.value * spawnScalingMultiplier);
+      }
+
     }
 
     public void EnableMultiple()

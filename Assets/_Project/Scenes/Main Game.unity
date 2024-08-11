@@ -57810,11 +57810,11 @@ MonoBehaviour:
   gameTimer: {fileID: 11400000, guid: 6ebd79ce85153004b9954f52abf370ee, type: 2}
   ableToSleep: {fileID: 11400000, guid: ef1b8cc749bc615448b3b54afd908cae, type: 2}
   day: {fileID: 11400000, guid: 601d6eb7b58a2d145914771fc330e21f, type: 2}
-  minSpawnAmount: 20
-  maxSpawnAmount: 25
   minSpawnTime: 1
   maxSpawnTime: 2
   spawnSpeed: 0.5
+  spawnScalingMultiplier: 1.3
+  setCustomerAmount: 080000000a0000000e000000100000001400000016000000190000001d000000200000002200000024000000280000002d00000032000000
   onLastCustomerArrival:
     m_PersistentCalls:
       m_Calls:
