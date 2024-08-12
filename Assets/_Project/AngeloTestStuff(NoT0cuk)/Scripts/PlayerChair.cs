@@ -11,6 +11,16 @@ public class PlayerChair : Interactable
     [SerializeField] private float stressReduction, increasedStressReduction;
     public bool playerInChair;
 
+    public AudioSource audioSource;
+
+    private float originalVolume;
+
+    private void Start()
+    {
+        // Store the original volume of the audio source
+        originalVolume = audioSource.volume;
+    }
+
     public override void Interact()
     {
       if(!paused.value)
@@ -52,6 +62,8 @@ public class PlayerChair : Interactable
       player.value.GetComponent<Collider2D>().enabled = false;
       player.value.transform.position = chairPosition;
       playerInChair = true;
+
+      StartCoroutine(FadeOutAudio(2f));
     }
 
     private void RemovePlayerFromChair(int direction)
@@ -72,6 +84,38 @@ public class PlayerChair : Interactable
       player.value.GetComponent<Collider2D>().enabled = true;
       paused.SetFalse();
       playerInChair = false;
+
+      StartCoroutine(FadeInAudio(2f));
+    }
+
+    private IEnumerator FadeOutAudio(float duration)
+    {
+        float startVolume = audioSource.volume;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(startVolume, 0f, elapsedTime / duration);
+            yield return null;
+        }
+
+        audioSource.volume = 0f;
+    }
+
+    private IEnumerator FadeInAudio(float duration)
+    {
+        float startVolume = audioSource.volume;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(startVolume, originalVolume, elapsedTime / duration);
+            yield return null;
+        }
+
+        audioSource.volume = originalVolume;
     }
 
 

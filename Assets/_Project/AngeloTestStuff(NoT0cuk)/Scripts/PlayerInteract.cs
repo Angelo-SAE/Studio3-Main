@@ -11,6 +11,8 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private LayerMask pickUpItems, dropSpots, interactableObject;
     [SerializeField] private PlayerMovement pMovement;
 
+    public AudioSource audioSource;
+
     private void OnDrawGizmos()
     {
       Gizmos.color = Color.red;
@@ -140,6 +142,8 @@ public class PlayerInteract : MonoBehaviour
       itemHeld.value.GetComponent<Collider2D>().enabled = true;
       itemHeld.value = null;
       UpdateCarryingAnimation();
+
+      audioSource.Play();
     }
 
     public void UpdateCarryingAnimation()

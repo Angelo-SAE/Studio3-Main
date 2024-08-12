@@ -17,6 +17,8 @@ public class Cashier : Interactable
     public Vector2Int[] WaitingSpots => waitingSpots;
     public LinkedList<Customer> Customers => customers;
 
+    public AudioSource audioSource;
+
     private void Awake()
     {
       SetFrontCounter();

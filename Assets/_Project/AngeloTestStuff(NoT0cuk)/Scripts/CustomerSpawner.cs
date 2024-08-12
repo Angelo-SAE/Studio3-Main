@@ -16,6 +16,8 @@ public class CustomerSpawner : MonoBehaviour
     private float currentTime, spawnTime;
     private GameObject customerHolder;
 
+    public AudioSource audioSource;
+
     private void Start()
     {
       StartDay();
@@ -70,6 +72,7 @@ public class CustomerSpawner : MonoBehaviour
 
     private void SpawnCustomers()
     {
+      audioSource.Play();
       int tempRand = Random.Range(0, 1 + 1);
       if(tempRand == 0 || !canSpawnTwo)
       {

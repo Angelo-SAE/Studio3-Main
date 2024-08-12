@@ -20,6 +20,13 @@ public class Stress : MonoBehaviour
 
     private bool isFlashing = false;
 
+    public AudioSource audioSource;
+
+    private float targetPitch;
+    private float currentPitch;
+    private float startingpitch;
+    private float pitchLerpSpeed = 0.2f;
+
 
     private void Start()
     {
@@ -29,6 +36,11 @@ public class Stress : MonoBehaviour
       counter1 = frontCounter.value.GetComponent<FrontCounter>();
       counter2 = cashier.value.GetComponent<Cashier>();
       StartCoroutine(UpdatePreviousStress());
+
+      currentPitch = audioSource.pitch;
+      targetPitch = audioSource.pitch;
+      startingpitch = audioSource.pitch;
+
     }
 
     private void Update()
@@ -48,6 +60,12 @@ public class Stress : MonoBehaviour
         {
             StartCoroutine(FlashStressBarBackground());
         }
+
+        targetPitch = startingpitch + (stress.value * 0.0015f);
+ 
+        currentPitch = Mathf.Lerp(currentPitch, targetPitch, pitchLerpSpeed * Time.deltaTime);
+
+        audioSource.pitch = currentPitch;
     }
 
     private void UpdateSlider()

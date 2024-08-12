@@ -19,6 +19,8 @@ public class Table : Interactable
 
     public Vector2Int[] ChairPosition => chairPosition;
 
+    public AudioSource audioSource;
+
     private void Start()
     {
       currentCashier = cashier.value.GetComponent<Cashier>();
@@ -86,6 +88,7 @@ public class Table : Interactable
                   timerStarted = false;
                   tableTimer.gameObject.SetActive(false);
                   Invoke("ServedCustomer", 3f);
+                  audioSource.Play();
                 }
               } else {
                 if(!servedOne)
@@ -108,6 +111,7 @@ public class Table : Interactable
                   timerStarted = false;
                   tableTimer.gameObject.SetActive(false);
                   Invoke("ServedCustomer", 3f);
+                  audioSource.Play();
                 }
               }
 
