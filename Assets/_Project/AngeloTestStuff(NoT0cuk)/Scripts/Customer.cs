@@ -32,7 +32,7 @@ public class Customer : MonoBehaviour
 
     private void Start()
     {
-      randomOrder = Random.Range(0, menu.orderTag.Length);
+      randomOrder = Random.Range(1, menu.orderTag.Length);
       ChooseOrder();
     }
 
