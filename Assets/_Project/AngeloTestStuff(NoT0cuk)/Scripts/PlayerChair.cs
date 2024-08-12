@@ -17,7 +17,7 @@ public class PlayerChair : Interactable
 
     private void Start()
     {
-        // Store the original volume of the audio source
+        
         originalVolume = audioSource.volume;
     }
 

@@ -25,7 +25,8 @@ public class Stress : MonoBehaviour
     private float targetPitch;
     private float currentPitch;
     private float startingpitch;
-    private float pitchLerpSpeed = 0.2f;
+    private float pitchLerpSpeed;
+    public float audioSmoothTime;
 
 
     private void Start()
@@ -40,6 +41,7 @@ public class Stress : MonoBehaviour
       currentPitch = audioSource.pitch;
       targetPitch = audioSource.pitch;
       startingpitch = audioSource.pitch;
+      pitchLerpSpeed = 1 / audioSmoothTime;
 
     }
 
