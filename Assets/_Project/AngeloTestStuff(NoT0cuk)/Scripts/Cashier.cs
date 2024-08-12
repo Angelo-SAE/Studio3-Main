@@ -59,6 +59,8 @@ public class Cashier : Interactable
           customers.RemoveFirst();
           afterPaid.Invoke();
           MoveAllCustomersUpOne();
+
+          audioSource.Play();
         }
       }
     }
