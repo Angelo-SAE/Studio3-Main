@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
-    [SerializeField] private BoolObject paused;
+    [SerializeField] private BoolObject paused, gamePause;
     [SerializeField] private float detectionRadius;
     [SerializeField] private GameObjectObject itemHeld;
     [SerializeField] private GameObject detectionPosition, itemHolder;
@@ -24,11 +24,11 @@ public class PlayerInteract : MonoBehaviour
 
     private void Update()
     {
-      if(Input.GetKeyDown(KeyCode.E))
+      if(Input.GetKeyDown(KeyCode.E) && !gamePause.value)
       {
         DetectItemPickUpOrDrop();
       }
-      if(Input.GetKeyDown(KeyCode.F))
+      if(Input.GetKeyDown(KeyCode.F) && !gamePause.value)
       {
         InputAltInteract();
       }

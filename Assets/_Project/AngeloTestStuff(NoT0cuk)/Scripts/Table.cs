@@ -49,7 +49,10 @@ public class Table : Interactable
       tableTimer.gameObject.SetActive(false);
       for(int a = 0; a < currentCustomer.Count; a++)
       {
-        currentCustomer[a].LeaveWithoutPaying();
+        if(currentCustomer[a] is not null)
+        {
+          currentCustomer[a].LeaveWithoutPaying();
+        }
       }
       currentCustomer = new List<Customer>();
       tableIsFree = true;

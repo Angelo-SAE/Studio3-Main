@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class CustomerSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject customer;
-    [SerializeField] private BoolObject gameTimer, ableToSleep;
+    [SerializeField] private BoolObject gamePause, gameTimer, ableToSleep;
     [SerializeField] private IntObject day;
     [SerializeField] private float minSpawnTime, maxSpawnTime, spawnSpeed, spawnScalingMultiplier;
     [SerializeField] private int[] setCustomerAmount;
@@ -51,7 +51,7 @@ public class CustomerSpawner : MonoBehaviour
 
     private void Update()
     {
-      if(gameTimer.value && currentSpawns <= spawnAmount)
+      if(gameTimer.value && currentSpawns <= spawnAmount && !gamePause.value)
       {
         currentTime += Time.deltaTime * 2;
         if(currentTime >= spawnTime)

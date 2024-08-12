@@ -47,4 +47,25 @@ public class Market : MonoBehaviour
         onRestaurantUpgradePurchase.Invoke();
       }
     }
+
+    public void UpdateUpgradeButtons()
+    {
+
+      for(int a = 0; a < upgradeButtons.Length; a++)
+      {
+        if(characterUpgrade.characterUpgradeChecks[a])
+        {
+          upgradeButtons[a].interactable = false;
+        }
+      }
+
+      for(int a = 0; a < restaurantUpgradeButtons.Length; a++)
+      {
+        if(restaurantUpgrade.characterUpgradeChecks[a])
+        {
+          restaurantUpgradeButtons[a].interactable = false;
+        }
+      }
+
+    }
 }

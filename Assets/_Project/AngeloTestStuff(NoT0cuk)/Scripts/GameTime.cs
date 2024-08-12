@@ -10,12 +10,12 @@ public class GameTime : MonoBehaviour
     [SerializeField] private TMP_Text hoursText, minutesText, daysText;
     [SerializeField] private float gameSpeed;
     [SerializeField] private IntObject day;
-    [SerializeField] private BoolObject gameTimer, ableToSleep;
+    [SerializeField] private BoolObject gamePause, gameTimer, ableToSleep;
     [SerializeField] private UnityEvent checkIfAbleToSleep, endOfDayUI, resetDay;
     private float timer;
     private int hours, minutes;
 
-    private void Start()
+    private void Start() //will get rid of
     {
       ResetTime();
     }
@@ -40,7 +40,7 @@ public class GameTime : MonoBehaviour
 
     private void Update()
     {
-      if(gameTimer.value)
+      if(gameTimer.value && !gamePause.value)
       {
         Timer();
       }
@@ -106,7 +106,12 @@ public class GameTime : MonoBehaviour
     {
       ResetTime();
       day.value++;
-      daysText.text = day.value.ToString();
+      UpdateDay();
       resetDay.Invoke();
+    }
+
+    public void UpdateDay()
+    {
+      daysText.text = day.value.ToString();
     }
 }

@@ -8,6 +8,7 @@ public class PlayerUpgradeManager : MonoBehaviour
     [Header("Scriptable Objects")]
     [SerializeField] private CharacterUpgradeObject characterUpgrade;
     [SerializeField] private FloatObject playerSpeed;
+
     [Header("Upgrades")]
     [SerializeField] private float speedIncreaseOne;
     [SerializeField] private float speedIncreaseTwo;
@@ -27,7 +28,7 @@ public class PlayerUpgradeManager : MonoBehaviour
         speedTwo = true;
         UpdatePlayerSpeed(speedIncreaseTwo);
       }
-      if(characterUpgrade.characterUpgradeChecks[2] && !inventoryOne && !inventoryTwo)
+      if(characterUpgrade.characterUpgradeChecks[2] && !inventoryOne)
       {
         inventoryOne = true;
         enableSlotOne.Invoke();

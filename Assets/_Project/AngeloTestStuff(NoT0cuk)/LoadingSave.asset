@@ -9,14 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a580e9c63ce58f49a310392fda62e5b, type: 3}
-  m_Name: CharacterUpgrade
+  m_Script: {fileID: 11500000, guid: 6bb90d7568149ea4dac9ca0ec1e2274b, type: 3}
+  m_Name: LoadingSave
   m_EditorClassIdentifier: 
-  characterUpgrades:
-  - Sneakers
-  - Sneakers Pro
-  - Apron
-  - XL Apron
-  characterUpgradeChecks: 00000000
-  characterUpgradePrice: 50000000af0000005a00000096000000
-  inventorySize: 4
+  value: 0

@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class EndOfDayUI : MonoBehaviour
 {
     [SerializeField] private BoolObject gamePause, pause;
     [SerializeField] private IntObject day, servedCustomers, lostCustomers;
     [SerializeField] private FloatObject moneySpent, moneyEarned;
+    [SerializeField] private UnityEvent saveGame;
 
     [Header("UI Elements")]
     [SerializeField] private Image backPanel;
     [SerializeField] private GameObject customersServedObj, customersLostObj, backPanelObj, backPaper, moneySpentObj, moneyEarnedObj, totalProfitObj, nextDayButton;
     [SerializeField] private TMP_Text dayText, customersServedText, customersLostText, moneySpentText, moneyEarnedText, totalProfitText;
 
-    private void Update()
+    private void Update() // will remove later
     {
       if(Input.GetKeyDown(KeyCode.K))
       {
@@ -66,7 +68,7 @@ public class EndOfDayUI : MonoBehaviour
       ResetValues();
     }
 
-    private void ResetValues()
+    public void ResetValues()
     {
       moneySpent.SetValue(0);
       moneyEarned.SetValue(0);
@@ -101,6 +103,8 @@ public class EndOfDayUI : MonoBehaviour
       moneyEarnedObj.SetActive(true);
       yield return new WaitForSeconds(0.7f);
       totalProfitObj.SetActive(true);
+      
+      saveGame.Invoke();
 
       yield return new WaitForSeconds(1f);
       nextDayButton.SetActive(true);
