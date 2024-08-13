@@ -19,10 +19,10 @@ public class EndOfDayUI : MonoBehaviour
 
     private void Update() // will remove later
     {
-      if(Input.GetKeyDown(KeyCode.K))
-      {
-        StartEndOfDayDisplay();
-      }
+      //if(Input.GetKeyDown(KeyCode.K))
+      //{
+      //  StartEndOfDayDisplay();
+      //}
     }
 
     public void StartEndOfDayDisplay()
@@ -103,7 +103,7 @@ public class EndOfDayUI : MonoBehaviour
       moneyEarnedObj.SetActive(true);
       yield return new WaitForSeconds(0.7f);
       totalProfitObj.SetActive(true);
-      
+
       saveGame.Invoke();
 
       yield return new WaitForSeconds(1f);
