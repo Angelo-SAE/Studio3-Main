@@ -15,6 +15,7 @@ public class CookingAssembly : MonoBehaviour
     [SerializeField] private float defaultStressIncreaseForMiss;
     [SerializeField] private float stressIncreaseForMiss;
     [SerializeField] private float stessGainForCooking;
+    [SerializeField] private float stressGainForAssembling;
     [SerializeField] private GameObject[] ingredient;
     [SerializeField] private Image[] ingredientSprite;
     [SerializeField] private Image[] failLight;
@@ -77,7 +78,10 @@ public class CookingAssembly : MonoBehaviour
           CheckForIngredientPress();
         }
         wheel.eulerAngles = new Vector3(0,0,wheel.eulerAngles.z + (direction * Time.deltaTime * (arrowSpeed + (stress.value * 1.5f))));
+        stress.value += stressGainForAssembling * Time.deltaTime;
       }
+
+
     }
 
     private void CheckForIngredientPress()
