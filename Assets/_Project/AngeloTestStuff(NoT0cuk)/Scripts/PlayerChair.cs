@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerChair : Interactable
 {
@@ -9,6 +10,7 @@ public class PlayerChair : Interactable
     [SerializeField] private GameObjectObject player;
     [SerializeField] private Vector2 chairPosition, exitPositionRight, exitPositionDown, exitPositionLeft;
     [SerializeField] private float stressReduction, increasedStressReduction;
+    [SerializeField] private UnityEvent onSit, onStand;
     public bool playerInChair;
 
     public AudioSource audioSource;
@@ -17,7 +19,7 @@ public class PlayerChair : Interactable
 
     private void Start()
     {
-        
+
         originalVolume = audioSource.volume;
     }
 
@@ -44,14 +46,17 @@ public class PlayerChair : Interactable
         stress.value -= stressReduction * Time.deltaTime;
         if(Input.GetKeyDown(KeyCode.D))
         {
+          onStand.Invoke();
           RemovePlayerFromChair(0);
         }
         if(Input.GetKeyDown(KeyCode.S))
         {
+          onStand.Invoke();
           RemovePlayerFromChair(1);
         }
         if(Input.GetKeyDown(KeyCode.A))
         {
+          onStand.Invoke();
           RemovePlayerFromChair(2);
         }
       }
@@ -62,6 +67,7 @@ public class PlayerChair : Interactable
       player.value.GetComponent<Collider2D>().enabled = false;
       player.value.transform.position = chairPosition;
       playerInChair = true;
+      onSit.Invoke();
 
       StartCoroutine(FadeOutAudio(2f));
     }
