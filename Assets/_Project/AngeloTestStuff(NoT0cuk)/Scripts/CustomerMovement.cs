@@ -264,13 +264,7 @@ public class CustomerMovement : MonoBehaviour
           {
             goingToCashier = false;
             customer.isAtCashier = true;
-            if(restaurantUpgrade.characterUpgradeChecks[5])
-            {
-              customer.Invoke("CheckOutCustomer", 2f);
-              AnimateCustomer(4);
-            } else {
-              AnimateCustomer(4);
-            }
+            AnimateCustomer(4);
           } else if(customer.exiting)
           {
             Destroy(gameObject);

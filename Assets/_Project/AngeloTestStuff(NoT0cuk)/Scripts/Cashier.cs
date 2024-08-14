@@ -6,11 +6,13 @@ using UnityEngine.Events;
 public class Cashier : Interactable
 {
     [SerializeField] private GameObjectObject cashier;
+    [SerializeField] private CharacterUpgradeObject restaurantUpgrade;
     [SerializeField] private Vector2Int exit;
     [SerializeField] private Vector2Int[] waitingSpots;
     [SerializeField] private UnityEvent afterPaid;
     private LinkedList<Customer> customers;
     private int currentSpot;
+    private bool checkingOut;
 
     public Vector2Int Exit => exit;
     public int CurrentSpot => currentSpot;
@@ -61,6 +63,19 @@ public class Cashier : Interactable
           MoveAllCustomersUpOne();
 
           audioSource.Play();
+          checkingOut = false;
+        }
+      }
+    }
+
+    private void Update()
+    {
+      if(restaurantUpgrade.characterUpgradeChecks[5] && !checkingOut)
+      {
+        if(customers.Count() != 0)
+        {
+          Invoke("CheckOut", 2f);
+          checkingOut = true;
         }
       }
     }
