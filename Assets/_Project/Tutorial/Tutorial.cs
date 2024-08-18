@@ -26,6 +26,8 @@ public class Tutorial : MonoBehaviour
     public GameObject teleporterEnd;
 
     public PlayableDirector stage2;
+    public InteractEvent firstInteract;
+    public FeedGrandfather secondInteract;
 
 
     // Start is called before the first frame update
@@ -33,6 +35,7 @@ public class Tutorial : MonoBehaviour
     {
         thePlayer.GetComponent<PlayerMovement>().enabled = false;
         customerCounter.GetComponent<InteractEvent>().enabled = false;
+        secondInteract.enabled = false;
         playerUI.SetActive(false);
         //mainCamera.SetActive(false);
         //tutorialCamera.SetActive(true);
@@ -65,9 +68,10 @@ public class Tutorial : MonoBehaviour
     public void StartCookingBasic()
     {
         thePlayer.GetComponent<PlayerMovement>().enabled = true;
-        grandfather.layer = LayerMask.NameToLayer("Default");
+        Destroy(firstInteract);
+        secondInteract.enabled = true;
         grandfather.GetComponent<GrandfatherOrder>().PlaceOrder();
-        kitchenCamera.SetActive(true);
+        kitchenCamera.SetActive(false);
         mainCamera.SetActive(false);
         tutorialCamera.SetActive(false);
         playerUI.SetActive(true);

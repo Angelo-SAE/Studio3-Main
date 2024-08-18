@@ -12,7 +12,7 @@ public class Cashier : Interactable
     [SerializeField] private UnityEvent afterPaid;
     private LinkedList<Customer> customers;
     private int currentSpot;
-    private bool checkingOut;
+    private bool checkingOut, oneAtATime;
 
     public Vector2Int Exit => exit;
     public int CurrentSpot => currentSpot;
@@ -64,6 +64,7 @@ public class Cashier : Interactable
 
           audioSource.Play();
           checkingOut = false;
+          oneAtATime = false;
         }
       }
     }
@@ -74,9 +75,14 @@ public class Cashier : Interactable
       {
         if(customers.Count() != 0)
         {
-          Invoke("CheckOut", 2f);
+
           checkingOut = true;
         }
+      }
+      if(checkingOut && !oneAtATime && customers.first.data.isAtCashier)
+      {
+        oneAtATime = true;
+        Invoke("CheckOut", 2f);
       }
     }
 
