@@ -101,6 +101,7 @@ public class Tutorial : MonoBehaviour
     {
         stage3.Play();
         thePlayer.GetComponent<PlayerMovement>().enabled = false;
+        playerUI.SetActive(false);
     }
 
     public void LeaveTutorial()

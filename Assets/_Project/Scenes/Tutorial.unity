@@ -13512,7 +13512,6 @@ MonoBehaviour:
   orders: {fileID: 11400000, guid: 725fe35f71e4226429b53550ca9ab0ca, type: 2}
   orderNumber: 0
   slotSprite: {fileID: 1745675079}
-  backSprite: {fileID: 1624304278}
   isCustomerTwo: 0
 --- !u!1 &267702785
 GameObject:
@@ -15192,7 +15191,6 @@ MonoBehaviour:
   orders: {fileID: 11400000, guid: 725fe35f71e4226429b53550ca9ab0ca, type: 2}
   orderNumber: 0
   slotSprite: {fileID: 1515120005}
-  backSprite: {fileID: 1624304278}
   isCustomerTwo: 1
 --- !u!1 &316913024
 GameObject:
@@ -20013,6 +20011,7 @@ MonoBehaviour:
   restaurantUpgrade: {fileID: 11400000, guid: 17613bb58c55b724285ff166506bc02a, type: 2}
   money: {fileID: 11400000, guid: 42066d6eda9a96740a6aa069f8c6b635, type: 2}
   moneySpent: {fileID: 11400000, guid: 85759bbc6b0243449b90a7062903231e, type: 2}
+  paused: {fileID: 0}
   upgradeButtons:
   - {fileID: 1797513251}
   - {fileID: 797425317}
@@ -20106,6 +20105,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &430361177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23361,7 +23363,6 @@ MonoBehaviour:
   orders: {fileID: 11400000, guid: 725fe35f71e4226429b53550ca9ab0ca, type: 2}
   orderNumber: 1
   slotSprite: {fileID: 457324072}
-  backSprite: {fileID: 1624304278}
   isCustomerTwo: 1
 --- !u!1 &453060244
 GameObject:
@@ -31161,7 +31162,6 @@ MonoBehaviour:
   orders: {fileID: 11400000, guid: 725fe35f71e4226429b53550ca9ab0ca, type: 2}
   orderNumber: 4
   slotSprite: {fileID: 580957714}
-  backSprite: {fileID: 656183318}
   isCustomerTwo: 0
 --- !u!1 &675614336
 GameObject:
@@ -41062,7 +41062,6 @@ MonoBehaviour:
   orders: {fileID: 11400000, guid: 725fe35f71e4226429b53550ca9ab0ca, type: 2}
   orderNumber: 2
   slotSprite: {fileID: 215285275}
-  backSprite: {fileID: 415376403}
   isCustomerTwo: 0
 --- !u!1 &923045488
 GameObject:
@@ -41973,7 +41972,6 @@ MonoBehaviour:
   orders: {fileID: 11400000, guid: 725fe35f71e4226429b53550ca9ab0ca, type: 2}
   orderNumber: 4
   slotSprite: {fileID: 378944242}
-  backSprite: {fileID: 1624304278}
   isCustomerTwo: 1
 --- !u!1 &946346227
 GameObject:
@@ -45985,7 +45983,6 @@ MonoBehaviour:
   orders: {fileID: 11400000, guid: 725fe35f71e4226429b53550ca9ab0ca, type: 2}
   orderNumber: 2
   slotSprite: {fileID: 391591333}
-  backSprite: {fileID: 1624304278}
   isCustomerTwo: 1
 --- !u!1 &1065147980
 GameObject:
@@ -47825,7 +47822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!20 &1106372953
 Camera:
   m_ObjectHideFlags: 0
@@ -53171,7 +53168,6 @@ MonoBehaviour:
   orders: {fileID: 11400000, guid: 725fe35f71e4226429b53550ca9ab0ca, type: 2}
   orderNumber: 1
   slotSprite: {fileID: 328518014}
-  backSprite: {fileID: 1089062992}
   isCustomerTwo: 0
 --- !u!1 &1252154546
 GameObject:
@@ -72926,6 +72922,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1695717371}
   - component: {fileID: 1695717370}
+  - component: {fileID: 1695717372}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -72942,10 +72939,10 @@ AudioSource:
   m_GameObject: {fileID: 1695717369}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: a5c949b76b57fdd46ba2ae523d245deb, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7fb8d36e08e415b48b1f9d42fc87544f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.401
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -73044,6 +73041,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1695717372
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695717369}
+  m_Enabled: 1
 --- !u!1 &1696523725
 GameObject:
   m_ObjectHideFlags: 0
@@ -76069,7 +76074,6 @@ MonoBehaviour:
   orders: {fileID: 11400000, guid: 725fe35f71e4226429b53550ca9ab0ca, type: 2}
   orderNumber: 3
   slotSprite: {fileID: 938137254}
-  backSprite: {fileID: 690181852}
   isCustomerTwo: 0
 --- !u!1 &1786444493
 GameObject:
@@ -82208,7 +82212,6 @@ MonoBehaviour:
   orders: {fileID: 11400000, guid: 725fe35f71e4226429b53550ca9ab0ca, type: 2}
   orderNumber: 3
   slotSprite: {fileID: 1995875276}
-  backSprite: {fileID: 1624304278}
   isCustomerTwo: 1
 --- !u!1 &1967329164
 GameObject:
@@ -89833,7 +89836,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2106404757}
   - component: {fileID: 2106404756}
-  - component: {fileID: 2106404755}
   - component: {fileID: 2106404754}
   m_Layer: 0
   m_Name: Main Camera
@@ -89863,14 +89865,6 @@ MonoBehaviour:
   - 6.5
   - 4.25
   - 4.6
---- !u!81 &2106404755
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106404753}
-  m_Enabled: 1
 --- !u!20 &2106404756
 Camera:
   m_ObjectHideFlags: 0
