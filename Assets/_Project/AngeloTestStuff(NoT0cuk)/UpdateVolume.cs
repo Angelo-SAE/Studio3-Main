@@ -19,7 +19,7 @@ public class UpdateVolume : MonoBehaviour
     {
       if(audioSlider.value <= -19)
       {
-        masterVolume.value = 0;
+        masterVolume.value = -80;
         master.SetFloat("MasterVolume", 0);
       } else {
         masterVolume.value = audioSlider.value;
