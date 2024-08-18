@@ -9,7 +9,7 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField] private BoolObject gamePause, gameTimer, ableToSleep;
     [SerializeField] private IntObject day;
     [SerializeField] private float minSpawnTime, maxSpawnTime, spawnSpeed, spawnScalingMultiplier;
-    [SerializeField] private int[] setCustomerAmount;
+    [SerializeField] private int[] setCustomerAmount, customerSpawnDelay;
     [SerializeField] private UnityEvent onLastCustomerArrival;
     private bool canSpawnTwo;
     private int spawnAmount, currentSpawns;
@@ -67,7 +67,13 @@ public class CustomerSpawner : MonoBehaviour
 
     private void SelectNewSpawnTime()
     {
-      spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
+      if(day.value <= setCustomerAmount.Length)
+      {
+        spawnTime = customerSpawnDelay[day.value - 1];
+      } else {
+        spawnTime = customerSpawnDelay[customerSpawnDelay.Length - 1] + Random.Range(minSpawnTime, maxSpawnTime);
+      }
+
     }
 
     private void SpawnCustomers()

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class CheckForSaveFile : MonoBehaviour
 {
     [SerializeField] private Button loadButton;
+    [SerializeField] private SceneManage sceneManage;
     private string path;
 
     private void Awake()
@@ -15,6 +16,7 @@ public class CheckForSaveFile : MonoBehaviour
       if(File.Exists(path))
       {
         loadButton.interactable = true;
+        sceneManage.ThereIsSave();
       }
     }
 }

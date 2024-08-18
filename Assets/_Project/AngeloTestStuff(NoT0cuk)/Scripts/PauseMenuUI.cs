@@ -5,8 +5,8 @@ using UnityEngine;
 public class PauseMenuUI : MonoBehaviour
 {
     [SerializeField] private BoolObject gamePause, pause;
-    [SerializeField] private GameObject pauseMenuObj;
-    private bool pauseActive;
+    [SerializeField] private GameObject pauseMenuObj, optionsMenuObj;
+    private bool pauseActive, inOptions;
 
     private void Update()
     {
@@ -15,7 +15,12 @@ public class PauseMenuUI : MonoBehaviour
         PauseGame();
       } else if(Input.GetKeyDown(KeyCode.Escape) && pauseActive)
       {
-        UnPauseGame();
+        if(inOptions)
+        {
+          CloseOptions();
+        } else {
+          UnPauseGame();
+        }
       }
     }
 
@@ -35,5 +40,17 @@ public class PauseMenuUI : MonoBehaviour
       pause.SetFalse();
       pauseActive = false;
       pauseMenuObj.SetActive(false);
+    }
+
+    public void OpenOptions()
+    {
+      inOptions = true;
+      optionsMenuObj.SetActive(true);
+    }
+
+    public void CloseOptions()
+    {
+      optionsMenuObj.SetActive(false);
+      inOptions = false;
     }
 }

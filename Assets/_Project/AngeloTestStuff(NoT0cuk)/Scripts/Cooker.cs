@@ -10,21 +10,43 @@ public class Cooker : Interactable
     [SerializeField] private GameObject foodHolder, mush;
     [SerializeField] private UnityEvent onInteract, onSecondInteract;
     public bool isCooking;
+    private bool menuActive;
 
     public GameObject FoodHolder => foodHolder;
+
+    private void Update()
+    {
+      if(menuActive && !isCooking)
+      {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+          CloseCooker();
+        }
+      }
+    }
 
     public override void Interact()
     {
       if(!paused.value)
       {
         onInteract.Invoke();
-      } else if(!isCooking)
-      {
-        onSecondInteract.Invoke();
+        menuActive = true;
       }
     }
 
     public override void AltInteract() {}
+
+    public void CloseCooker()
+    {
+      menuActive = false;
+      onSecondInteract.Invoke();
+      Invoke("UnPauseGame", 0.1f);
+    }
+
+    private void UnPauseGame()
+    {
+      paused.SetFalse();
+    }
 
     public void CookOrder(int orderNumber)
     {

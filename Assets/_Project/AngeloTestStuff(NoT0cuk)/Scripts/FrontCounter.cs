@@ -1,15 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FrontCounter : Interactable
 {
     [SerializeField] private GameObjectObject frontCounter;
     [SerializeField] private IntObject tablesAvailable;
     [SerializeField] private Tables tables;
-    [SerializeField] private  Vector2Int[] waitingSpots, pairWaitingSpots;
+    [SerializeField] private GameObject counterTimer;
+    [SerializeField] private Slider counterTime;
+    [SerializeField] private float timerSpeed;
+    [SerializeField] private Vector2Int[] waitingSpots, pairWaitingSpots;
     private LinkedList<Customer> customers;
     private int currentSpot;
+    private bool timerRunning;
+    private float currentTimerTime;
 
     public Vector2Int[] WaitingSpots => waitingSpots;
     public Vector2Int[] PairWaitingSpots => pairWaitingSpots;
@@ -29,6 +35,20 @@ public class FrontCounter : Interactable
 
     public override void AltInteract() {}
 
+    private void Update()
+    {
+      if(timerRunning)
+      {
+        currentTimerTime -= Time.deltaTime * timerSpeed;
+        if(currentTimerTime <= 0)
+        {
+          KickOutCustomer();
+          CheckForTimer();
+        }
+        counterTime.value = currentTimerTime;
+      }
+    }
+
     private void SetFrontCounter()
     {
       frontCounter.value = gameObject;
@@ -44,6 +64,10 @@ public class FrontCounter : Interactable
     public void AddCustomer(Customer customer)
     {
       customers.AddToBack(customer);
+      if(customers.Count() == 1)
+      {
+        CheckForTimer();
+      }
     }
 
     private void SeatCustomer()
@@ -97,11 +121,40 @@ public class FrontCounter : Interactable
           }
         }
       }
+      CheckForTimer();
+    }
+
+    private void CheckForTimer()
+    {
+      if(customers.Count() > 0)
+      {
+        counterTimer.SetActive(true);
+        counterTime.value = 10;
+        currentTimerTime = 10;
+        timerRunning = true;
+      } else {
+        timerRunning = false;
+        counterTimer.SetActive(false);
+      }
+    }
+
+    private void KickOutCustomer()
+    {
+      if(customers.first.data.paired)
+      {
+        customers.first.data.LeaveWithoutPaying();
+        customers.first.data.pairedCustomer.LeaveWithoutPaying();
+      } else {
+        customers.first.data.LeaveWithoutPaying();
+      }
+      customers.RemoveFirst();
+      MoveAllCustomersUpOne();
     }
 
     public void ResetCustomers()
     {
       customers = new LinkedList<Customer>();
       currentSpot = 0;
+      CheckForTimer();
     }
 }

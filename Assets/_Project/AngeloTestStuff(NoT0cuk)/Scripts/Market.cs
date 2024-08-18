@@ -9,8 +9,26 @@ public class Market : MonoBehaviour
     [SerializeField] private IngredientObject ingredientItemList;
     [SerializeField] private CharacterUpgradeObject characterUpgrade, restaurantUpgrade;
     [SerializeField] private FloatObject money, moneySpent;
+    [SerializeField] private BoolObject paused;
     [SerializeField] private Button[] upgradeButtons, restaurantUpgradeButtons;
-    [SerializeField] private UnityEvent OnPurchase, onCharacterUpgradePurchase, onRestaurantUpgradePurchase;
+    [SerializeField] private UnityEvent OnPurchase, onCharacterUpgradePurchase, onRestaurantUpgradePurchase, onExit;
+    private bool menuActive;
+
+    private void Update()
+    {
+      if(menuActive)
+      {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+          CloseMarket();
+        }
+      }
+    }
+
+    public void ActivateMenu()
+    {
+      menuActive = true;
+    }
 
 
     public void PurchaseIngredient(int ingredientNumber)
@@ -67,5 +85,17 @@ public class Market : MonoBehaviour
         }
       }
 
+    }
+
+    public void CloseMarket()
+    {
+      menuActive = false;
+      onExit.Invoke();
+      Invoke("UnPauseGame", 0.1f);
+    }
+
+    private void UnPauseGame()
+    {
+      paused.SetFalse();
     }
 }
