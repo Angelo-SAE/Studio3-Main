@@ -7,15 +7,15 @@ using UnityEngine.SceneManagement;
 public class Tutorial : MonoBehaviour
 {
     int numberTimes = 0;
-    
+
     public GameObject thePlayer;
     public GameObject grandfather;
     public GameObject customerCounter;
-    
+
     public GameObject mainCamera;
     public GameObject tutorialCamera;
     public GameObject kitchenCamera;
-    
+
     public GameObject playerUI;
     public GameObject notesUI;
     public GameObject blackScreen;
@@ -39,7 +39,7 @@ public class Tutorial : MonoBehaviour
         leaveTutorial.SetActive(false);
         startBasics.SetActive(false);
         kitchenCamera.SetActive(false);
-        startCooking.SetActive(false); 
+        startCooking.SetActive(false);
     }
 
     public void StartMoving()
@@ -64,6 +64,7 @@ public class Tutorial : MonoBehaviour
     {
         thePlayer.GetComponent<PlayerMovement>().enabled = true;
         grandfather.layer = LayerMask.NameToLayer("Default");
+        grandfather.GetComponent<GrandfatherOrder>().PlaceOrder();
         kitchenCamera.SetActive(true);
         mainCamera.SetActive(false);
         tutorialCamera.SetActive(false);
@@ -87,8 +88,8 @@ public class Tutorial : MonoBehaviour
         notesUI.SetActive(false);
     }
 
-    public void LeaveTutorial() 
-    { 
+    public void LeaveTutorial()
+    {
         leaveTutorial.SetActive(true);
         thePlayer.GetComponent<PlayerMovement>().enabled = false;
         playerUI.SetActive(false);
@@ -96,7 +97,7 @@ public class Tutorial : MonoBehaviour
 
     public void EndTutorial()
     {
-        SceneManager.LoadScene("Main Game");       
+        SceneManager.LoadScene("Main Game");
     }
 
     void Update()

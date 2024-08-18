@@ -26966,7 +26966,6 @@ GameObject:
   m_Component:
   - component: {fileID: 606134575}
   - component: {fileID: 606134577}
-  - component: {fileID: 606134576}
   m_Layer: 8
   m_Name: Player Room - Chair
   m_TagString: Untagged
@@ -26991,47 +26990,6 @@ Transform:
   - {fileID: 1446701414}
   m_Father: {fileID: 2000430936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &606134576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 606134574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa915892bba49648967cd7be76486b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stress: {fileID: 11400000, guid: d82d818c26f126341a310c55102e8630, type: 2}
-  paused: {fileID: 11400000, guid: 9c8a9c7acf1f728448259fc7f91d1b69, type: 2}
-  player: {fileID: 11400000, guid: e8edb585fde99914780ff69509803eb9, type: 2}
-  chairPosition: {x: 29.5, y: 46.1}
-  exitPositionRight: {x: 31, y: 46}
-  exitPositionDown: {x: 29.5, y: 45}
-  exitPositionLeft: {x: 28, y: 46}
-  stressReduction: 5
-  increasedStressReduction: 8
-  onSit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 826195226}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Sitting
-          m_BoolArgument: 0
-        m_CallState: 2
-  onStand:
-    m_PersistentCalls:
-      m_Calls: []
-  playerInChair: 0
-  audioSource: {fileID: 0}
 --- !u!61 &606134577
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36293,7 +36251,7 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1366272405}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -36320,7 +36278,7 @@ MonoBehaviour:
   onSecondInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1366272406}
         m_TargetAssemblyTypeName: CookerUI, Assembly-CSharp
         m_MethodName: ReturnItemsToInventory
         m_Mode: 1
@@ -36332,7 +36290,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1366272406}
         m_TargetAssemblyTypeName: CookerUI, Assembly-CSharp
         m_MethodName: ResetOrder
         m_Mode: 1
@@ -36344,7 +36302,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1366272405}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -52705,7 +52663,7 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 834657802}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -52732,7 +52690,7 @@ MonoBehaviour:
   onSecondInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 834657802}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -57518,7 +57476,7 @@ RectTransform:
   m_Father: {fileID: 225033062}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2.3999982, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -63727,7 +63685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1556846563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63742,7 +63700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 11400000, guid: 42066d6eda9a96740a6aa069f8c6b635, type: 2}
   moneyTextUI: {fileID: 1226851863}
-  shopMoneyText: {fileID: 0}
+  shopMoneyText: {fileID: 1226851863}
 --- !u!114 &1556846564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78174,6 +78132,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2104696848802901406, guid: fb572fbda0700c343afa1532ac9f663a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1977244855}
+    - targetCorrespondingSourceObject: {fileID: 2104696848802901406, guid: fb572fbda0700c343afa1532ac9f663a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1977244858}
   m_SourcePrefab: {fileID: 100100000, guid: fb572fbda0700c343afa1532ac9f663a, type: 3}
 --- !u!95 &1977244851 stripped
 Animator:
@@ -78252,6 +78213,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1977244858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264890681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c4b9d2a5d321140bc9566d9ef35803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orders: {fileID: 11400000, guid: 725fe35f71e4226429b53550ca9ab0ca, type: 2}
+  menu: {fileID: 11400000, guid: d8397e3081a30fc499914a59271546f2, type: 2}
+  orderNumber: 4
+  tableNumber: 0
 --- !u!1 &1980988081
 GameObject:
   m_ObjectHideFlags: 0
