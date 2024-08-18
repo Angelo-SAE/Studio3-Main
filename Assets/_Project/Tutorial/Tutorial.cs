@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Tutorial : MonoBehaviour
 {
     int numberTimes = 0;
+    int numberTimes2 = 0;
 
     public GameObject thePlayer;
     public GameObject grandfather;
@@ -22,6 +23,7 @@ public class Tutorial : MonoBehaviour
     public GameObject leaveTutorial;
     public GameObject startBasics;
     public GameObject startCooking;
+    public GameObject teleporterEnd;
 
     public PlayableDirector stage2;
 
@@ -69,6 +71,7 @@ public class Tutorial : MonoBehaviour
         mainCamera.SetActive(false);
         tutorialCamera.SetActive(false);
         playerUI.SetActive(true);
+        teleporterEnd.SetActive(false);
     }
 
     public void BasicTraining()
@@ -83,7 +86,6 @@ public class Tutorial : MonoBehaviour
     }
     public void CloseNote()
     {
-
         StartMoving();
         notesUI.SetActive(false);
     }
@@ -111,9 +113,10 @@ public class Tutorial : MonoBehaviour
         {
             CloseNote();
         }
-       if(startCooking.activeSelf)
+       if(startCooking.activeSelf && numberTimes2 == 0)
         {
             StartCookingBasic();
+            numberTimes2 = 1;
         }
     }
 }

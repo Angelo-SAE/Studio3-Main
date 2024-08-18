@@ -13698,6 +13698,7 @@ MonoBehaviour:
   leaveTutorial: {fileID: 660247297}
   startBasics: {fileID: 481777506}
   startCooking: {fileID: 1036893882}
+  teleporterEnd: {fileID: 548863157}
   stage2: {fileID: 1932972755}
 --- !u!4 &283145883
 Transform:
@@ -25686,6 +25687,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547790477}
   m_CullTransparentMesh: 1
+--- !u!1 &548863157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5942513863113090523, guid: 2ea6097eb55a1ea46a4e9bfed662523a, type: 3}
+  m_PrefabInstance: {fileID: 2066426929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &551765896
 GameObject:
   m_ObjectHideFlags: 0
@@ -57476,7 +57482,7 @@ RectTransform:
   m_Father: {fileID: 225033062}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2.3999982, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -63685,7 +63691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1556846563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69906,7 +69912,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 167f963a47e22214598b20239234149a, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -69938,7 +69944,7 @@ PlayableDirector:
   - key: {fileID: 7257053922155633665, guid: 167f963a47e22214598b20239234149a, type: 2}
     value: {fileID: 1716090764}
   - key: {fileID: -8727615841517350083, guid: 167f963a47e22214598b20239234149a, type: 2}
-    value: {fileID: 2106404753}
+    value: {fileID: 1036893882}
   - key: {fileID: 3170869312427103711, guid: 167f963a47e22214598b20239234149a, type: 2}
     value: {fileID: 392033470}
   - key: {fileID: 5038979836194584601, guid: 167f963a47e22214598b20239234149a, type: 2}
@@ -76673,7 +76679,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 33c2e605891fde648a98288b03753766, type: 2}
-  m_InitialState: 0
+  m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -76714,6 +76720,8 @@ PlayableDirector:
     value: {fileID: 1349117172}
   - key: {fileID: -8775058402753357363, guid: 33c2e605891fde648a98288b03753766, type: 2}
     value: {fileID: 1349117173}
+  - key: {fileID: 680224863072458800, guid: 33c2e605891fde648a98288b03753766, type: 2}
+    value: {fileID: 1036893882}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1933527701
