@@ -30,18 +30,6 @@ public class PlayerMovement : MonoBehaviour
       animator = GetComponent<Animator>();
     }
 
-    private void Update()
-    {
-      if(Input.GetKeyDown(KeyCode.P))
-      {
-        Time.timeScale = 3;
-      }
-      if(Input.GetKeyDown(KeyCode.L))
-      {
-        Time.timeScale = 1;
-      }
-    }
-
     private void FixedUpdate()
     {
       if(!paused.value)

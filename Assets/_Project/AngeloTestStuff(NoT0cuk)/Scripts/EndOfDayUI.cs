@@ -14,16 +14,8 @@ public class EndOfDayUI : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] private Image backPanel;
-    [SerializeField] private GameObject customersServedObj, customersLostObj, backPanelObj, backPaper, moneySpentObj, moneyEarnedObj, totalProfitObj, nextDayButton;
+    [SerializeField] private GameObject customersServedObj, customersLostObj, backPanelObj, backPaper, moneySpentObj, moneyEarnedObj, totalProfitObj, nextDayButton, endSceneButton;
     [SerializeField] private TMP_Text dayText, customersServedText, customersLostText, moneySpentText, moneyEarnedText, totalProfitText;
-
-    private void Update() // will remove later
-    {
-      //if(Input.GetKeyDown(KeyCode.K))
-      //{
-      //  StartEndOfDayDisplay();
-      //}
-    }
 
     public void StartEndOfDayDisplay()
     {
@@ -105,9 +97,15 @@ public class EndOfDayUI : MonoBehaviour
       totalProfitObj.SetActive(true);
 
       saveGame.Invoke();
+      if(day.value == 10)
+      {
+        yield return new WaitForSeconds(1f);
+        endSceneButton.SetActive(true);
+      } else {
+        yield return new WaitForSeconds(1f);
+        nextDayButton.SetActive(true);
+      }
 
-      yield return new WaitForSeconds(1f);
-      nextDayButton.SetActive(true);
     }
 
     public void CloseEndOfDayUI()
@@ -121,6 +119,7 @@ public class EndOfDayUI : MonoBehaviour
       moneyEarnedObj.SetActive(false);
       totalProfitObj.SetActive(false);
       nextDayButton.SetActive(false);
+      endSceneButton.SetActive(false);
       gamePause.SetFalse();
       pause.SetFalse();
     }
