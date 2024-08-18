@@ -8,6 +8,7 @@ public class Tutorial : MonoBehaviour
 {
     int numberTimes = 0;
     int numberTimes2 = 0;
+    int numberTimes3 = 0;
 
     public GameObject thePlayer;
     public GameObject grandfather;
@@ -24,8 +25,10 @@ public class Tutorial : MonoBehaviour
     public GameObject startBasics;
     public GameObject startCooking;
     public GameObject teleporterEnd;
+    public GameObject ending;
 
     public PlayableDirector stage2;
+    public PlayableDirector stage3;
     public InteractEvent firstInteract;
     public FeedGrandfather secondInteract;
 
@@ -94,6 +97,12 @@ public class Tutorial : MonoBehaviour
         notesUI.SetActive(false);
     }
 
+    public void StartEnding() 
+    {
+        stage3.Play();
+        thePlayer.GetComponent<PlayerMovement>().enabled = false;
+    }
+
     public void LeaveTutorial()
     {
         leaveTutorial.SetActive(true);
@@ -121,6 +130,10 @@ public class Tutorial : MonoBehaviour
         {
             StartCookingBasic();
             numberTimes2 = 1;
+        }
+        if (ending.activeSelf)
+        {
+            EndTutorial();
         }
     }
 }
