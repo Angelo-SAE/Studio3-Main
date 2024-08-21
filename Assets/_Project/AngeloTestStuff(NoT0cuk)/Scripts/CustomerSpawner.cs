@@ -13,7 +13,7 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField] private UnityEvent onLastCustomerArrival;
     private bool canSpawnTwo;
     private int spawnAmount, currentSpawns;
-    private float currentTime, spawnTime;
+    [SerializeField] private float currentTime, spawnTime;
     private GameObject customerHolder;
 
     public AudioSource audioSource;
@@ -55,7 +55,7 @@ public class CustomerSpawner : MonoBehaviour
     {
       if(gameTimer.value && currentSpawns <= spawnAmount && !gamePause.value)
       {
-        currentTime += Time.deltaTime * 2;
+        currentTime += Time.deltaTime * 1;
         if(currentTime >= spawnTime)
         {
           SpawnCustomers();

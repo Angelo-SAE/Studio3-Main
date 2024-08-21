@@ -2166,7 +2166,7 @@ MonoBehaviour:
   tables: {fileID: 7396410}
   counterTimer: {fileID: 2047791841}
   counterTime: {fileID: 2047791843}
-  timerSpeed: 0.5
+  timerSpeed: 0.25
   waitingSpots:
   - {x: 57, y: 50}
   - {x: 57, y: 51}
@@ -7705,7 +7705,7 @@ MonoBehaviour:
   hitRange: 15
   baseArrowSpeed: 225
   arrowSpeedIncrement: 25
-  arrowSpeedStressImpact: 125
+  arrowSpeedStressImpact: 100
   cookerStorage: {fileID: 11400000, guid: dd8679296fc8e2842984e06de60138b7, type: 2}
   stress: {fileID: 11400000, guid: d82d818c26f126341a310c55102e8630, type: 2}
   defaultStressIncreaseForMiss: 5
@@ -20029,7 +20029,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -16}
+  m_AnchoredPosition: {x: 0, y: 30}
   m_SizeDelta: {x: 78.3054, y: 305.3676}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &563727013
@@ -21929,8 +21929,8 @@ MonoBehaviour:
   exitPositionRight: {x: 31, y: 46}
   exitPositionDown: {x: 29.5, y: 45}
   exitPositionLeft: {x: 28, y: 46}
-  stressReduction: 5
-  increasedStressReduction: 8
+  stressReduction: 10
+  increasedStressReduction: 15
   onSit:
     m_PersistentCalls:
       m_Calls:
@@ -47853,81 +47853,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336411211}
   m_CullTransparentMesh: 1
---- !u!1 &1337651321
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1337651322}
-  - component: {fileID: 1337651324}
-  - component: {fileID: 1337651323}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1337651322
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337651321}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1678488890}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 156}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1337651323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337651321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 020f9b7c89e385740b4365761379688d, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1337651324
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337651321}
-  m_CullTransparentMesh: 1
 --- !u!1 &1343006185
 GameObject:
   m_ObjectHideFlags: 0
@@ -51050,7 +50975,7 @@ MonoBehaviour:
   defaultPlayerSpeed: 6
   newDay: 1
   newMoney: 50
-  newIngredient: 0500000005000000050000000500000005000000050000000500000005000000050000000500000005000000
+  newIngredient: 0800000008000000080000000800000008000000080000000800000008000000080000000800000008000000
   saveInformation: []
   loadingSave: {fileID: 11400000, guid: 6c84ce49f58129745a173ea26892bab2, type: 2}
   day: {fileID: 11400000, guid: 601d6eb7b58a2d145914771fc330e21f, type: 2}
@@ -59887,7 +59812,6 @@ RectTransform:
   m_Children:
   - {fileID: 563727012}
   - {fileID: 1332564684}
-  - {fileID: 1337651322}
   m_Father: {fileID: 2041979194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
@@ -59912,7 +59836,7 @@ MonoBehaviour:
   inRestaurant: {fileID: 11400000, guid: 6520da57ad0f3934fbda196f68e82c73, type: 2}
   frontCounter: {fileID: 11400000, guid: 822c267fb0e659844932e1d60b490802, type: 2}
   cashier: {fileID: 11400000, guid: 2fda858d4dbafea478b05c58c1d57759, type: 2}
-  stressIncreaseCounters: -0.5
+  stressIncreaseCounters: -1
   stressBarBackground: {fileID: 1430326751}
   stressBarBackgroundScale: {fileID: 1430326750}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
@@ -61234,11 +61158,11 @@ MonoBehaviour:
   ableToSleep: {fileID: 11400000, guid: ef1b8cc749bc615448b3b54afd908cae, type: 2}
   day: {fileID: 11400000, guid: 601d6eb7b58a2d145914771fc330e21f, type: 2}
   minSpawnTime: 0
-  maxSpawnTime: 4
+  maxSpawnTime: 10
   spawnSpeed: 1
   spawnScalingMultiplier: 1.3
   setCustomerAmount: 080000000a0000000e000000100000001400000016000000190000001d000000200000002200000024000000280000002d00000032000000
-  customerSpawnDelay: 0800000008000000080000000800000008000000080000000800000008000000080000000800000008000000080000000800000008000000
+  customerSpawnDelay: 0800000008000000090000000a0000000b0000000c0000000c0000000e0000000f0000000f00000010000000100000001000000010000000
   onLastCustomerArrival:
     m_PersistentCalls:
       m_Calls:
@@ -61266,6 +61190,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  currentTime: 0
+  spawnTime: 0
   audioSource: {fileID: 12632607}
 --- !u!4 &1722700339
 Transform:
